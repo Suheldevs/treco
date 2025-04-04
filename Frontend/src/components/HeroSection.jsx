@@ -13,13 +13,13 @@ const HeroSection = () => {
     {
       title: "Advanced Lighting Solutions",
       subtitle: "Precision lighting that adapts to your lifestyle",
-      image: "https://picsum.photos/1920/1080?random=1",
+      image: "https://picsum.photos/1920/1080?random=3",
       features: ["Mood Settings", "Schedule Control", "Energy Monitoring"]
     },
     {
       title: "Integrated Ecosystem",
       subtitle: "Seamlessly connect all your smart devices",
-      image: "https://picsum.photos/1920/1080?random=1",
+      image: "https://picsum.photos/1920/1080?random=2",
       features: ["Cross-Device Compatibility", "One-Touch Control", "Remote Access"]
     }
   ];
