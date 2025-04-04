@@ -24,31 +24,31 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-white z-40 w-full shadow-md">
+    <header className="bg-white sticky top-0 z-50 w-full shadow-md">
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link to="/" className="flex items-center">
-              <img src={logo} alt="Logo" className="h-12" />
+              <img src={logo} alt="Logo" className="h-16" />
             </Link>
           </div>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-6">
-            <Link to="/" className="flex items-center text-gray-700 hover:text-blue-600 font-medium">
-              <Home size={18} className="mr-1" />
+            <Link to="/" className="flex items-center  text-black  hover:text-blue-600 font-semibold">
+              <Home size={18} className="mr-1 hover:scale-105" />
               {/* <span>Home</span> */}
             </Link>
-            <Link to="/about" className="flex items-center text-gray-700 hover:text-blue-600 font-medium">
-              <Info size={18} className="mr-1" />
+            <Link to="/about" className="flex items-center text-black hover:text-blue-600 font-semibold">
+              {/* <Info size={18} className="mr-1" /> */}
               <span>About</span>
             </Link>
             
             {/* Home Automation Dropdown */}
             <div className="relative group">
               <button 
-                className="flex items-center text-gray-700 hover:text-blue-600 font-medium"
+                className="flex items-center  text-black  hover:text-blue-600 font-semibold"
                 onClick={() => toggleDropdown('homeAutomation')}
                 onMouseEnter={() => setDropdownOpen({...dropdownOpen, homeAutomation: true})}
                 onMouseLeave={() => setDropdownOpen({...dropdownOpen, homeAutomation: false})}
@@ -58,17 +58,17 @@ const Header = () => {
               </button>
               {dropdownOpen.homeAutomation && (
                 <div 
-                  className="absolute z-10 mt-2 w-48 bg-white rounded-md shadow-lg py-1"
+                  className="absolute z-50  mt-1 w-48 bg-white shadow-lg py-1"
                   onMouseEnter={() => setDropdownOpen({...dropdownOpen, homeAutomation: true})}
                   onMouseLeave={() => setDropdownOpen({...dropdownOpen, homeAutomation: false})}
                 >
-                  <Link to="/home-automation/smart-hub" className="block px-4 py-2 text-gray-700 hover:bg-gray-100">
+                  <Link to="/home-automation/smart-hub" className="block px-4 py-2 text-gray-900 hover:bg-gray-100">
                     Smart Hub
                   </Link>
-                  <Link to="/home-automation/security" className="block px-4 py-2 text-gray-700 hover:bg-gray-100">
+                  <Link to="/home-automation/security" className="block px-4 py-2 text-gray-900 hover:bg-gray-100">
                     Security
                   </Link>
-                  <Link to="/home-automation/climate" className="block px-4 py-2 text-gray-700 hover:bg-gray-100">
+                  <Link to="/home-automation/climate" className="block px-4 py-2 text-gray-900 hover:bg-gray-100">
                     Climate Control
                   </Link>
                 </div>
@@ -78,60 +78,60 @@ const Header = () => {
             {/* Lighting Automation Dropdown */}
             <div className="relative group">
               <button 
-                className="flex items-center text-gray-700 hover:text-blue-600 font-medium"
+                className="flex items-center  text-black  hover:text-blue-600 font-semibold"
                 onClick={() => toggleDropdown('lightingAutomation')}
                 onMouseEnter={() => setDropdownOpen({...dropdownOpen, lightingAutomation: true})}
                 onMouseLeave={() => setDropdownOpen({...dropdownOpen, lightingAutomation: false})}
               >
-                <Lightbulb size={18} className="mr-1" />
+                {/* <Lightbulb size={18} className="mr-1" /> */}
                 <span>Lighting Automation</span>
                 <ChevronDown size={18} className="ml-1" />
               </button>
               {dropdownOpen.lightingAutomation && (
                 <div 
-                  className="absolute z-10 mt-2 w-48 bg-white rounded-md shadow-lg py-1"
+                  className="absolute z-50 mt-1 w-48 bg-white shadow-lg py-1"
                   onMouseEnter={() => setDropdownOpen({...dropdownOpen, lightingAutomation: true})}
                   onMouseLeave={() => setDropdownOpen({...dropdownOpen, lightingAutomation: false})}
                 >
-                  <Link to="/lighting/smart-bulbs" className="block px-4 py-2 text-gray-700 hover:bg-gray-100">
+                  <Link to="/lighting/smart-bulbs" className="block px-4 py-2 text-gray-900 hover:bg-gray-100">
                     Smart Bulbs
                   </Link>
-                  <Link to="/lighting/controllers" className="block px-4 py-2 text-gray-700 hover:bg-gray-100">
+                  <Link to="/lighting/controllers" className="block px-4 py-2 text-gray-900 hover:bg-gray-100">
                     Controllers
                   </Link>
-                  <Link to="/lighting/scenes" className="block px-4 py-2 text-gray-700 hover:bg-gray-100">
+                  <Link to="/lighting/scenes" className="block px-4 py-2 text-gray-900 hover:bg-gray-100">
                     Lighting Scenes
                   </Link>
                 </div>
               )}
             </div>
             
-            <Link to="/audio-visual" className="flex items-center text-gray-700 hover:text-blue-600 font-medium">
-              <Music size={18} className="mr-1" />
+            <Link to="/audio-visual" className="flex items-center  text-black  hover:text-blue-600 font-semibold">
+              {/* <Music size={18} className="mr-1" /> */}
               <span>Audio Visual</span>
             </Link>
-            <Link to="/products" className="flex items-center text-gray-700 hover:text-blue-600 font-medium">
-              <Box size={18} className="mr-1" />
+            <Link to="/products" className="flex items-center  text-black  hover:text-blue-600 font-semibold">
+              {/* <Box size={18} className="mr-1" /> */}
               <span>Products</span>
             </Link>
-            <Link to="/contact" className="flex items-center text-gray-700 hover:text-blue-600 font-medium">
-              <Mail size={18} className="mr-1" />
+            <Link to="/contact" className="flex items-center  text-black  hover:text-blue-600 font-semibold">
+              {/* <Mail size={18} className="mr-1" /> */}
               <span>Contact</span>
             </Link>
           </nav>
 
           {/* Social Media Links - Desktop */}
-          <div className="hidden md:flex items-center space-x-4">
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-blue-600">
+          <div className="hidden md:flex items-center space-x-3">
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="bg-blue-500 p-2 rounded-full  text-white hover:bg-blue-700 hover:scale-105 ">
               <Facebook size={20} />
             </a>
-            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-blue-400">
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="bg-blue-500 p-2 rounded-full  text-white hover:bg-blue-700 hover:scale-105 ">
               <Twitter size={20} />
             </a>
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-pink-600">
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="bg-blue-500 p-2 rounded-full  text-white hover:bg-blue-700 hover:scale-105 ">
               <Instagram size={20} />
             </a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-blue-800">
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="bg-blue-500 p-2 rounded-full  text-white hover:bg-blue-700 hover:scale-105 ">
               <Linkedin size={20} />
             </a>
           </div>

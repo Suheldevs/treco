@@ -72,10 +72,18 @@ function Testimonial() {
       <div className="bg-gray-50 rounded-3xl py-8 px-5 md:p-8 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-64 h-64 bg-blue-100 rounded-full -translate-y-1/2 translate-x-1/2 opacity-70"></div>
         
-        <div className="flex flex-col items-center text-center mb-12 relative z-10">
-          <span className="text-blue-600 font-medium uppercase tracking-wider">Testimonials</span>
+        {/* <div className="flex flex-col items-center text-center mb-12 relative z-10">
           <h2 className="text-2xl md:text-5xl font-bold mt-2 mb-4 messiri">What Our Clients Say</h2>
           <div className="w-20 h-1 bg-blue-600 rounded-full"></div>
+        </div> */}
+        <div className={`text-center mb-24 transform transition-all duration-1000
+       `}>
+          <span className="text-blue-600 font-medium uppercase tracking-wider mb-4">Testimonials</span>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-w tracking-tight">
+            What <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">Our Clients</span> Say
+          </h2>
+         
+          <div className="h-2 w-1/3 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mb-6 mx-auto"></div>
         </div>
         
         {/* Mobile View - Single Testimonial */}

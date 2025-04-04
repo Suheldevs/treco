@@ -31,9 +31,9 @@ const ServiceCard = ({ title, description, icon: Icon, index }) => {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <div className={`relative bg-gray-900 rounded-2xl overflow-hidden group h-full`}>
+      <div className={`relative border-slate-800 border bg-gray-900 rounded-2xl overflow-hidden group h-full`}>
         {/* Animated background effect */}
-        <div className={`absolute inset-0 bg-gradient-to-br ${gradients[index % gradients.length]} opacity-20 group-hover:opacity-30 transition-opacity duration-500`}></div>
+        <div className={`absolute inset-0  bg-gradient-to-br ${gradients[index % gradients.length]} opacity-100 group-hover:opacity-0 transition-opacity duration-500`}></div>
         
         {/* Animated border */}
         <div className={`absolute inset-0 rounded-2xl transition-all duration-700 ${
@@ -60,7 +60,7 @@ const ServiceCard = ({ title, description, icon: Icon, index }) => {
           
           {/* Animated button */}
           <div className={`transform transition-all duration-500 ${
-            isHovered ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
+            isHovered ? 'translate-y-0 opacity-100' : 'translate-y-0 opacity-100'
           }`}>
             <button className={`group flex items-center text-white font-medium py-2 px-4 rounded-lg bg-gradient-to-r ${gradients[index % gradients.length]}`}>
               <span>Explore</span>
@@ -121,7 +121,7 @@ const ServicesSection = () => {
   ];
 
   return (
-    <section className="py-20 bg-gray-900 relative overflow-hidden">
+    <section className="lg:py-14 md:py-12 py-10 bg-gray-900 relative overflow-hidden">
       {/* Tech-inspired background elements */}
       <div className="absolute top-0 left-0 w-full h-full opacity-10">
         <div className="absolute top-1/4 left-1/4 w-64 h-64 rounded-full bg-blue-500 filter blur-3xl"></div>
@@ -135,14 +135,16 @@ const ServicesSection = () => {
         <div className="absolute bottom-1/3 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-cyan-400 to-transparent"></div>
       </div>
       
-      <div className="max-w-6xl mx-auto px-4 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 relative z-10">
         <div className={`text-center mb-16 transform transition-all duration-1000 ${
           isInView ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'
         }`}>
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white tracking-tight">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white tracking-tight">
             Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">Innovative</span> Services
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto mb-8"></div>
+         
+          <div className="h-2 w-1/3 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mb-6 mx-auto"></div>
+          {/* <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto mb-8"></div> */}
           <p className="text-gray-300 max-w-2xl mx-auto text-lg">
             Cutting-edge automation solutions powered by the latest technology
           </p>

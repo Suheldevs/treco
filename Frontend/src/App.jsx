@@ -8,6 +8,8 @@ import Footer from './components/Footer'
 import AboutPage from './pages/AboutPage'
 import CareerPage from './pages/CareerPage'
 import PrivacyPolicy from './pages/PrivacyPage'
+import ProductPage from './pages/ProductPage'
+import FaqPage from './pages/FaqPage'
 function App() {
   return (
     <BrowserRouter>
@@ -18,6 +20,8 @@ function App() {
       <Route path='/about' element={<AboutPage/>}/>
       <Route path='/careers' element={<CareerPage/>}/>
       <Route path='/privacy-policy' element={<PrivacyPolicy/>}/>
+      <Route path='/products' element={<ProductPage/>}/>
+      <Route path='/faq' element={<FaqPage/>}/>
     </Routes>
     <Footer/>
     </BrowserRouter>

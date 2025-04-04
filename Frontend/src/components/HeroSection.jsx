@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-
+import {Link} from 'react-router-dom'
 const HeroSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   
@@ -7,21 +7,22 @@ const HeroSection = () => {
     {
       title: "Smart Home Automation",
       subtitle: "Transform your living space with intelligent control systems",
-      image: "https://picsum.photos/1920/1080?random=1",
+      image: "https://treco.in/wp-content/uploads/2024/04/stephan-bechert-yFV39g6AZ5o-unsplash.jpg",
       features: ["Touchless Control", "Energy Efficient", "Voice Activated"]
     },
     {
       title: "Advanced Lighting Solutions",
       subtitle: "Precision lighting that adapts to your lifestyle",
-      image: "https://picsum.photos/1920/1080?random=3",
+      image: "https://treco.in/wp-content/uploads/2024/04/patrick-schneider-mFnbFaCIu1I-unsplash.jpg",
       features: ["Mood Settings", "Schedule Control", "Energy Monitoring"]
     },
     {
-      title: "Integrated Ecosystem",
-      subtitle: "Seamlessly connect all your smart devices",
-      image: "https://picsum.photos/1920/1080?random=2",
-      features: ["Cross-Device Compatibility", "One-Touch Control", "Remote Access"]
+      "title": "Immersive Audio-Visual Experience",
+      "subtitle": "Enhance your spaces with smart lighting and high-fidelity sound",
+      "image": "https://treco.in/wp-content/uploads/2024/04/ivan-bandura-lZCHy8PLyyo-unsplash.jpg",
+      "features": ["Smart Lighting Sync", "High-Quality Surround Sound", "Seamless Device Integration"]
     }
+    
   ];
 
   useEffect(() => {
@@ -86,12 +87,12 @@ const HeroSection = () => {
 
             {/* Action buttons - static across slides */}
             <div className="flex flex-col sm:flex-row gap-4">
-              <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full text-lg font-medium transition-colors">
-                Explore Products
-              </button>
-              <button className="bg-transparent border-2 border-white text-white px-8 py-3 rounded-full text-lg font-medium hover:bg-white hover:text-blue-900 transition-colors">
-                Watch Demo
-              </button>
+              <Link to='/products'  className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full text-lg font-medium transition-colors">
+              Explore Products
+              </Link>
+              <Link to='/about' className="bg-transparent border-2 border-white text-white px-8 py-3 rounded-full text-lg font-medium hover:bg-white hover:text-blue-900 transition-colors">
+                About Treco
+              </Link>
             </div>
           </div>
         </div>

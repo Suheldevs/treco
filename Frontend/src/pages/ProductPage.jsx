@@ -11,20 +11,18 @@ const ProductCard = ({ product ,index }) => {
       onMouseLeave={() => setIsHovered(false)}
     >
       <div className="relative overflow-hidden h-64">
-      <span className="absolute top-2 left-2 z-20 text-xs px-2 py-1 bg-blue-100 text-blue-800 rounded-full">{product.category}</span>
         <img 
           src={`https://picsum.photos/400/320?random=${index}`} 
           alt={product.title}
           className={`w-full h-full object-cover transition-transform duration-700 ${isHovered ? 'scale-110' : 'scale-100'}`}
         />
-        <div className={`absolute top-0 left-0 w-full h-full bg-black/40 flex items-center justify-center opacity-0 transition-opacity duration-300 ${isHovered ? 'opacity-100' : ''}`}>
+        <div className={`absolute top-0 left-0 w-full h-full bg-black bg-opacity-20 flex items-center justify-center opacity-0 transition-opacity duration-300 ${isHovered ? 'opacity-100' : ''}`}>
           <button className="bg-white text-gray-800 rounded-full p-3 mx-2 hover:bg-blue-500 hover:text-white transition-colors duration-300">
-            {/* <ShoppingCart size={20} />  */}
-            View Detail
+            <ShoppingCart size={20} />
           </button>
-          {/* <button className="bg-white text-gray-800 rounded-full p-3 mx-2 hover:bg-blue-500 hover:text-white transition-colors duration-300">
+          <button className="bg-white text-gray-800 rounded-full p-3 mx-2 hover:bg-blue-500 hover:text-white transition-colors duration-300">
             <Heart size={20} />
-          </button> */}
+          </button>
         </div>
       </div>
       <div className="p-4">
@@ -40,14 +38,14 @@ const ProductCard = ({ product ,index }) => {
         <p className="text-gray-500 text-sm mb-3 line-clamp-2">{product.description}</p>
         <div className="flex justify-between items-center">
           {/* <span className="font-bold text-blue-600">${product.price.toFixed(2)}</span> */}
-        
+          <span className="text-xs px-2 py-1 bg-blue-100 text-blue-800 rounded-full">{product.category}</span>
         </div>
       </div>
     </div>
   );
 };
 
-const ProductSection = () => {
+const ProductPage = () => {
   const [activeCategory, setActiveCategory] = useState('All');
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [isFilterOpen, setIsFilterOpen] = useState(false);
@@ -140,36 +138,34 @@ const ProductSection = () => {
   }, [activeCategory]);
 
   return (
-    <div className="">
-      <div className="container mx-auto px-4 lg:py-14 py-12">
+    <div className="min-h-screen bg-gray-50">
+      <div className="max-w-6xl mx-auto px-4 py-12">
         {/* Header & Search */}
-        <div className="container mx-auto px-4 relative">
-        <div className="text-center">
-          {/* <span className="text-sm font-bold tracking-widest uppercase text-blue-500 mb-4 block">Discover Our Story</span> */}
-          
-          <h2 className="inline-block relative mb-8">
-            <span className="text-4xl md:text-5xl lg:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-blue-400">
-            Our Products
-            </span>
-            <div className="h-2 w-2/3 bg-gradient-to-r from-blue-500 to-blue-300 rounded-full mt-2 mx-auto"></div>
-          </h2>
-          
-          {/* <p className="mt-4 text-gray-600 max-w-2xl mx-auto text-lg">
-          Discover our innovative automation solutions
-          </p> */}
+        <div className="flex flex-col md:flex-row md:items-center justify-between mb-8">
+          <div>
+            <h1 className="text-3xl font-bold text-gray-800">Our Products</h1>
+            <p className="text-gray-600 mt-1">Discover our innovative automation solutions</p>
+          </div>
+          <div className="mt-4 md:mt-0 relative">
+            <input
+              type="text"
+              placeholder="Search products..."
+              className="pl-4 pr-10 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            />
+            <Search className="absolute right-3 top-2.5 text-gray-400" size={20} />
+          </div>
         </div>
-      </div>
 
         {/* Categories - Desktop */}
-        <div className="hidden md:flex mb-8 space-x-2 overflow-x-auto pb-2  justify-center items-center">
+        <div className="hidden md:flex mb-8 space-x-2 overflow-x-auto pb-2">
           {categories.map((category) => (
             <button
               key={category}
               onClick={() => setActiveCategory(category)}
-              className={`px-4 py-2 rounded transition-all duration-200 whitespace-nowrap ${
+              className={`px-4 py-2 rounded-lg transition-all duration-200 whitespace-nowrap ${
                 activeCategory === category
                   ? 'bg-blue-500 text-white font-medium shadow-md'
-                  : 'bg-white border border-slate-200 text-gray-700 hover:bg-gray-100'
+                  : 'bg-white text-gray-700 hover:bg-gray-100'
               }`}
             >
               {category}
@@ -228,4 +224,4 @@ const ProductSection = () => {
   );
 };
 
-export default ProductSection;
+export default ProductPage;

@@ -7,19 +7,19 @@ const BottomFooter = () => {
   // Copyright 2024 Dr. Mamta || All Rights Reserved || Designed By
   return (
     <div className="bg-black ">
-        <div className='h-[1px] bg-slate-200 w-full mb-1'/>
-  <div className="flex flex-wrap items-center justify-center text-xs sm:text-sm md:text-[14px]  text-white w-full gap-1 px-4">
+        <div className='h-[0.6px] bg-slate-400 w-full mb-1'/>
+  <div className="flex flex-wrap items-center justify-center text-xs sm:text-sm md:text-[14px]  text-gray-200 w-full gap-1 px-4">
     <div className="flex flex-wrap items-center justify-center gap-1 text-center">
-      <p className="text-white">Copyright</p>
+      <p className="">Copyright</p>
       {/* <FaRegCopyright className="text-[1rem]" /> */}
-      <p className="text-white messiri">{new Date().getFullYear()}{' '} 
+      <p className=" messiri">{new Date().getFullYear()}{' '} 
        Treco India Technical Services</p>
       <span className="hidden sm:inline-block">||</span>
-      <p className="text-white">All Rights Reserved</p>
+      <p className="">All Rights Reserved</p>
       <span className="hidden sm:inline-block">||</span>
     </div>
     <div className="flex flex-wrap items-center justify-center gap-1 text-center">
-      <span className="text-white">Designed by</span>
+      <span className="">Designed by</span>
       <Link
         to="https://www.codecrafter.co.in/"
         target="_blank"
