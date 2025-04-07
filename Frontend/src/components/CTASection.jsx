@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 export default function CTASection() {
   return (
@@ -32,9 +33,9 @@ export default function CTASection() {
           <button className="bg-white text-blue-600 font-medium px-6 py-3 rounded-xl shadow-lg hover:bg-gray-200 transition flex items-center gap-2">
             Get Quotes
           </button>
-          <button className="bg-transparent border-2 border-white text-white font-medium px-6 py-3 rounded-xl shadow-lg hover:bg-white hover:text-blue-600 transition flex items-center gap-2">
+          <Link to='/products' className="bg-transparent border-2 border-white text-white font-medium px-6 py-3 rounded-xl shadow-lg hover:bg-white hover:text-blue-600 transition flex items-center gap-2">
             View Products
-          </button>
+          </Link>
         </motion.div>
       </div>
     </section>

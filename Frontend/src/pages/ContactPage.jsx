@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 import Breadcrumb from "../components/Breadcrumb";
 import FAQSection from "../components/FaqSection";
+import FaqItem from "../components/FaqItem";
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
@@ -85,7 +86,7 @@ const ContactPage = () => {
   ]}
 />
 
-      <div className="min-h-screen bg-gradient-to-br from-gray-0 to-gray-100 py-16">
+      <div className="min-h-screen bg-gradient-to-br from-gray-0 to-gray-100 py-12">
         <div className="container mx-auto px-4">
           {/* Page Header
           <div className="text-center mb-16">
@@ -102,7 +103,7 @@ const ContactPage = () => {
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
             {/* Contact Information Cards */}
-            <div className="bg-white rounded-xl shadow-lg overflow-hidden transform transition duration-300 hover:shadow-xl hover:-translate-y-2">
+            <div className="bg-white rounded-xl border border-gray-100 shadow-lg overflow-hidden transform transition duration-300 hover:shadow-xl hover:-translate-y-2">
               <div className="p-6">
                 <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-blue-100 text-blue-600 mb-4">
                   <Phone size={20} />
@@ -126,7 +127,7 @@ const ContactPage = () => {
               </div>
             </div>
 
-            <div className="bg-white rounded-xl shadow-lg overflow-hidden transform transition duration-300 hover:shadow-xl hover:-translate-y-2">
+            <div className="bg-white rounded-xl border border-gray-100 shadow-lg overflow-hidden transform transition duration-300 hover:shadow-xl hover:-translate-y-2">
               <div className="p-6">
                 <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-green-100 text-green-600 mb-4">
                   <Mail size={20} />
@@ -150,7 +151,7 @@ const ContactPage = () => {
               </div>
             </div>
 
-            <div className="bg-white rounded-xl shadow-lg overflow-hidden transform transition duration-300 hover:shadow-xl hover:-translate-y-2">
+            <div className="bg-white rounded-xl border border-gray-100 shadow-lg overflow-hidden transform transition duration-300 hover:shadow-xl hover:-translate-y-2">
               <div className="p-6">
                 <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-purple-100 text-purple-600 mb-4">
                   <MapPin size={20} />
@@ -175,7 +176,7 @@ const ContactPage = () => {
           {/* Map and Form Section */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
             {/* Map & Hours */}
-            <div className="bg-white rounded-xl shadow-lg overflow-hidden">
+            <div className="bg-white rounded-xl shadow-lg overflow-hidden ">
               <div className="relative h-64 bg-gray-300">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.720474043652!2d77.290968774756!3d28.608161375678097!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce378cde7c251%3A0xa197c1153d5ea8a2!2sTreco%20Technologies%20Private%20Limited!5e0!3m2!1sen!2sin!4v1743681174385!5m2!1sen!2sin"
@@ -403,7 +404,8 @@ const ContactPage = () => {
               </div>
             </div>
           </div>
-<FAQSection/>
+          <FaqItem/>
+{/* <FAQSection/> */}
        
         </div>
 

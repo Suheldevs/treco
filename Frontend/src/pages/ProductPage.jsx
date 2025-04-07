@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Search, ShoppingCart, Heart, Filter, ChevronDown, Star } from 'lucide-react';
+import Breadcrumb from '../components/Breadcrumb';
 
 const ProductCard = ({ product ,index }) => {
   const [isHovered, setIsHovered] = useState(false);
@@ -11,18 +12,20 @@ const ProductCard = ({ product ,index }) => {
       onMouseLeave={() => setIsHovered(false)}
     >
       <div className="relative overflow-hidden h-64">
+      <span className="absolute top-2 left-2 z-20 text-xs px-2 py-1 bg-blue-100 text-blue-800 rounded-full">{product.category}</span>
         <img 
           src={`https://picsum.photos/400/320?random=${index}`} 
           alt={product.title}
           className={`w-full h-full object-cover transition-transform duration-700 ${isHovered ? 'scale-110' : 'scale-100'}`}
         />
-        <div className={`absolute top-0 left-0 w-full h-full bg-black bg-opacity-20 flex items-center justify-center opacity-0 transition-opacity duration-300 ${isHovered ? 'opacity-100' : ''}`}>
+        <div className={`absolute top-0 left-0 w-full h-full bg-black/40 flex items-center justify-center opacity-0 transition-opacity duration-300 ${isHovered ? 'opacity-100' : ''}`}>
           <button className="bg-white text-gray-800 rounded-full p-3 mx-2 hover:bg-blue-500 hover:text-white transition-colors duration-300">
-            <ShoppingCart size={20} />
+            {/* <ShoppingCart size={20} />  */}
+            View Detail
           </button>
-          <button className="bg-white text-gray-800 rounded-full p-3 mx-2 hover:bg-blue-500 hover:text-white transition-colors duration-300">
+          {/* <button className="bg-white text-gray-800 rounded-full p-3 mx-2 hover:bg-blue-500 hover:text-white transition-colors duration-300">
             <Heart size={20} />
-          </button>
+          </button> */}
         </div>
       </div>
       <div className="p-4">
@@ -38,7 +41,7 @@ const ProductCard = ({ product ,index }) => {
         <p className="text-gray-500 text-sm mb-3 line-clamp-2">{product.description}</p>
         <div className="flex justify-between items-center">
           {/* <span className="font-bold text-blue-600">${product.price.toFixed(2)}</span> */}
-          <span className="text-xs px-2 py-1 bg-blue-100 text-blue-800 rounded-full">{product.category}</span>
+        
         </div>
       </div>
     </div>
@@ -138,6 +141,16 @@ const ProductPage = () => {
   }, [activeCategory]);
 
   return (
+    <>
+    <Breadcrumb 
+  title="Latest Products"
+  bgImage="https://img.freepik.com/free-vector/smart-farm_107791-3702.jpg?t=st=1744025666~exp=1744029266~hmac=b5729289480b7692416c84d070cbae9ff75fa3b3f63764d7a0274baf10f7928c&w=826" 
+  items={[
+    { label: "Home", path: "/" },
+    { label: "Products", path: "/product" },
+    // { label: "Electronics", path: "/products/electronics" }
+  ]}
+/>
     <div className="min-h-screen bg-gray-50">
       <div className="max-w-6xl mx-auto px-4 py-12">
         {/* Header & Search */}
@@ -157,15 +170,15 @@ const ProductPage = () => {
         </div>
 
         {/* Categories - Desktop */}
-        <div className="hidden md:flex mb-8 space-x-2 overflow-x-auto pb-2">
+        <div className="hidden md:flex mb-8 space-x-2 overflow-x-auto pb-2  justify-center items-center">
           {categories.map((category) => (
             <button
               key={category}
               onClick={() => setActiveCategory(category)}
-              className={`px-4 py-2 rounded-lg transition-all duration-200 whitespace-nowrap ${
+              className={`px-4 py-2 rounded transition-all duration-200 whitespace-nowrap ${
                 activeCategory === category
                   ? 'bg-blue-500 text-white font-medium shadow-md'
-                  : 'bg-white text-gray-700 hover:bg-gray-100'
+                  : 'bg-white border border-slate-200 text-gray-700 hover:bg-gray-100'
               }`}
             >
               {category}
@@ -221,6 +234,7 @@ const ProductPage = () => {
         )}
       </div>
     </div>
+    </>
   );
 };
 

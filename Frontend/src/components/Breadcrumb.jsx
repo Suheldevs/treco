@@ -3,11 +3,11 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { MdKeyboardDoubleArrowRight } from 'react-icons/md'
 
-function Breadcrumb({ title, items }) {
+function Breadcrumb({ title, items, bgImage }) {
   return (
     <div
       className="relative lg:h-[350px] h-[250px] w-scree overflow-hidden bg-center bg-no-repeat bg-cover"
-      style={{ backgroundImage: `url('https://treco.in/wp-content/uploads/2020/12/Contact-cover-pic-e1608727652960.jpg))` }}
+      style={{ backgroundImage: `url(${bgImage})`, backgroundPosition:'bottom' }}
     >
       {/* Overlay for better readability */}
       <div className="absolute inset-0 bg-black/30"></div>

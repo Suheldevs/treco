@@ -169,7 +169,7 @@ const CareerPage = () => {
         <div className='mt-32 ml-2 '>
             <img src='https://picsum.photos/800/800?random=1' className='rounded-3xl'/>
             </div>
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4" id='contact-form'>
           <div className="max-w-2xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">Apply Now</h2>

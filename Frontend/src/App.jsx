@@ -10,10 +10,13 @@ import CareerPage from './pages/CareerPage'
 import PrivacyPolicy from './pages/PrivacyPage'
 import ProductPage from './pages/ProductPage'
 import FaqPage from './pages/FaqPage'
+import PageNotFound from './pages/PageNotFound'
+import ScrollToTop from './components/ScrollToTop'
 function App() {
   return (
     <BrowserRouter>
     <Header/>
+    <ScrollToTop/>
     <Routes>
       <Route path='/' element={<Home/>}/>
       <Route path='/contact' element={<ContactPage/>}/>
@@ -22,6 +25,7 @@ function App() {
       <Route path='/privacy-policy' element={<PrivacyPolicy/>}/>
       <Route path='/products' element={<ProductPage/>}/>
       <Route path='/faq' element={<FaqPage/>}/>
+      <Route path='*' element={<PageNotFound/>}/>
     </Routes>
     <Footer/>
     </BrowserRouter>
