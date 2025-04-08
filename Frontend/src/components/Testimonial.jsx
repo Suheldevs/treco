@@ -78,12 +78,12 @@ function Testimonial() {
         </div> */}
         <div className={`text-center mb-24 transform transition-all duration-1000
        `}>
-          <span className="text-blue-600 font-medium uppercase tracking-wider mb-4">Testimonials</span>
+          <span className="text-sky-600 font-medium uppercase tracking-wider mb-6">Testimonials</span>
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-w tracking-tight">
-            What <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">Our Clients</span> Say
+            What <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-blue-500">Our Clients</span> Say
           </h2>
          
-          <div className="h-2 w-1/3 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mb-6 mx-auto"></div>
+          <div className="h-2 w-1/3 bg-gradient-to-r from-sky-400 to-blue-500 rounded-full mb-6 mx-auto"></div>
         </div>
         
         {/* Mobile View - Single Testimonial */}
@@ -135,8 +135,8 @@ function Testimonial() {
                   onClick={() => setCurrentMobileTestimonial(index)}
                   className={`w-3 h-3 rounded-full transition-all duration-300 ${
                     index === currentMobileTestimonial 
-                      ? 'bg-blue-600 w-6' 
-                      : 'bg-blue-200'
+                      ? 'bg-sky-600 w-6' 
+                      : 'bg-sky-200'
                   }`}
                 />
               ))}

@@ -32,6 +32,12 @@ const HeroSection = () => {
     return () => clearInterval(interval);
   }, [slides.length]);
 
+  const handleScrollDown = ()=>{
+    window.scroll({
+      top:600
+    })
+  }
+
   return (
     <div className="relative h-[90vh] w-full overflow-hidden">
       {/* Background Slides */}
@@ -68,7 +74,7 @@ const HeroSection = () => {
                 <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-3">
                   {slide.title}
                 </h1>
-                <div className="w-24 h-1 bg-blue-500 mb-6"></div>
+                <div className="w-24 h-1 bg-sky-500 mb-6"></div>
                 <p className="text-xl md:text-2xl text-gray-200 mb-8">
                   {slide.subtitle}
                 </p>
@@ -87,7 +93,7 @@ const HeroSection = () => {
 
             {/* Action buttons - static across slides */}
             <div className="flex flex-col sm:flex-row gap-4">
-              <Link to='/products'  className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full text-lg font-medium transition-colors">
+              <Link to='/products'  className="bg-sky-500 hover:bg-blue-500 text-white px-8 py-3 rounded-full text-lg font-medium transition-colors">
               Explore Products
               </Link>
               <Link to='/about' className="bg-transparent border-2 border-white text-white px-8 py-3 rounded-full text-lg font-medium hover:bg-white hover:text-blue-900 transition-colors">
@@ -105,7 +111,7 @@ const HeroSection = () => {
             key={index}
             onClick={() => setCurrentSlide(index)}
             className={`w-3 h-3 rounded-full transition-all ${
-              currentSlide === index ? 'bg-blue-500 w-8' : 'bg-white/50'
+              currentSlide === index ? 'bg-sky-500 w-8' : 'bg-white/50'
             }`}
             aria-label={`Go to slide ${index + 1}`}
           />
@@ -122,7 +128,7 @@ const HeroSection = () => {
       </div>
 
       {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 flex flex-col items-center animate-bounce">
+      <div onClick={handleScrollDown} className="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-20 flex flex-col items-center animate-bounce duration-1000">
         <span className="text-white text-sm mb-1">Scroll Down</span>
         <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
@@ -130,6 +136,9 @@ const HeroSection = () => {
       </div>
     </div>
   );
+
+
+
 };
 
 export default HeroSection;

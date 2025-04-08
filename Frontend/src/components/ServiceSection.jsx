@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Home, Bot, Brain, Factory, Wifi, Heart } from 'lucide-react';
-
-const ServiceCard = ({ title, description, icon: Icon, index }) => {
+import { Link } from 'react-router-dom';
+const ServiceCard = ({ title, description, icon: Icon, index, slug }) => {
   const [isVisible, setIsVisible] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   
@@ -15,7 +15,7 @@ const ServiceCard = ({ title, description, icon: Icon, index }) => {
 
   // Generate a unique gradient for each card
   const gradients = [
-    'from-blue-600 to-cyan-400',
+    'from-sky-600 to-cyan-400',
     'from-purple-600 to-pink-500',
     'from-green-500 to-emerald-400',
     'from-amber-500 to-orange-400',
@@ -62,7 +62,7 @@ const ServiceCard = ({ title, description, icon: Icon, index }) => {
           <div className={`transform transition-all duration-500 ${
             isHovered ? 'translate-y-0 opacity-100' : 'translate-y-0 opacity-100'
           }`}>
-            <button className={`group flex items-center text-white font-medium py-2 px-4 rounded-lg bg-gradient-to-r ${gradients[index % gradients.length]}`}>
+            <Link to={slug} className={`group inline-flex items-center text-white font-medium py-2 px-4 rounded-lg bg-gradient-to-r ${gradients[index % gradients.length]}`}>
               <span>Explore</span>
               <svg 
                 xmlns="http://www.w3.org/2000/svg" 
@@ -72,7 +72,7 @@ const ServiceCard = ({ title, description, icon: Icon, index }) => {
               >
                 <path fillRule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
               </svg>
-            </button>
+            </Link>
           </div>
         </div>
       </div>
@@ -91,31 +91,37 @@ const ServicesSection = () => {
     {
       title: "Home Automation",
       description: "Highly efficient, intelligent, safe and secure smart home technology for smart people.",
+      slug:'/home-automation',
       icon: Home,
     },
     {
       title: "Robotics System",
       description: "Research on specific robotics challenges to build more sophisticated, efficient and commercially viable products.",
+      slug:'/home-automation',
       icon: Bot ,
     },
     {
       title: "Treco K&E Sharing",
       description: "We're involved in interesting Mechatronics research projects to develop useful commercially viable products.",
+      slug:'/home-automation',
       icon: Brain,
     },
     {
       title: "Industrial Automation",
       description: "An integrated, intelligent, flexible and low-cost industrial automation platform that promotes a safe and efficient industrial environment.",
+      slug:'/home-automation',
       icon: Factory,
     },
     {
       title: "Internet of Things",
       description: "We research interesting IoT projects to utilize its magical power to change human life and promote a safe and secure environment.",
+      slug:'/home-automation',
       icon: Wifi,
     },
     {
       title: "Social Service",
       description: "We understand our responsibility towards the nation and support all initiatives for social betterment.",
+      slug:'/home-automation',
       icon: Heart,
     },
   ];
@@ -140,10 +146,10 @@ const ServicesSection = () => {
           isInView ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'
         }`}>
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white tracking-tight">
-            Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">Innovative</span> Services
+            Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-blue-500">Innovative</span> Services
           </h2>
          
-          <div className="h-2 w-1/3 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mb-6 mx-auto"></div>
+          <div className="h-2 w-1/3 bg-gradient-to-r from-sky-500 to-blue-500 rounded-full mb-6 mx-auto"></div>
           {/* <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto mb-8"></div> */}
           <p className="text-gray-300 max-w-2xl mx-auto text-lg">
             Cutting-edge automation solutions powered by the latest technology
@@ -158,6 +164,7 @@ const ServicesSection = () => {
               description={service.description}
               icon={service.icon}
               index={index}
+              slug= {service?.slug}
             />
           ))}
         </div>

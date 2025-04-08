@@ -92,7 +92,7 @@ const ContactPage = () => {
           <div className="text-center mb-16">
             <h1 className="text-4xl font-bold text-gray-800 mb-3 relative inline-block">
               Get in Touch
-              <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-blue-500 rounded-full"></div>
+              <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-sky-500 rounded-full"></div>
             </h1>
             <p className="text-gray-600 mt-4 max-w-2xl mx-auto">
               We're excited to hear from you! Our team of experts is ready to
@@ -105,7 +105,7 @@ const ContactPage = () => {
             {/* Contact Information Cards */}
             <div className="bg-white rounded-xl border border-gray-100 shadow-lg overflow-hidden transform transition duration-300 hover:shadow-xl hover:-translate-y-2">
               <div className="p-6">
-                <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-blue-100 text-blue-600 mb-4">
+                <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-sky-100 text-sky-600 mb-4">
                   <Phone size={20} />
                 </div>
                 <h3 className="text-xl font-semibold text-gray-800 mb-2">
@@ -116,7 +116,7 @@ const ContactPage = () => {
                 </p>
                 <a
                   href="tel:+1234567890"
-                  className="text-blue-600 font-medium inline-flex items-center group"
+                  className="text-sky-600 font-medium inline-flex items-center group"
                 >
                   +1 (234) 567-890
                   <ArrowRight
@@ -129,7 +129,7 @@ const ContactPage = () => {
 
             <div className="bg-white rounded-xl border border-gray-100 shadow-lg overflow-hidden transform transition duration-300 hover:shadow-xl hover:-translate-y-2">
               <div className="p-6">
-                <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-green-100 text-green-600 mb-4">
+                <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-green-100 text-sky-600 mb-4">
                   <Mail size={20} />
                 </div>
                 <h3 className="text-xl font-semibold text-gray-800 mb-2">
@@ -140,7 +140,7 @@ const ContactPage = () => {
                 </p>
                 <a
                   href="mailto:info@treco.com"
-                  className="text-green-600 font-medium inline-flex items-center group"
+                  className="text-sky-600 font-medium inline-flex items-center group"
                 >
                   info@treco.com
                   <ArrowRight
@@ -153,7 +153,7 @@ const ContactPage = () => {
 
             <div className="bg-white rounded-xl border border-gray-100 shadow-lg overflow-hidden transform transition duration-300 hover:shadow-xl hover:-translate-y-2">
               <div className="p-6">
-                <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-purple-100 text-purple-600 mb-4">
+                <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-sky-100 text-sky-600 mb-4">
                   <MapPin size={20} />
                 </div>
                 <h3 className="text-xl font-semibold text-gray-800 mb-2">
@@ -162,7 +162,7 @@ const ContactPage = () => {
                 <p className="text-gray-600 mb-4">
                   Come visit our showroom to experience our solutions firsthand.
                 </p>
-                <address className="text-purple-600 font-medium not-italic inline-flex items-center group">
+                <address className="text-sky-600 font-medium not-italic inline-flex items-center group">
                   123 Tech Avenue, Innovation City
                   <ArrowRight
                     size={16}
@@ -196,7 +196,7 @@ const ContactPage = () => {
                 </p>
 
                 <h4 className="font-semibold text-gray-700 mb-2 flex items-center">
-                  <Clock size={18} className="mr-2 text-blue-500" />
+                  <Clock size={18} className="mr-2 text-sky-500" />
                   Opening Hours
                 </h4>
                 <ul className="space-y-2 text-gray-600">
@@ -252,7 +252,7 @@ const ContactPage = () => {
                           name="fullName"
                           value={formData.fullName}
                           onChange={handleChange}
-                          className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
+                          className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-sky-500 focus:border-sky-500 transition-all"
                           placeholder="Your name"
                           required
                         />
@@ -271,7 +271,7 @@ const ContactPage = () => {
                           name="email"
                           value={formData.email}
                           onChange={handleChange}
-                          className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
+                          className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-sky-500 focus:border-sky-500 transition-all"
                           placeholder="your@email.com"
                           required
                         />
@@ -292,7 +292,7 @@ const ContactPage = () => {
                           name="phone"
                           value={formData.phone}
                           onChange={handleChange}
-                          className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
+                          className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-sky-500 focus:border-sky-500 transition-all"
                           placeholder="(123) 456-7890"
                         />
                       </div>
@@ -332,7 +332,7 @@ const ContactPage = () => {
                               <div
                                 key={index}
                                 onClick={() => handleInterestSelect(interest)}
-                                className="px-4 py-2 hover:bg-blue-50 cursor-pointer transition-colors"
+                                className="px-4 py-2 hover:bg-sky-50 cursor-pointer transition-colors"
                               >
                                 {interest}
                               </div>
@@ -355,7 +355,7 @@ const ContactPage = () => {
                         value={formData.message}
                         onChange={handleChange}
                         rows="4"
-                        className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all resize-y"
+                        className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-sky-500 focus:border-sky-500 transition-all resize-y"
                         placeholder="Tell us about your project or question..."
                         required
                       ></textarea>
@@ -364,7 +364,7 @@ const ContactPage = () => {
                     <button
                       type="submit"
                       disabled={formSubmitting}
-                      className={`w-full py-3 px-6 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-medium flex items-center justify-center transition-all duration-300 transform hover:scale-[1.02] ${
+                      className={`w-full py-3 px-6 rounded-lg bg-sky-600 hover:bg-sky-700 text-white font-medium flex items-center justify-center transition-all duration-300 transform hover:scale-[1.02] ${
                         formSubmitting ? "opacity-70 cursor-not-allowed" : ""
                       }`}
                     >

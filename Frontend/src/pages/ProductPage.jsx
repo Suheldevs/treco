@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Search, ShoppingCart, Heart, Filter, ChevronDown, Star } from 'lucide-react';
+import { Search, ShoppingCart, Heart, Filter, ChevronDown, Star, ArrowUpRight } from 'lucide-react';
 import Breadcrumb from '../components/Breadcrumb';
 
 const ProductCard = ({ product ,index }) => {
@@ -12,16 +12,16 @@ const ProductCard = ({ product ,index }) => {
       onMouseLeave={() => setIsHovered(false)}
     >
       <div className="relative overflow-hidden h-64">
-      <span className="absolute top-2 left-2 z-20 text-xs px-2 py-1 bg-blue-100 text-blue-800 rounded-full">{product.category}</span>
+      <span className="absolute top-2 left-2 z-20 text-xs px-2 py-1 bg-white text-sky-600 rounded-full">{product.category}</span>
         <img 
           src={`https://picsum.photos/400/320?random=${index}`} 
           alt={product.title}
           className={`w-full h-full object-cover transition-transform duration-700 ${isHovered ? 'scale-110' : 'scale-100'}`}
         />
-        <div className={`absolute top-0 left-0 w-full h-full bg-black/40 flex items-center justify-center opacity-0 transition-opacity duration-300 ${isHovered ? 'opacity-100' : ''}`}>
-          <button className="bg-white text-gray-800 rounded-full p-3 mx-2 hover:bg-blue-500 hover:text-white transition-colors duration-300">
+        <div className={`absolute  top-0 left-0 w-full h-full bg-black/40 flex items-center justify-center opacity-0 transition-opacity duration-300 ${isHovered ? 'opacity-100' : ''}`}>
+          <button className="bg-white group text-sky-600 rounded-xl px-3 py-2 mx-2 hover:bg-sky-500 hover:text-white transition-colors duration-300">
             {/* <ShoppingCart size={20} />  */}
-            View Detail
+            View Detail <ArrowUpRight className='inline rotate-12 group-hover:rotate-0' />
           </button>
           {/* <button className="bg-white text-gray-800 rounded-full p-3 mx-2 hover:bg-blue-500 hover:text-white transition-colors duration-300">
             <Heart size={20} />

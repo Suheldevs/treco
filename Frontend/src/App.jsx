@@ -12,6 +12,10 @@ import ProductPage from './pages/ProductPage'
 import FaqPage from './pages/FaqPage'
 import PageNotFound from './pages/PageNotFound'
 import ScrollToTop from './components/ScrollToTop'
+import InquiryModal from './components/InquiryModal'
+import HomeAutomation from './pages/HomeAutomation'
+import AudioVisual from './pages/AudioVisual'
+
 function App() {
   return (
     <BrowserRouter>
@@ -25,6 +29,9 @@ function App() {
       <Route path='/privacy-policy' element={<PrivacyPolicy/>}/>
       <Route path='/products' element={<ProductPage/>}/>
       <Route path='/faq' element={<FaqPage/>}/>
+      <Route path='/inquiry' element={<InquiryModal/>}/>
+      <Route path='/home-automation' element={<HomeAutomation/>}/>
+      <Route path='/audio-visual' element={<AudioVisual/>}/>
       <Route path='*' element={<PageNotFound/>}/>
     </Routes>
     <Footer/>

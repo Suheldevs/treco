@@ -78,7 +78,7 @@ const CareerPage = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <div className="bg-gradient-to-r from-blue-600 to-blue-500 text-white">
+      <div className="bg-gradient-to-r from-[#00a1e8] to-blue-400 text-white">
         <div className="container mx-auto px-4 py-24 relative overflow-hidden">
           {/* Decorative elements */}
           <div className="absolute top-0 right-0 w-64 h-64 bg-white opacity-5 rounded-full -translate-y-1/2 translate-x-1/2"></div>
@@ -132,7 +132,7 @@ const CareerPage = () => {
       </div>
       
       {/* Open Positions */}
-      <div className="py-16 md:py-24 bg-gray-50" id="apply">
+      <div className="py-12 bg-gray-50" id="apply">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Open Positions</h2>
@@ -165,9 +165,9 @@ const CareerPage = () => {
       </div>
       
       {/* Application Form */}
-      <div className="py-12 grid grid-cols-1 lg:grid-cols-2 bg-white" id="application-form">
-        <div className='mt-32 ml-2 '>
-            <img src='https://picsum.photos/800/800?random=1' className='rounded-3xl'/>
+      <div className="py-12 container mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 bg-white" id="application-form">
+        <div className=''>
+            <img src='https://picsum.photos/800/850?random=1' className='rounded-3xl'/>
             </div>
         <div className="container mx-auto px-4" id='contact-form'>
           <div className="max-w-2xl mx-auto">

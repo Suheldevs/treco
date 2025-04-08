@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Search, ShoppingCart, Heart, Filter, ChevronDown, Star } from 'lucide-react';
+import { Search, ShoppingCart, Heart, Filter, ChevronDown, Star, ArrowUpRight } from 'lucide-react';
 
 const ProductCard = ({ product ,index }) => {
   const [isHovered, setIsHovered] = useState(false);
@@ -11,16 +11,16 @@ const ProductCard = ({ product ,index }) => {
       onMouseLeave={() => setIsHovered(false)}
     >
       <div className="relative overflow-hidden h-64">
-      <span className="absolute top-2 left-2 z-20 text-xs px-2 py-1 bg-blue-100 text-blue-800 rounded-full">{product.category}</span>
+      <span className="absolute top-2 left-2 z-20 text-xs px-2 py-1 bg-white text-sky-600 rounded-full">{product.category}</span>
         <img 
           src={`https://picsum.photos/400/320?random=${index}`} 
           alt={product.title}
           className={`w-full h-full object-cover transition-transform duration-700 ${isHovered ? 'scale-110' : 'scale-100'}`}
         />
-        <div className={`absolute top-0 left-0 w-full h-full bg-black/40 flex items-center justify-center opacity-0 transition-opacity duration-300 ${isHovered ? 'opacity-100' : ''}`}>
-          <button className="bg-white text-gray-800 rounded-full p-3 mx-2 hover:bg-blue-500 hover:text-white transition-colors duration-300">
+        <div className={`absolute  top-0 left-0 w-full h-full bg-black/40 flex items-center justify-center opacity-0 transition-opacity duration-300 ${isHovered ? 'opacity-100' : ''}`}>
+          <button className="bg-white group text-sky-600 rounded-xl px-3 py-2 mx-2 hover:bg-sky-500 hover:text-white transition-colors duration-300">
             {/* <ShoppingCart size={20} />  */}
-            View Detail
+            View Detail <ArrowUpRight className='inline rotate-12 group-hover:rotate-0' />
           </button>
           {/* <button className="bg-white text-gray-800 rounded-full p-3 mx-2 hover:bg-blue-500 hover:text-white transition-colors duration-300">
             <Heart size={20} />
@@ -148,10 +148,10 @@ const ProductSection = () => {
           {/* <span className="text-sm font-bold tracking-widest uppercase text-blue-500 mb-4 block">Discover Our Story</span> */}
           
           <h2 className="inline-block relative mb-8">
-            <span className="text-4xl md:text-5xl lg:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-blue-400">
+            <span className="text-4xl md:text-5xl lg:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-sky-600 to-sky-400">
             Our Products
             </span>
-            <div className="h-2 w-2/3 bg-gradient-to-r from-blue-500 to-blue-300 rounded-full mt-2 mx-auto"></div>
+            <div className="h-2 w-2/3 bg-gradient-to-r from-sky-500 to-sky-300 rounded-full mt-2 mx-auto"></div>
           </h2>
           
           {/* <p className="mt-4 text-gray-600 max-w-2xl mx-auto text-lg">
@@ -168,7 +168,7 @@ const ProductSection = () => {
               onClick={() => setActiveCategory(category)}
               className={`px-4 py-2 rounded transition-all duration-200 whitespace-nowrap ${
                 activeCategory === category
-                  ? 'bg-blue-500 text-white font-medium shadow-md'
+                  ? 'bg-sky-500 text-white font-medium shadow-md'
                   : 'bg-white border border-slate-200 text-gray-700 hover:bg-gray-100'
               }`}
             >
@@ -200,7 +200,7 @@ const ProductSection = () => {
                     setIsFilterOpen(false);
                   }}
                   className={`w-full text-left px-4 py-2 hover:bg-gray-100 ${
-                    activeCategory === category ? 'bg-blue-50 text-blue-600 font-medium' : 'text-gray-700'
+                    activeCategory === category ? 'bg-sky-50 text-sky-600 font-medium' : 'text-gray-700'
                   }`}
                 >
                   {category}

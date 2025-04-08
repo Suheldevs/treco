@@ -49,16 +49,16 @@ const Footer = () => {
               </p> */}
             </div>
             <div className="hidden md:flex items-center space-x-4">
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="bg-blue-500 p-2 rounded-full  text-white hover:bg-blue-700 hover:scale-105 ">
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="bg-sky-500 p-2 rounded-full  text-white hover:bg-sky-600 hover:scale-105 ">
               <Facebook size={20} />
             </a>
-            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="bg-blue-500 p-2 rounded-full  text-white hover:bg-blue-700 hover:scale-105 ">
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="bg-sky-500 p-2 rounded-full  text-white hover:bg-sky-600 hover:scale-105 ">
               <Twitter size={20} />
             </a>
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="bg-blue-500 p-2 rounded-full  text-white hover:bg-blue-700 hover:scale-105 ">
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="bg-sky-500 p-2 rounded-full  text-white hover:bg-sky-600 hover:scale-105 ">
               <Instagram size={20} />
             </a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="bg-blue-500 p-2 rounded-full  text-white hover:bg-blue-700 hover:scale-105 ">
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="bg-sky-500 p-2 rounded-full  text-white hover:bg-sky-600 hover:scale-105 ">
               <Linkedin size={20} />
             </a>
           </div>
@@ -139,7 +139,7 @@ const Footer = () => {
                 <li>
                   <a href="https://maps.app.goo.gl/vZrfWDywdjPauz6n7" className="hover:text-white flex items-start">
                     <FaLocationDot className='mr-2 text-lg mt-1 flex-shrink-0' />
-                    <span>Majid Noor near Baladia Camp Wadi Mraykh, Jeddah, Saudi Arabia 23254</span>
+                    <span>A-7, IInd Floor Kailash Plaza, Mayur Vihar, Phase-I, New Delhi</span>
                   </a>
                 </li>
               </ul>
