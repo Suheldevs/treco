@@ -11,16 +11,16 @@ if(!fs.existsSync(uploadDir)){
     fs.mkdirSync(uploadDir,{recursive:true})
 }
 
-const storage = multer.diskStorage({
-    destination:(req,file,cb)=>{
-        cb(null,uploadDir);
-    },
-    filename:(req,file,cb)=>{
-        const ext = path.extname(file.originalname);
-        const baseName = path.basename(file.originalname, ext);
-        cb(null, `${baseName}_${Date.now()}${ext}`);
-    }
-})
+// const storage = multer.diskStorage({
+//     destination:(req,file,cb)=>{
+//         cb(null,uploadDir);
+//     },
+//     filename:(req,file,cb)=>{
+//         const ext = path.extname(file.originalname);
+//         const baseName = path.basename(file.originalname, ext);
+//         cb(null, `${baseName}_${Date.now()}${ext}`);
+//     }
+// })
 
 const fileFilter = (req, file, cb) => {
     const allowedTypes = /jpeg|jpg|png|webp/;
@@ -32,4 +32,5 @@ const fileFilter = (req, file, cb) => {
     }
   };
 
+const storage = multer.memoryStorage(); 
 export const upload = multer({storage,fileFilter,limits:{fileSize:1*1024*1024}})

@@ -1,9 +1,20 @@
-import express from "express";
-import ProductValidation from "../middleware/ProductValidation.js";
-import { saveProduct } from "../controller/product.controller.js";
-import { upload } from "../config/multer.config.js";
-const router = express.Router()
+import express from 'express';
+import multer from 'multer';
+import {
+  saveProduct,
+  getAllProducts,
+  getProductBySlug,
+  updateProduct,
+  deleteProduct
+} from '../controller/product.controller.js';
 
-router.post('/save',upload.single('image'),saveProduct)
+const router = express.Router();
+const upload = multer(); 
 
-export default router
+router.post('/add', upload.single('image'), saveProduct);
+router.get('/', getAllProducts);
+router.get('/:slug', getProductBySlug);
+router.put('/update/:id', upload.single('image'), updateProduct);
+router.delete('/delete/:id', deleteProduct);
+
+export default router;

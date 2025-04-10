@@ -30,15 +30,30 @@ const productSchema = new mongoose.Schema({
     type: String,
     trim: true
   },
-  features: {
-    type: [String]
-  },
+  features: [
+    {
+      label: { type: String, required: true },
+      value: { type: String, required: true }
+    }
+  ],
   productId: {
     type: String,
-    required: true,
-    unique: true
   }
 }, { timestamps: true });  
+
+
+productSchema.pre("save", async function (next) {
+  if (this.isNew) {
+    const count = await mongoose.model("Product").countDocuments();
+    const nextId = count + 1;
+    this.productId = `pro${String(nextId).padStart(2, "0")}`; 
+  }
+  next();
+});
+
+
+
+
 
 const ProductModel = mongoose.model("Product", productSchema);
 export default ProductModel;

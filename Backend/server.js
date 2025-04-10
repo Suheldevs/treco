@@ -3,8 +3,12 @@ import mongoose from 'mongoose'
 import dotenv from 'dotenv'
 import path from 'path'
 import { fileURLToPath } from 'url';
+import cookieParser from 'cookie-parser';
+import cors from 'cors'
 const app = express()
+app.use(cookieParser());
 app.use(express.json())
+app.use(cors())
 dotenv.config()
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -22,6 +26,14 @@ app.get('/',(req,res)=>{
 
 import ProductRoute from './routes/product.routes.js'
 app.use('/product',ProductRoute)
+
+import inquiryRoutes from './routes/inquiry.routes.js';
+app.use('/inquiry', inquiryRoutes);
+
+import userRoutes from './routes/user.routes.js';
+
+app.use('/admin', userRoutes);
+
 
 
 
