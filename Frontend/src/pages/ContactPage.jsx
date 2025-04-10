@@ -8,16 +8,18 @@ import {
   Send,
   Check,
   ChevronDown,
+  AlertTriangle
 } from "lucide-react";
 import Breadcrumb from "../components/Breadcrumb";
 import FAQSection from "../components/FaqSection";
 import FaqItem from "../components/FaqItem";
+import axios from "axios";
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
-    fullName: "",
+    name: "",
     email: "",
-    interestedIn: "",
+    service: "",
     message: "",
     phone: "",
   });
@@ -25,6 +27,7 @@ const ContactPage = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [formSubmitting, setFormSubmitting] = useState(false);
+  const [formError, setFormError] = useState("");
 
   const interests = [
     "Home Automation",
@@ -41,66 +44,93 @@ const ContactPage = () => {
       ...prevData,
       [name]: value,
     }));
+    
+    // Clear error when user starts typing again
+    if (formError) {
+      setFormError("");
+    }
   };
 
   const handleInterestSelect = (interest) => {
     setFormData((prevData) => ({
       ...prevData,
-      interestedIn: interest,
+      service: interest,
     }));
     setDropdownOpen(false);
+    
+    // Clear error when user selects an interest
+    if (formError) {
+      setFormError("");
+    }
   };
-
-  const handleSubmit = (e) => {
+  
+  const api = import.meta.env.VITE_BACKEND_URL || '';
+  
+  const handleSubmit = async(e) => {
     e.preventDefault();
     setFormSubmitting(true);
+    setFormError(""); // Clear previous errors
 
-    // Simulate form submission
-    setTimeout(() => {
-      setFormSubmitting(false);
-      setFormSubmitted(true);
-
-      // Reset form after 3 seconds
+    try {
+      // Validation logic
+      if (!formData.name || !formData.phone || !formData.email || !formData.service) {
+        throw new Error("Please fill all required fields");
+      }
+      
+      const phoneRegex = /^[6-9]\d{9}$/;
+      if (!phoneRegex.test(formData.phone)) {
+        throw new Error("Phone number must be 10 digits and start with 6-9");
+      }
+      
+      if (!formData.email.includes('@')) {
+        throw new Error("Please enter a valid email address");
+      }
+      
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(formData.email)) {
+        throw new Error("Please enter a valid email address");
+      }
+      
+      // If validation passes, submit the form
+      const res = await axios.post(`${api}/inquiry/save`, formData);
+      
       setTimeout(() => {
-        setFormSubmitted(false);
-        setFormData({
-          fullName: "",
-          email: "",
-          interestedIn: "",
-          message: "",
-          phone: "",
-        });
-      }, 3000);
-    }, 1500);
+        setFormSubmitting(false);
+        setFormSubmitted(true);
+
+        setTimeout(() => {
+          setFormSubmitted(false);
+          setFormData({
+            name: "",
+            email: "",
+            service: "",
+            message: "",
+            phone: "",
+          });
+        }, 3000);
+      }, 1500);
+      
+    } catch (error) {
+      // Handle validation or submission errors
+      console.error("Form submission error:", error);
+      setFormError(error.message || "Something went wrong. Please try again.");
+      setFormSubmitting(false);
+    }
   };
 
   return (
     <>
-     <Breadcrumb 
-  title="Contact Us"
-  bgImage="https://treco.in/wp-content/uploads/2020/12/Contact-cover-pic-e1608727652960.jpg" // Optional
-  items={[
-    { label: "Home", path: "/" },
-    { label: "Contact", path: "/contact" },
-    // { label: "Electronics", path: "/products/electronics" }
-  ]}
-/>
+      <Breadcrumb 
+        title="Contact Us"
+        bgImage="https://treco.in/wp-content/uploads/2020/12/Contact-cover-pic-e1608727652960.jpg"
+        items={[
+          { label: "Home", path: "/" },
+          { label: "Contact", path: "/contact" },
+        ]}
+      />
 
       <div className="min-h-screen bg-gradient-to-br from-gray-0 to-gray-100 py-12">
         <div className="container mx-auto px-4">
-          {/* Page Header
-          <div className="text-center mb-16">
-            <h1 className="text-4xl font-bold text-gray-800 mb-3 relative inline-block">
-              Get in Touch
-              <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-sky-500 rounded-full"></div>
-            </h1>
-            <p className="text-gray-600 mt-4 max-w-2xl mx-auto">
-              We're excited to hear from you! Our team of experts is ready to
-              answer your questions and provide solutions tailored to your
-              needs.
-            </p>
-          </div> */}
-
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
             {/* Contact Information Cards */}
             <div className="bg-white rounded-xl border border-gray-100 shadow-lg overflow-hidden transform transition duration-300 hover:shadow-xl hover:-translate-y-2">
@@ -180,7 +210,7 @@ const ContactPage = () => {
               <div className="relative h-64 bg-gray-300">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.720474043652!2d77.290968774756!3d28.608161375678097!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce378cde7c251%3A0xa197c1153d5ea8a2!2sTreco%20Technologies%20Private%20Limited!5e0!3m2!1sen!2sin!4v1743681174385!5m2!1sen!2sin"
-                className="h-full w-full"
+                  className="h-full w-full"
                   allowFullScreen=""
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
@@ -238,19 +268,26 @@ const ContactPage = () => {
                   </div>
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-6">
+                    {formError && (
+                      <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg flex items-start">
+                        <AlertTriangle size={20} className="mr-2 mt-0.5 flex-shrink-0" />
+                        <div>{formError}</div>
+                      </div>
+                    )}
+                    
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div>
                         <label
-                          htmlFor="fullName"
+                          htmlFor="name"
                           className="block text-sm font-medium text-gray-700 mb-1"
                         >
                           Full Name
                         </label>
                         <input
                           type="text"
-                          id="fullName"
-                          name="fullName"
-                          value={formData.fullName}
+                          id="name"
+                          name="name"
+                          value={formData.name}
                           onChange={handleChange}
                           className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-sky-500 focus:border-sky-500 transition-all"
                           placeholder="Your name"
@@ -293,13 +330,14 @@ const ContactPage = () => {
                           value={formData.phone}
                           onChange={handleChange}
                           className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-sky-500 focus:border-sky-500 transition-all"
-                          placeholder="(123) 456-7890"
+                          placeholder="10 Digit Phone Number"
+                          required
                         />
                       </div>
 
                       <div className="relative">
                         <label
-                          htmlFor="interestedIn"
+                          htmlFor="service"
                           className="block text-sm font-medium text-gray-700 mb-1"
                         >
                           Interested In
@@ -311,12 +349,12 @@ const ContactPage = () => {
                         >
                           <span
                             className={
-                              formData.interestedIn
+                              formData.service
                                 ? "text-gray-900"
                                 : "text-gray-400"
                             }
                           >
-                            {formData.interestedIn || "Select service"}
+                            {formData.service || "Select service"}
                           </span>
                           <ChevronDown
                             size={16}
@@ -405,8 +443,6 @@ const ContactPage = () => {
             </div>
           </div>
           <FaqItem/>
-{/* <FAQSection/> */}
-       
         </div>
 
         {/* CSS for animations */}

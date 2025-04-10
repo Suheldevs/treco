@@ -1,24 +1,28 @@
 import { useState, useEffect } from 'react';
-import { X, User, Phone, Mail, Home, Briefcase, Building, Layout, Layers, FileText, ChevronDown, Send } from 'lucide-react';
-export default function InquiryModal({isOpen,setIsOpen}) {
+import { X, User, Phone, Mail, Home, Briefcase, Building, Layout, Layers, FileText, ChevronDown, Send, Loader } from 'lucide-react';
+import axios from 'axios';
+
+export default function InquiryModal({ isOpen, setIsOpen }) {
   const [formData, setFormData] = useState({
     name: '',
-    mobile: '',
-    address: '',
+    phone: '',
     email: '',
-    interestedIn: '',
+    service: '',
     projectName: '',
     projectType: '',
-    squareFeet: '',
-    floors: '',
-    additionalDetail: ''
+    area: '',
+    floor: '',
+    message: ''
   });
   
   const [formStep, setFormStep] = useState(1);
   const [showDropdown, setShowDropdown] = useState({
-    interestedIn: false,
+    service: false,
     projectType: false
   });
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+  const [success, setSuccess] = useState(false);
   
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -26,13 +30,85 @@ export default function InquiryModal({isOpen,setIsOpen}) {
       ...prevState,
       [name]: value
     }));
+    // Clear error state when user starts typing again
+    if (error) setError(null);
   };
+
+  const api = import.meta.env.VITE_BACKEND_URL || ''; // Fallback if env variable is missing
   
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    // Here you would typically send the data to your backend
-    setIsOpen(false);
+    setLoading(true);
+    setError(null);
+    
+    try {
+
+      const validateForm = () => {
+        if (!formData.name || !formData.phone || !formData.email || !formData.service || !formData.projectName || !formData.projectType) {
+          throw new Error("Please fill all required fields");
+        }
+        
+
+        const phoneRegex = /^[6-9]\d{9}$/;
+        if (!phoneRegex.test(formData.phone)) {
+          throw new Error("Phone number must be 10 digits and start with 6-9");
+        }
+        
+  
+        if (!formData.email.includes('@')) {
+          throw new Error("Please enter a valid email address");
+        }
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(formData.email)) {
+          throw new Error("Please enter a valid email address");
+        }
+
+        if (formData.floor !== '' && parseInt(formData.floor) <= 0) {
+          throw new Error("Please enter a valid floor count greater than 0");
+        }
+        
+        // Check area value if provided
+        if (formData.area !== '' && parseInt(formData.area) <= 0) {
+          throw new Error("Please enter a valid area in square feet greater than 0");
+        }
+       
+      };
+
+      validateForm()
+      
+      const res = await axios.post(`${api}/inquiry/save`, formData);
+      console.log("Form submission successful:", res);
+      setSuccess(true);
+      
+      setTimeout(() => {
+        setIsOpen(false);
+        
+        resetForm();
+      }, 2000);
+      
+    } catch (err) {
+      console.error("Error submitting form:", err);
+      setError(err.response?.data?.message || err.message || "Something went wrong. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const resetForm = () => {
+    setFormData({
+      name: '',
+      phone: '',
+      email: '',
+      service: '',
+      projectName: '',
+      projectType: '',
+      area: '',
+      floor: '',
+      message: ''
+    });
+    setFormStep(1);
+    setSuccess(false);
+    setError(null);
   };
 
   const toggleDropdown = (dropdown) => {
@@ -55,32 +131,32 @@ export default function InquiryModal({isOpen,setIsOpen}) {
   
   // Close dropdown when clicking outside
   useEffect(() => {
-    const handleClickOutside = () => {
-      setShowDropdown({
-        interestedIn: false,
-        projectType: false
-      });
+    const handleClickOutside = (e) => {
+      if (!e.target.closest('.dropdown-container')) {
+        setShowDropdown({
+          service: false,
+          projectType: false
+        });
+      }
     };
     
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
   
-  if (!isOpen) return ;
+  // Reset form when modal is closed
+  useEffect(() => {
+    if (!isOpen) {
+      resetForm();
+    }
+  }, [isOpen]);
+  
+  if (!isOpen) return null;
+  
+  const handleClose = () => {
+    setIsOpen(false);
+  };
 
-    // <div className="p-6">
-    //   <button 
-    //     onClick={() => setIsOpen(true)}
-    //     className="bg-sky-600 text-white px-6 py-3 rounded-lg hover:bg-sky-700 flex items-center gap-2 shadow-lg"
-    //   >
-    //     <Layout size={18} />
-    //     Open Form
-    //   </button>
-    // </div>
-  ;
-  const handleClose = ()=>{
-    setIsOpen(!isOpen)
-  }
   return (
     <div className="fixed inset-0 bg-black/20 backdrop-blur-[2px] flex items-center justify-center p-4 z-50">
       <div className="bg-white rounded-2xl w-full max-w-xl max-h-[99vh] overflow-y-auto shadow-2xl">
@@ -93,6 +169,7 @@ export default function InquiryModal({isOpen,setIsOpen}) {
           <button 
             onClick={handleClose} 
             className="text-black hover:text-gray-700 bg-white bg-opacity-20 rounded-full p-2 transition-all hover:bg-opacity-30"
+            disabled={loading}
           >
             <X size={20} />
           </button>
@@ -103,19 +180,45 @@ export default function InquiryModal({isOpen,setIsOpen}) {
           <div className="flex justify-between items-center">
             <button 
               className={`rounded-full ${formStep === 1 ? 'bg-sky-600 text-white' : 'bg-gray-200 text-gray-600'} h-8 w-8 flex items-center justify-center font-medium`}
-              onClick={() => setFormStep(1)}
+              onClick={() => !loading && setFormStep(1)}
+              disabled={loading}
             >
               1
             </button>
             <div className={`h-1 flex-1 mx-2 ${formStep >= 2 ? 'bg-sky-500' : 'bg-gray-200'}`}></div>
             <button 
               className={`rounded-full ${formStep === 2 ? 'bg-sky-600 text-white' : 'bg-gray-200 text-gray-600'} h-8 w-8 flex items-center justify-center font-medium`}
-              onClick={() => setFormStep(2)}
+              onClick={() => !loading && setFormStep(2)}
+              disabled={loading}
             >
               2
             </button>
           </div>
         </div>
+        
+        {/* Error/Success Message */}
+        {error && (
+          <div className="bg-red-50 border-l-4 border-red-500 p-4 m-4">
+            <div className="flex">
+              <div className="flex-shrink-0">
+                <X className="h-5 w-5 text-red-500" />
+              </div>
+              <div className="ml-3">
+                <p className="text-sm text-red-700">{error}</p>
+              </div>
+            </div>
+          </div>
+        )}
+        
+        {success && (
+          <div className="bg-green-50 border-l-4 border-green-600 p-4 m-4">
+            <div className="flex">
+              <div className="ml-3">
+                <p className="text-sm text-green-700">Your inquiry has been submitted successfully!</p>
+              </div>
+            </div>
+          </div>
+        )}
         
         <form onSubmit={handleSubmit} className="p-6 space-y-6">
           {formStep === 1 ? (
@@ -138,25 +241,29 @@ export default function InquiryModal({isOpen,setIsOpen}) {
                       value={formData.name}
                       onChange={handleChange}
                       className="pl-10 block w-full rounded-lg border-gray-300 shadow-sm focus:ring-sky-500 focus:border-sky-500 p-3 border"
+                      disabled={loading}
                     />
                   </div>
                 </div>
                 
                 <div>
-                  <label htmlFor="mobile" className="block text-sm font-medium text-gray-700">Mobile Number *</label>
+                  <label htmlFor="phone" className="block text-sm font-medium text-gray-700">Mobile Number *</label>
                   <div className="mt-1 relative rounded-md shadow-sm">
                     <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                       <Phone size={18} className="text-gray-400" />
                     </div>
                     <input
                       type="tel"
-                      id="mobile"
-                      name="mobile"
+                      id="phone"
+                      name="phone"
                       required
-                      placeholder="+1 (123) 456-7890"
-                      value={formData.mobile}
+                      placeholder="10 Digit Number"
+                      pattern="^[6-9]\d{9}$"
+                      title="Please enter a valid 10-digit phone number starting with 6 to 9."
+                      value={formData.phone}
                       onChange={handleChange}
                       className="pl-10 block w-full rounded-lg border-gray-300 shadow-sm focus:ring-sky-500 focus:border-sky-500 p-3 border"
+                      disabled={loading}
                     />
                   </div>
                 </div>
@@ -176,35 +283,18 @@ export default function InquiryModal({isOpen,setIsOpen}) {
                       value={formData.email}
                       onChange={handleChange}
                       className="pl-10 block w-full rounded-lg border-gray-300 shadow-sm focus:ring-sky-500 focus:border-sky-500 p-3 border"
+                      disabled={loading}
                     />
                   </div>
                 </div>
-                
-                {/* <div>
-                  <label htmlFor="address" className="block text-sm font-medium text-gray-700">Address *</label>
-                  <div className="mt-1 relative rounded-md shadow-sm">
-                    <div className="absolute inset-y-0 left-0 pl-3 pt-3 pointer-events-none">
-                      <Home size={18} className="text-gray-400" />
-                    </div>
-                    <textarea
-                      id="address"
-                      name="address"
-                      required
-                      placeholder="Street address, City, State, ZIP"
-                      value={formData.address}
-                      onChange={handleChange}
-                      rows="3"
-                      className="pl-10 block w-full rounded-lg border-gray-300 shadow-sm focus:ring-sky-500 focus:border-sky-500 p-3 border"
-                    />
-                  </div>
-                </div> */}
               </div>
               
               <div className="pt-4 flex justify-end">
                 <button
                   type="button"
                   onClick={() => setFormStep(2)}
-                  className="inline-flex items-center px-6 py-3 border border-transparent rounded-lg shadow-sm text-white bg-sky-600 hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500 font-medium"
+                  className="inline-flex items-center px-6 py-3 border border-transparent rounded-lg shadow-sm text-white bg-sky-600 hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500 font-medium disabled:bg-sky-300 disabled:cursor-not-allowed"
+                  disabled={loading || !formData.name || !formData.phone || !formData.email}
                 >
                   Next 
                   <ChevronDown size={18} className="ml-2 rotate-270" />
@@ -216,35 +306,36 @@ export default function InquiryModal({isOpen,setIsOpen}) {
               <h3 className="text-lg font-medium text-gray-800">Project Details</h3>
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <label htmlFor="interestedIn" className="block text-sm font-medium text-gray-700">Interested In *</label>
+                <div className="dropdown-container">
+                  <label htmlFor="service" className="block text-sm font-medium text-gray-700">Interested In *</label>
                   <div className="mt-1 relative">
                     <button
                       type="button"
                       onClick={(e) => {
                         e.stopPropagation();
-                        toggleDropdown('interestedIn');
+                        if (!loading) toggleDropdown('service');
                       }}
-                      className="relative w-full bg-white border border-gray-300 rounded-lg shadow-sm pl-3 pr-10 py-3 text-left cursor-pointer focus:outline-none focus:ring-1 focus:ring-sky-500 focus:border-sky-500"
+                      className="relative w-full bg-white border border-gray-300 rounded-lg shadow-sm pl-3 pr-10 py-3 text-left cursor-pointer focus:outline-none focus:ring-1 focus:ring-sky-500 focus:border-sky-500 disabled:bg-gray-100 disabled:cursor-not-allowed"
+                      disabled={loading}
                     >
                       <div className="flex items-center">
                         <Building size={18} className="text-gray-400 mr-2" />
-                        <span>{formData.interestedIn || 'Select an option'}</span>
+                        <span>{formData.service || 'Select an option'}</span>
                       </div>
                       <span className="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
                         <ChevronDown size={18} className="text-gray-400" />
                       </span>
                     </button>
 
-                    {showDropdown.interestedIn && (
+                    {showDropdown.service && (
                       <div className="absolute z-10 mt-1 w-full bg-white shadow-lg rounded-md py-1 max-h-60 overflow-auto ring-1 ring-black ring-opacity-5 focus:outline-none">
                         {['Robotics System', 'Home Automation', 'Treco K&E Sharing', 'Industrial Automation', 'Internet of Things', 'Social Service'].map((option) => (
                           <div
                             key={option}
-                            className={`cursor-pointer select-none relative py-2 pl-3 pr-9 hover:bg-sky-50 ${formData.interestedIn === option ? 'bg-sky-100' : ''}`}
+                            className={`cursor-pointer select-none relative py-2 pl-3 pr-9 hover:bg-sky-50 ${formData.service === option ? 'bg-sky-100' : ''}`}
                             onClick={(e) => {
                               e.stopPropagation();
-                              selectOption('interestedIn', option);
+                              selectOption('service', option);
                             }}
                           >
                             {option}
@@ -270,20 +361,22 @@ export default function InquiryModal({isOpen,setIsOpen}) {
                       value={formData.projectName}
                       onChange={handleChange}
                       className="pl-10 block w-full rounded-lg border-gray-300 shadow-sm focus:ring-sky-500 focus:border-sky-500 p-3 border"
+                      disabled={loading}
                     />
                   </div>
                 </div>
                 
-                <div>
+                <div className="dropdown-container">
                   <label htmlFor="projectType" className="block text-sm font-medium text-gray-700">Project Type *</label>
                   <div className="mt-1 relative">
                     <button
                       type="button"
                       onClick={(e) => {
                         e.stopPropagation();
-                        toggleDropdown('projectType');
+                        if (!loading) toggleDropdown('projectType');
                       }}
-                      className="relative w-full bg-white border border-gray-300 rounded-lg shadow-sm pl-3 pr-10 py-3 text-left cursor-pointer focus:outline-none focus:ring-1 focus:ring-sky-500 focus:border-sky-500"
+                      className="relative w-full bg-white border border-gray-300 rounded-lg shadow-sm pl-3 pr-10 py-3 text-left cursor-pointer focus:outline-none focus:ring-1 focus:ring-sky-500 focus:border-sky-500 disabled:bg-gray-100 disabled:cursor-not-allowed"
+                      disabled={loading}
                     >
                       <div className="flex items-center">
                         <Layout size={18} className="text-gray-400 mr-2" />
@@ -296,7 +389,7 @@ export default function InquiryModal({isOpen,setIsOpen}) {
 
                     {showDropdown.projectType && (
                       <div className="absolute z-10 mt-1 w-full bg-white shadow-lg rounded-md py-1 max-h-60 overflow-auto ring-1 ring-black ring-opacity-5 focus:outline-none">
-                        {['Lighting Automation', 'Home Automation', 'Audio Visual'].map((option) => (
+                        {['Exiting Project', 'New Project',].map((option) => (
                           <div
                             key={option}
                             className={`cursor-pointer select-none relative py-2 pl-3 pr-9 hover:bg-sky-50 ${formData.projectType === option ? 'bg-sky-100' : ''}`}
@@ -315,37 +408,39 @@ export default function InquiryModal({isOpen,setIsOpen}) {
                 
                 <div className="grid grid-cols-2 gap-4">
                   <div>
-                    <label htmlFor="squareFeet" className="block text-sm font-medium text-gray-700">Square Feet</label>
+                    <label htmlFor="area" className="block text-sm font-medium text-gray-700">Square Feet</label>
                     <div className="mt-1 relative rounded-md shadow-sm">
                       <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                         <Layers size={18} className="text-gray-400" />
                       </div>
                       <input
                         type="number"
-                        id="squareFeet"
-                        name="squareFeet"
+                        id="area"
+                        name="area"
                         placeholder="1500"
-                        value={formData.squareFeet}
+                        value={formData.area}
                         onChange={handleChange}
                         className="pl-10 block w-full rounded-lg border-gray-300 shadow-sm focus:ring-sky-500 focus:border-sky-500 p-3 border"
+                        disabled={loading}
                       />
                     </div>
                   </div>
                   
                   <div>
-                    <label htmlFor="floors" className="block text-sm font-medium text-gray-700">Floors</label>
+                    <label htmlFor="floor" className="block text-sm font-medium text-gray-700">Floors</label>
                     <div className="mt-1 relative rounded-md shadow-sm">
                       <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                         <Building size={18} className="text-gray-400" />
                       </div>
                       <input
                         type="number"
-                        id="floors"
-                        name="floors"
+                        id="floor"
+                        name="floor"
                         placeholder="2"
-                        value={formData.floors}
+                        value={formData.floor}
                         onChange={handleChange}
                         className="pl-10 block w-full rounded-lg border-gray-300 shadow-sm focus:ring-sky-500 focus:border-sky-500 p-3 border"
+                        disabled={loading}
                       />
                     </div>
                   </div>
@@ -353,19 +448,20 @@ export default function InquiryModal({isOpen,setIsOpen}) {
               </div>
               
               <div>
-                <label htmlFor="additionalDetail" className="block text-sm font-medium text-gray-700">Additional Details</label>
+                <label htmlFor="message" className="block text-sm font-medium text-gray-700">Additional Details</label>
                 <div className="mt-1 relative rounded-md shadow-sm">
                   <div className="absolute inset-y-0 left-0 pl-3 pt-3 pointer-events-none">
                     <FileText size={18} className="text-gray-400" />
                   </div>
                   <textarea
-                    id="additionalDetail"
-                    name="additionalDetail"
+                    id="message"
+                    name="message"
                     placeholder="Please provide any other details that might be helpful..."
-                    value={formData.additionalDetail}
+                    value={formData.message}
                     onChange={handleChange}
                     rows="3"
                     className="pl-10 block w-full rounded-lg border-gray-300 shadow-sm focus:ring-sky-500 focus:border-sky-500 p-3 border"
+                    disabled={loading}
                   />
                 </div>
               </div>
@@ -374,7 +470,8 @@ export default function InquiryModal({isOpen,setIsOpen}) {
                 <button
                   type="button"
                   onClick={() => setFormStep(1)}
-                  className="inline-flex items-center px-4 py-2 border border-gray-300 rounded-lg shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50"
+                  className="inline-flex items-center px-4 py-2 border border-gray-300 rounded-lg shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 disabled:bg-gray-100 disabled:cursor-not-allowed"
+                  disabled={loading}
                 >
                   Back
                 </button>
@@ -382,16 +479,27 @@ export default function InquiryModal({isOpen,setIsOpen}) {
                   <button
                     type="button"
                     onClick={() => setIsOpen(false)}
-                    className="px-4 py-2 border border-gray-300 rounded-lg shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50"
+                    className="px-4 py-2 border border-gray-300 rounded-lg shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 disabled:bg-gray-100 disabled:cursor-not-allowed"
+                    disabled={loading}
                   >
                     Cancel
                   </button>
                   <button
                     type="submit"
-                    className="inline-flex items-center px-6 py-3 border border-transparent rounded-lg shadow-sm text-white bg-sky-600 hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500 font-medium"
+                    className="inline-flex items-center px-6 py-3 border border-transparent rounded-lg shadow-sm text-white bg-sky-600 hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500 font-medium disabled:bg-sky-300 disabled:cursor-not-allowed"
+                    disabled={loading || !formData.name || !formData.phone || !formData.email || !formData.service || !formData.projectName || !formData.projectType}
                   >
-                    <Send size={18} className="mr-2" />
-                    Submit
+                    {loading ? (
+                      <>
+                        <Loader size={18} className="mr-2 animate-spin" />
+                        Processing
+                      </>
+                    ) : (
+                      <>
+                        <Send size={18} className="mr-2" />
+                        Submit
+                      </>
+                    )}
                   </button>
                 </div>
               </div>

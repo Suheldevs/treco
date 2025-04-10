@@ -31,8 +31,12 @@ import inquiryRoutes from './routes/inquiry.routes.js';
 app.use('/inquiry', inquiryRoutes);
 
 import userRoutes from './routes/user.routes.js';
-
 app.use('/admin', userRoutes);
+
+
+import blogRoutes from './routes/blog.routes.js';
+app.use('/blog', blogRoutes);
+
 
 
 
