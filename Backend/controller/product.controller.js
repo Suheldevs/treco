@@ -6,9 +6,9 @@ import fs from 'fs';
 
 const saveProduct = async (req, res, next) => {
   try {
-    const { name, category, subCategory, description, features } = req.body;
-
-    if (!name || !category || !subCategory) {
+    const { name, category, subcategory, description, features } = req.body;
+console.log(req.body)
+    if (!name || !category || !subcategory) {
       return next(ApiError('All fields are required', 400));
     }
 
@@ -31,7 +31,7 @@ const saveProduct = async (req, res, next) => {
     const product = new Product({
       name,
       category,
-      subCategory,
+      subcategory,
       image: imagePath,
       description,
       features: JSON.parse(features || '[]'), // frontend se features string me aaye toh parse karo

@@ -12,7 +12,7 @@ const router = express.Router();
 const upload = multer(); 
 
 router.post('/add', upload.single('image'), saveProduct);
-router.get('/', getAllProducts);
+router.get('/getall', getAllProducts);
 router.get('/:slug', getProductBySlug);
 router.put('/update/:id', upload.single('image'), updateProduct);
 router.delete('/delete/:id', deleteProduct);

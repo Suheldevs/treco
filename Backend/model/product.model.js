@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-
+import Counter from './couter.model.js'
 const productSchema = new mongoose.Schema({
   name: {
     type: String,
@@ -17,7 +17,7 @@ const productSchema = new mongoose.Schema({
     required: true,
     trim: true
   },
-  subCategory: {
+  subcategory: {
     type: String,
     required: true,
     trim: true
@@ -44,9 +44,13 @@ const productSchema = new mongoose.Schema({
 
 productSchema.pre("save", async function (next) {
   if (this.isNew) {
-    const count = await mongoose.model("Product").countDocuments();
-    const nextId = count + 1;
-    this.productId = `pro${String(nextId).padStart(2, "0")}`; 
+    const counter = await Counter.findByIdAndUpdate(
+      { _id: "productId" },
+      { $inc: { seq: 1 } },
+      { new: true, upsert: true }
+    );
+
+    this.productId = `pro${String(counter.seq).padStart(2, "0")}`;
   }
   next();
 });
