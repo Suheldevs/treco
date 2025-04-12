@@ -58,7 +58,7 @@ const CareerPage = () => {
     
     // Form submission logic would go here
     console.log("Form submitted:", formData);
-    
+    alert('Application Submited Success fully')
     // Show success message
     setFormStatus({ submitted: true, error: false });
     

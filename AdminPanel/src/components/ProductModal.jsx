@@ -14,9 +14,9 @@ export default function ProductModal({ isOpen, product = null, onClose, onSave }
   
   // Subcategory options mapped to parent categories
   const subcategoryOptions = {
-    'Home Automation': ['Touch Switches', 'Modular Switches', 'Smart Controls', 'Security Systems'],
-    'Lighting Automation': ['Architecture Light', 'Indoor Light', 'Outdoor Light', 'LED Systems'],
-    'Audio Visual': ['Speakers', 'Projectors', 'Media Controls', 'Screens']
+    'Home Automation': ['Touch Switches', 'Modular Switches', 'Motion Sensor', 'Smart Module', 'Curtain-Blind Motor'],
+    'Lighting Automation': ['Architecture Light', 'Indoor Light', 'Outdoor Light'],
+    'Audio Visual': ['Audio Visual']
   };
   
   // Form state
@@ -28,8 +28,8 @@ export default function ProductModal({ isOpen, product = null, onClose, onSave }
     imagePreview: null,
     description: '',
     features: [
-      { label: 'Product Model', value: '' },
-      { label: 'Product Voltage', value: '' }
+      // { label: 'Product Model', value: '' },
+      // { label: 'Product Voltage', value: '' }
     ]
   });
   
@@ -64,8 +64,8 @@ export default function ProductModal({ isOpen, product = null, onClose, onSave }
         imagePreview: null,
         description: '',
         features: [
-          { label: 'Product Model', value: '' },
-          { label: 'Product Voltage', value: '' }
+          // { label: 'Product Model', value: '' },
+          // { label: 'Product Voltage', value: '' }
         ]
       });
     }

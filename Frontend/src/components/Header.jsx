@@ -62,14 +62,20 @@ const Header = () => {
                   onMouseEnter={() => setDropdownOpen({...dropdownOpen, homeAutomation: true})}
                   onMouseLeave={() => setDropdownOpen({...dropdownOpen, homeAutomation: false})}
                 >
-                  <Link to="/home-automation/smart-hub" className="block px-4 py-2 font-medium text-gray-900 hover:bg-gray-100">
-                    Smart Hub
+                  <Link to="/home-automation/touch-switches" className="block px-4 py-2 font-medium text-gray-900 hover:bg-gray-100">
+                    Touch Switches
                   </Link>
-                  <Link to="/home-automation/security" className="block px-4 py-2 font-medium text-gray-900 hover:bg-gray-100">
-                    Security
+                  <Link to="/home-automation/modular-switches" className="block px-4 py-2 font-medium text-gray-900 hover:bg-gray-100">
+                    Modular Switches
                   </Link>
-                  <Link to="/home-automation/climate" className="block px-4 py-2 font-medium text-gray-900 hover:bg-gray-100">
-                    Climate Control
+                  <Link to="/home-automation/motion-sensor" className="block px-4 py-2 font-medium text-gray-900 hover:bg-gray-100">
+                    Motion Sensor
+                  </Link>
+                  <Link to="/home-automation/smart-module" className="block px-4 py-2 font-medium text-gray-900 hover:bg-gray-100">
+                    Smart Module
+                  </Link>
+                  <Link to="/home-automation/curtain-blind-motor" className="block px-4 py-2 font-medium text-gray-900 hover:bg-gray-100">
+                    Curtain/Blind Motor
                   </Link>
                 </div>
               )}
@@ -93,14 +99,14 @@ const Header = () => {
                   onMouseEnter={() => setDropdownOpen({...dropdownOpen, lightingAutomation: true})}
                   onMouseLeave={() => setDropdownOpen({...dropdownOpen, lightingAutomation: false})}
                 >
-                  <Link to="/lighting/smart-bulbs" className="block px-4 py-2 font-medium text-gray-900 hover:bg-gray-100">
-                    Smart Bulbs
+                  <Link to="/lighting/architecture-light" className="block px-4 py-2 font-medium text-gray-900 hover:bg-gray-100">
+                    Architecture Light
                   </Link>
-                  <Link to="/lighting/controllers" className="block px-4 py-2 font-medium text-gray-900 hover:bg-gray-100">
-                    Controllers
+                  <Link to="/lighting/indoor-light" className="block px-4 py-2 font-medium text-gray-900 hover:bg-gray-100">
+                    Indoor Light
                   </Link>
-                  <Link to="/lighting/scenes" className="block px-4 py-2 font-medium text-gray-900 hover:bg-gray-100">
-                    Lighting Scenes
+                  <Link to="/lighting/outdoor-light" className="block px-4 py-2 font-medium text-gray-900 hover:bg-gray-100">
+                    Outdoor Light
                   </Link>
                 </div>
               )}
@@ -122,16 +128,16 @@ const Header = () => {
 
           {/* Social Media Links - Desktop */}
           <div className="hidden md:flex items-center space-x-3">
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="bg-sky-500 p-2 rounded-full  text-white hover:bg-sky-600 hover:scale-105 ">
+            <a href="https://www.facebook.com/TRECO-Technologies-1103251483062862" target="_blank" rel="noopener noreferrer" className="bg-sky-500 p-2 rounded-full  text-white hover:bg-sky-600 hover:scale-105 ">
               <Facebook size={20} />
             </a>
-            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="bg-sky-500 p-2 rounded-full  text-white hover:bg-sky-600 hover:scale-105 ">
+            <a href="https://twitter.com/TrecoTechnolog1" target="_blank" rel="noopener noreferrer" className="bg-sky-500 p-2 rounded-full  text-white hover:bg-sky-600 hover:scale-105 ">
               <Twitter size={20} />
             </a>
             <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="bg-sky-500 p-2 rounded-full  text-white hover:bg-sky-600 hover:scale-105 ">
               <Instagram size={20} />
             </a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="bg-sky-500 p-2 rounded-full  text-white hover:bg-sky-600 hover:scale-105 ">
+            <a href="https://www.linkedin.com/in/treco-technologies-7198b0129/" target="_blank" rel="noopener noreferrer" className="bg-sky-500 p-2 rounded-full  text-white hover:bg-sky-600 hover:scale-105 ">
               <Linkedin size={20} />
             </a>
           </div>

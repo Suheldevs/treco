@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronDown, Search, Plus, Minus, ArrowRight } from 'lucide-react';
 import {faqItems} from '../data/FaqData'
+import { Link } from 'react-router-dom';
 const FAQSection = () => {
   const [openIndex, setOpenIndex] = useState(null);
   const [searchTerm, setSearchTerm] = useState('');
@@ -281,13 +282,13 @@ const FAQSection = () => {
         <div className="mt-16 text-center">
           <h3 className="text-xl font-semibold text-gray-800 mb-2">Still have questions?</h3>
           <p className="text-gray-600 mb-6">Our team is here to help with any questions you might have</p>
-          <a 
-            href="#contact-form" 
+          <Link 
+            to="/contact" 
             className="inline-flex items-center px-6 py-3 bg-sky-600 text-white font-medium rounded-lg hover:bg-sky-700 transition-colors shadow-md hover:shadow-lg"
           >
             Contact Us
             <ArrowRight size={18} className="ml-2" />
-          </a>
+          </Link>
         </div>
       </div>
     </div>

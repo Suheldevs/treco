@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Search, ShoppingCart, Heart, Filter, ChevronDown, Star, ArrowUpRight } from 'lucide-react';
+import { fetchproductData } from '../redux/dataSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 const ProductCard = ({ product ,index }) => {
   const [isHovered, setIsHovered] = useState(false);
+  const backendUrl = import.meta.env.VITE_BACKEND_URL
 
   return (
     <div 
@@ -13,15 +17,15 @@ const ProductCard = ({ product ,index }) => {
       <div className="relative overflow-hidden h-64">
       <span className="absolute top-2 left-2 z-20 text-xs px-2 py-1 bg-white text-sky-600 rounded-full">{product.category}</span>
         <img 
-          src={`https://picsum.photos/400/320?random=${index}`} 
-          alt={product.title}
+          src={`${backendUrl}/${product.image}`} 
+          alt={product.name}
           className={`w-full h-full object-cover transition-transform duration-700 ${isHovered ? 'scale-110' : 'scale-100'}`}
         />
         <div className={`absolute  top-0 left-0 w-full h-full bg-black/40 flex items-center justify-center opacity-0 transition-opacity duration-300 ${isHovered ? 'opacity-100' : ''}`}>
-          <button className="bg-white group text-sky-600 rounded-xl px-3 py-2 mx-2 hover:bg-sky-500 hover:text-white transition-colors duration-300">
+          <Link to={`/products/${product.slug}`} className="bg-white group text-sky-600 rounded-xl px-3 py-2 mx-2 hover:bg-sky-500 hover:text-white transition-colors duration-300">
             {/* <ShoppingCart size={20} />  */}
             View Detail <ArrowUpRight className='inline rotate-12 group-hover:rotate-0' />
-          </button>
+          </Link>
           {/* <button className="bg-white text-gray-800 rounded-full p-3 mx-2 hover:bg-blue-500 hover:text-white transition-colors duration-300">
             <Heart size={20} />
           </button> */}
@@ -36,10 +40,9 @@ const ProductCard = ({ product ,index }) => {
           <Star size={16} className="text-gray-300" fill="currentColor" />
           <span className="text-gray-600 text-sm ml-2">(24 reviews)</span>
         </div>
-        <h3 className="font-semibold text-lg text-gray-800 mb-1">{product.title}</h3>
+        <h3 className="font-semibold text-lg text-gray-800 mb-1">{product.name}</h3>
         <p className="text-gray-500 text-sm mb-3 line-clamp-2">{product.description}</p>
         <div className="flex justify-between items-center">
-          {/* <span className="font-bold text-blue-600">${product.price.toFixed(2)}</span> */}
         
         </div>
       </div>
@@ -47,97 +50,46 @@ const ProductCard = ({ product ,index }) => {
   );
 };
 
+
 const ProductSection = () => {
   const [activeCategory, setActiveCategory] = useState('All');
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [isFilterOpen, setIsFilterOpen] = useState(false);
 
-  const categories = ['All', 'Home Automation', 'Lighting', 'Audio', 'Security', 'Smart Controls'];
-  
-  // Generate random products
-  const products = [
-    {
-      id: 1,
-      title: 'Smart Home Hub Controller',
-      slug: 'smart-home-hub-controller',
-      description: 'Control all your smart home devices from one central hub with voice commands and mobile app integration.',
-      category: 'Home Automation',
-      price: 199.99,
-    },
-    {
-      id: 2,
-      title: 'Adaptive LED Lighting System',
-      slug: 'adaptive-led-lighting-system',
-      description: 'Energy-efficient LED lighting that adapts to natural light conditions and your preferences throughout the day.',
-      category: 'Lighting',
-      price: 149.99,
-    },
-    {
-      id: 3,
-      title: 'Wireless Audio Symphony System',
-      slug: 'wireless-audio-symphony-system',
-      description: 'Multi-room audio system with crystal clear sound quality and seamless synchronization across your entire home.',
-      category: 'Audio',
-      price: 299.99,
-    },
-    {
-      id: 4,
-      title: 'Smart Security Camera Bundle',
-      slug: 'smart-security-camera-bundle',
-      description: 'HD security cameras with motion detection, night vision, and real-time alerts to your smartphone.',
-      category: 'Security',
-      price: 249.99,
-    },
-    {
-      id: 5,
-      title: 'Voice-Activated Room Controller',
-      slug: 'voice-activated-room-controller',
-      description: 'Control temperature, lighting, and entertainment systems with simple voice commands or scheduled routines.',
-      category: 'Smart Controls',
-      price: 129.99,
-    },
-    {
-      id: 6,
-      title: 'Smart Thermostat Pro',
-      slug: 'smart-thermostat-pro',
-      description: 'AI-powered thermostat that learns your schedule and preferences to optimize comfort and reduce energy costs.',
-      category: 'Home Automation',
-      price: 179.99,
-    },
-    {
-      id: 7,
-      title: 'Ambient Mood Lighting Kit',
-      slug: 'ambient-mood-lighting-kit',
-      description: 'Create the perfect atmosphere with customizable color schemes and dynamic lighting patterns.',
-      category: 'Lighting',
-      price: 89.99,
-    },
-    {
-      id: 8,
-      title: 'Premium Soundbar with Voice Control',
-      slug: 'premium-soundbar-with-voice-control',
-      description: 'Immersive audio experience with built-in voice assistants and wireless subwoofer for deep bass.',
-      category: 'Audio',
-      price: 349.99,
-    },
-    {
-      id: 9,
-      title: 'Smart Door Lock System',
-      slug: 'smart-door-lock-system',
-      description: 'Keyless entry system with fingerprint scanner, PIN code options, and remote access capabilities.',
-      category: 'Security',
-      price: 219.99,
-    },
-  ];
+  const dispatch = useDispatch()
+  const {productData, error, status} = useSelector((state)=>state.data)
+useEffect(()=>{
+dispatch(fetchproductData())
+},[])
+  // const categories = ['All', 'Home Automation', 'Lighting Automation', 'Audio Visual',];
+  const categories = ['All', ...new Set(productData?.map(p => p.category) || [])];
 
-  // Filter products based on active category
   useEffect(() => {
+    if (!productData) return;
+    
     if (activeCategory === 'All') {
-      setFilteredProducts(products);
+      setFilteredProducts(productData);
     } else {
-      setFilteredProducts(products.filter(product => product.category === activeCategory));
+      setFilteredProducts(productData.filter(product => product.category === activeCategory));
     }
-  }, [activeCategory]);
+  }, [activeCategory, productData]);
+
+  if(status=='loading'){
+    return(
+      <div className='text-xl h-[50vh] justify-center items-center flex font-medium textx-center shadow-2xl rounded p-2'>Loading..</div>
+    )
+  }
+  if(productData.length == 0){
+    return(
+      <div className='text-red-600 text-lg h-[50vh] justify-center items-center flex font-medium textx-center shadow-2xl rounded p-2'>Product Data Not Found!</div>
+    )
+  }
+  if(error){
+    return(
+      <div className='text-red-600 text-lg h-[50vh] justify-center items-center flex font-medium textx-center shadow-2xl rounded p-2'>{error}</div>
+    )
+  }
+
 
   return (
     <div className="">
@@ -212,9 +164,10 @@ const ProductSection = () => {
 
         {/* Products Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredProducts.map((product,index) => (
+          {filteredProducts.slice(0,9).map((product,index) => (
             <ProductCard key={product.id} product={product} index={index} />
           ))}
+          
         </div>
         
         {/* Empty state */}

@@ -20,7 +20,7 @@ function Breadcrumb({ title, items, bgImage }) {
         {items && (
           <ul className="mt-2 flex lg:justify-center justify-start items-center lg:text-lg group">
             {items.map((item, index) => (
-              <li key={index} className="opacity-95 flex items-center ">
+              <li key={index} className="opacity-95 flex capitalize items-center ">
                 <Link
                   to={item.link}
                   className="hover:text-gray-300 transition hover:translate-x-2"

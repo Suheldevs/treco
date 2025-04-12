@@ -13,26 +13,27 @@ const Footer = () => {
   // Company links data
   const companyLinks = [
     { label: "About Us", slug: "/about" },
-    { label: "Careers", slug: "/careers" },
     { label: "Contact Us", slug: "/contact" },
+    { label: "Latest Blog", slug: "/blog" },
+    { label: "Careers", slug: "/careers" },
     { label: "FAQ", slug: "/faq" },
     { label: "Privacy Policy", slug: "/privacy-policy" }
   ];
 
   // Home Automation links data
   const homeAutomationLinks = [
-    { label: "Automation", slug: "/home-automation/automation" },
-    { label: "Audio", slug: "/home-automation/audio" },
-    { label: "Networking & Security", slug: "/home-automation/networking-security" },
-    { label: "Lighting", slug: "/home-automation/lighting" }
+    { label: "Touch Switches", slug: "/home-automation/touch-switches" },
+    { label: "Modular Switches", slug: "/home-automation/modular-switches" },
+    { label: "Motion Sensor", slug: "/home-automation/motion-sensor" },
+    { label: "Smart Module", slug: "/home-automation/smart-module" },
+    { label: "Curtain/Blind Motor", slug: "/home-automation/Curtain-blind Motor" }
   ];
 
   const lightningAutomationLinks = [
-    { label: "Smart LED Lighting", slug: "/lighting-automation/smart-led-lighting" },
-    { label: "Motion Sensor Lights", slug: "/lighting-automation/motion-sensor-lights" },
-    { label: "Dimmable Lights", slug: "/lighting-automation/dimmable-lights" },
-    { label: "RGB Mood Lighting", slug: "/lighting-automation/rgb-mood-lighting" },
-    { label: "Wireless Light Control", slug: "/lighting-automation/wireless-light-control" }
+    { label: "Architecture Lights", slug: "/lighting/architecture-light" },
+    { label: "Indoor Lights", slug: "/lighting/indoor-light" },
+    { label: "Outdoor Lights", slug: "/lighting/outdoor-light" },
+    { label: "Audio Visual", slug: "/audio-visual" },
   ];
   
 
@@ -49,16 +50,16 @@ const Footer = () => {
               </p> */}
             </div>
             <div className="hidden md:flex items-center space-x-4">
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="bg-sky-500 p-2 rounded-full  text-white hover:bg-sky-600 hover:scale-105 ">
+            <a href="https://www.facebook.com/TRECO-Technologies-1103251483062862" target="_blank" rel="noopener noreferrer" className="bg-sky-500 p-2 rounded-full  text-white hover:bg-sky-600 hover:scale-105 ">
               <Facebook size={20} />
             </a>
-            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="bg-sky-500 p-2 rounded-full  text-white hover:bg-sky-600 hover:scale-105 ">
+            <a href="https://twitter.com/TrecoTechnolog1" target="_blank" rel="noopener noreferrer" className="bg-sky-500 p-2 rounded-full  text-white hover:bg-sky-600 hover:scale-105 ">
               <Twitter size={20} />
             </a>
             <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="bg-sky-500 p-2 rounded-full  text-white hover:bg-sky-600 hover:scale-105 ">
               <Instagram size={20} />
             </a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="bg-sky-500 p-2 rounded-full  text-white hover:bg-sky-600 hover:scale-105 ">
+            <a href="https://www.linkedin.com/in/treco-technologies-7198b0129/" target="_blank" rel="noopener noreferrer" className="bg-sky-500 p-2 rounded-full  text-white hover:bg-sky-600 hover:scale-105 ">
               <Linkedin size={20} />
             </a>
           </div>
@@ -78,13 +79,14 @@ const Footer = () => {
                   </li>
                 ))}
               </ul>
-              <div className="mt-4">
-                <Link
-                  to="/admin-login"
+              <div className="mt-2">
+                <a 
+                  href="https://treco-admin.netlify.app/"
+                  target="_blank"
                   className="px-4 py-2 border border-white/30 hover:bg-white hover:text-black transition-all duration-300 rounded-md inline-block"
                 >
                   Admin Login
-                </Link>
+                </a>
               </div>
             </div>
 
