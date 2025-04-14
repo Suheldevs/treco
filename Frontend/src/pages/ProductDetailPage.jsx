@@ -5,6 +5,8 @@ import { ShoppingCart, Heart, Share2, ArrowRight, ChevronRight } from 'lucide-re
 import { fetchproductData } from '../redux/dataSlice';
 import Breadcrumb from '../components/Breadcrumb';
 import InquiryModal from '../components/InquiryModal';
+import bread from '../assets/product-bread.jpg'
+
 
 // This component would normally be connected to your Redux store
 // For demo purposes, we're creating a mock product data structure
@@ -63,7 +65,7 @@ const ProductDetailPage = () => {
      <InquiryModal isOpen={isOpen} setIsOpen={setIsOpen} />
     <Breadcrumb 
   title="Product Detail"
-  bgImage="https://img.freepik.com/free-vector/smart-farm_107791-3702.jpg?t=st=1744025666~exp=1744029266~hmac=b5729289480b7692416c84d070cbae9ff75fa3b3f63764d7a0274baf10f7928c&w=826" 
+  bgImage={bread} 
   items={[
     { label: "Home", path: "/" },
     { label: "Products", path: "/products" },
@@ -73,7 +75,7 @@ const ProductDetailPage = () => {
 />
     <div className="bg-gray-50 min-h-screen">
       {/* Navigation breadcrumbs */}
-      <div className="container mx-auto px-4 py-4">
+      <div className="container mx-auto px-2 lg:px-4 py-4">
         <div className="flex items-center text-sm text-gray-500">
           <span>Home</span>
           <ChevronRight className="w-4 h-4 mx-1" />
@@ -86,7 +88,7 @@ const ProductDetailPage = () => {
       </div>
       
       {/* Product details section */}
-      <div className="container mx-auto px-4 py-8">
+      <div className="container mx-auto px-2 lg:px-4 py-8">
         <div className="bg-white rounded-xl shadow-sm overflow-hidden">
           <div className="md:flex">
             {/* Product image */}
@@ -104,7 +106,7 @@ const ProductDetailPage = () => {
             </div>
             
             {/* Product info */}
-            <div className="md:w-1/2 p-6 md:p-8">
+          <div className="md:w-1/2 p-4~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ md:p-8">
               <div className="mb-6">
                 <h1 className="text-3xl font-bold text-gray-900 mb-2">{product.name}</h1>
                 <div className="flex items-center mb-4">

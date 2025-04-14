@@ -4,7 +4,7 @@ import { useParams, Link } from "react-router-dom";
 import { ArrowUpRight, Star } from "lucide-react";
 import { fetchproductData } from "../redux/dataSlice";
 import Breadcrumb from "../components/Breadcrumb";
-
+import bread from '../assets/product-bread.jpg'
 const SubcategoryProductsPage = () => {
   const { subcategory } = useParams();
   const dispatch = useDispatch();
@@ -24,7 +24,7 @@ const SubcategoryProductsPage = () => {
     <>
     <Breadcrumb 
       title="Latest Product"
-      bgImage="https://img.freepik.com/free-vector/smart-farm_107791-3702.jpg?t=st=1744025666~exp=1744029266~hmac=b5729289480b7692416c84d070cbae9ff75fa3b3f63764d7a0274baf10f7928c&w=826" 
+      bgImage={bread}
       items={[
         { label: "Home", path: "/" },
         { label: "Home Automation", path: "/home-automation" },

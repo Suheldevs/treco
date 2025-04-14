@@ -1,13 +1,15 @@
 import React from "react";
 import { Lightbulb, Rocket, ArrowRight } from 'lucide-react';
 import { Link } from "react-router-dom";
+import bread from '../assets/about-bread.jpg'
+import about from '../assets/about.jpg'
 const AboutPage = () => {
   return (
     <div className="">
       {/* Hero Section */}
       <section className="relative h-96">
         <img
-          src="https://picsum.photos/id/103/1920/600"
+          src={bread}
           alt="Treco Engineering Header"
           className="w-full h-full object-cover brightness-75"
         />
@@ -16,7 +18,7 @@ const AboutPage = () => {
           <div className="h-2 w-1/4 bg-gradient-to-r from-sky-500 to-sky-300 rounded-full mt-2 mx-auto"></div>
           <p className="text-xl max-w-2xl text-center px-4">Engineering excellence and innovative solutions for a better tomorrow</p>
         </div> */}
-        <div className="absolute inset-0 flex flex-col justify-center items-center text-white bg-black/40">
+        <div className="absolute inset-0 flex flex-col justify-center items-center text-white bg-black/0">
           <div className="text-center">
             <h2 className="inline-block relative">
               <span className="text-4xl md:text-5xl lg:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-sky-600 to-sky-400">
@@ -60,9 +62,9 @@ const AboutPage = () => {
           </div>
           <div className="relative">
             <img
-              src="https://picsum.photos/id/28/600/500"
+              src={about}
               alt="Treco Team at Work"
-              className="rounded-lg shadow-xl z-10 relative"
+              className="rounded-lg h-auto shadow-xl z-10 relative"
             />
             <div className="absolute -bottom-4 -right-4 w-full h-full bg-sky-200 rounded-lg -z-10"></div>
           </div>
@@ -136,8 +138,8 @@ const AboutPage = () => {
         {/* Modern header section with animated underline */}
         <div className="text-center mb-12 relative">
           <span className="text-sm font-bold tracking-wider text-sky-600 uppercase mb-3 inline-block">The pillars of our approach</span>
-          <h2 className="text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-sky-600 to-indigo-600 mb-6">Our Core Values</h2>
-          <div className="h-1 w-24 bg-gradient-to-r from-sky-500 to-indigo-500 mx-auto mt-2 mb-8 rounded-full"></div>
+          <h2 className="text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-sky-500 to-blue-600 mb-6">Our Core Values</h2>
+          <div className="h-1 w-24 bg-gradient-to-r from-sky-500 to-blue-600 mx-auto mt-2 mb-8 rounded-full"></div>
           <p className="text-lg max-w-2xl mx-auto text-gray-600">
             These fundamental principles drive our innovation and guide our manufacturing excellence at Treco India.
           </p>

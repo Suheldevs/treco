@@ -21,7 +21,7 @@ const BlogCard = ({ date, category, title, imageUrl, slug }) => {
       </div>
       <h3 className="text-whit text-xl font-semibold lora mt-6 mb-4 line-clamp-2">{title}</h3>
       <div className="relative flex-grow">
-        <div className="h-48 w-full overflow-hidden group">
+        <Link to={`/blog/${slug}`}  className="h-48 w-full overflow-hidden group">
           <img
             // src={imageUrl || "/api/placeholder/400/320"}
             src={`${backendUrl}/${imageUrl}`} 
@@ -33,7 +33,7 @@ const BlogCard = ({ date, category, title, imageUrl, slug }) => {
         Read More <ArrowUpRight className='inline rotate-12 group-hover:rotate-0' />
           </Link>
           </div>
-        </div>
+        </Link>
       </div>
     </div>
   );

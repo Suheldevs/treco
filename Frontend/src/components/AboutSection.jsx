@@ -106,7 +106,7 @@ const AboutSection = () => {
           </div>
           
           {/* Text Content with Modern Design */}
-          <div className="order-1 md:order-2">
+          <div className="order-1 md:order-2 text-justify">
             <h3 className="text-3xl font-bold mb-6 text-gray-800">Our Innovative Approach</h3>
             <p className="text-gray-600 mb-4 leading-relaxed">
               We combine cutting-edge technology with thoughtful design to create home automation systems 

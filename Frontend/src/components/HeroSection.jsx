@@ -39,7 +39,7 @@ const HeroSection = () => {
   }
 
   return (
-    <div className="relative h-[90vh] w-full overflow-hidden">
+    <div className="relative lg:h-[90vh] h-[85vh] w-full overflow-hidden">
       {/* Background Slides */}
       {slides.map((slide, index) => (
         <div 
@@ -92,7 +92,7 @@ const HeroSection = () => {
             ))}
 
             {/* Action buttons - static across slides */}
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col lg:text-left text-center sm:flex-row gap-4">
               <Link to='/products'  className="bg-sky-500 hover:bg-blue-500 text-white px-8 py-3 rounded-full text-lg font-medium transition-colors">
               Explore Products
               </Link>
@@ -105,7 +105,7 @@ const HeroSection = () => {
       </div>
 
       {/* Slide indicators */}
-      <div className="absolute bottom-10 right-10 z-20 flex space-x-3">
+      <div className="absolute lg:bottom-10 bottom-2 lg:right-10 right-2 z-20 flex space-x-3">
         {slides.map((_, index) => (
           <button
             key={index}
@@ -119,7 +119,7 @@ const HeroSection = () => {
       </div>
 
       {/* Floating icon */}
-      <div className="absolute top-10 right-10 z-30">
+      <div className="absolute hidden lg:block top-10 right-10 z-30">
         <div className="bg-white/10 backdrop-blur-sm p-4 rounded-xl">
           <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
@@ -128,7 +128,7 @@ const HeroSection = () => {
       </div>
 
       {/* Scroll indicator */}
-      <div onClick={handleScrollDown} className="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-20 flex flex-col items-center animate-bounce duration-1000">
+      <div onClick={handleScrollDown} className="absolute hidden bottom-6 left-1/2 transform -translate-x-1/2 z-20 lg:flex flex-col items-center animate-bounce duration-1000">
         <span className="text-white text-sm mb-1">Scroll Down</span>
         <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />

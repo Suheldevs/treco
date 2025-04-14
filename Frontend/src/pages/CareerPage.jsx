@@ -10,7 +10,8 @@ import {
   AlertCircle,
   CheckCircle
 } from 'lucide-react';
-
+import career from '../assets/career.jpg'
+import axios from 'axios'
 const CareerPage = () => {
   const [formData, setFormData] = useState({
     fullName: '',
@@ -19,6 +20,7 @@ const CareerPage = () => {
     jobProfile: '',
     resume: null
   });
+  const backendUrl = import.meta.env.VITE_BACKEND_URL
   
   const [formStatus, setFormStatus] = useState({
     submitted: false,
@@ -48,7 +50,7 @@ const CareerPage = () => {
     });
   };
   
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
     // Validate form (simplified)
     if (!formData.fullName || !formData.email || !formData.phone || !formData.jobProfile || !formData.resume) {
@@ -58,6 +60,8 @@ const CareerPage = () => {
     
     // Form submission logic would go here
     console.log("Form submitted:", formData);
+const res = await axios.post(`${backendUrl}/career/save`,formData)
+console.log(res)
     alert('Application Submited Success fully')
     // Show success message
     setFormStatus({ submitted: true, error: false });
@@ -78,7 +82,7 @@ const CareerPage = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <div className="bg-gradient-to-r from-[#00a1e8] to-blue-400 text-white">
+      <div className="bg-gradient-to-r from-[#00a1e8] to-sky-400 text-white">
         <div className="container mx-auto px-4 py-24 relative overflow-hidden">
           {/* Decorative elements */}
           <div className="absolute top-0 right-0 w-64 h-64 bg-white opacity-5 rounded-full -translate-y-1/2 translate-x-1/2"></div>
@@ -86,11 +90,11 @@ const CareerPage = () => {
           
           <div className="max-w-3xl relative z-10">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">Join Our Team at Treco</h1>
-            <p className="text-xl md:text-2xl text-blue-100 mb-8">Help us build the future of automation technology and transform industries worldwide.</p>
-            <a href="#apply" className="inline-flex items-center px-6 py-3 bg-white text-blue-600 font-medium rounded-lg shadow-lg hover:bg-blue-50 transition duration-300">
+            <p className="text-xl md:text-2xl text-sky-100 mb-8">Help us build the future of automation technology and transform industries worldwide.</p>
+            {/* <a href="#apply" className="inline-flex items-center px-6 py-3 bg-white text-sky-600 font-medium rounded-lg shadow-lg hover:bg-sky-50 transition duration-300">
               View Open Positions
               <ChevronRight size={20} className="ml-2" />
-            </a>
+            </a> */} 
           </div>
         </div>
       </div>
@@ -104,24 +108,24 @@ const CareerPage = () => {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-blue-50 p-8 rounded-xl">
-              <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mb-6">
+            <div className="bg-sky-50 p-8 rounded-xl">
+              <div className="w-12 h-12 bg-sky-600 rounded-lg flex items-center justify-center mb-6">
                 <Trophy size={24} className="text-white" />
               </div>
               <h3 className="text-xl font-bold mb-3">Challenging Projects</h3>
               <p className="text-gray-600">Work on cutting-edge automation technologies that solve real-world problems for diverse industries.</p>
             </div>
             
-            <div className="bg-blue-50 p-8 rounded-xl">
-              <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mb-6">
+            <div className="bg-sky-50 p-8 rounded-xl">
+              <div className="w-12 h-12 bg-sky-600 rounded-lg flex items-center justify-center mb-6">
                 <Users size={24} className="text-white" />
               </div>
               <h3 className="text-xl font-bold mb-3">Collaborative Culture</h3>
               <p className="text-gray-600">Join a supportive team where your ideas matter and everyone contributes to our shared success.</p>
             </div>
             
-            <div className="bg-blue-50 p-8 rounded-xl">
-              <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mb-6">
+            <div className="bg-sky-50 p-8 rounded-xl">
+              <div className="w-12 h-12 bg-sky-600 rounded-lg flex items-center justify-center mb-6">
                 <Clock size={24} className="text-white" />
               </div>
               <h3 className="text-xl font-bold mb-3">Work-Life Balance</h3>
@@ -132,7 +136,7 @@ const CareerPage = () => {
       </div>
       
       {/* Open Positions */}
-      <div className="py-12 bg-gray-50" id="apply">
+      {/* <div className="py-12 bg-gray-50" id="apply">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Open Positions</h2>
@@ -153,7 +157,7 @@ const CareerPage = () => {
                   </span>
                 </div>
                 <div className="mt-6 flex justify-end">
-                  <a href="#application-form" className="text-blue-600 font-medium flex items-center hover:text-blue-800">
+                  <a href="#application-form" className="text-sky-600 font-medium flex items-center hover:text-sky-800">
                     Apply Now
                     <ChevronRight size={18} className="ml-1" />
                   </a>
@@ -162,12 +166,12 @@ const CareerPage = () => {
             ))}
           </div>
         </div>
-      </div>
+      </div> */}
       
       {/* Application Form */}
       <div className="py-12 container mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 bg-white" id="application-form">
-        <div className=''>
-            <img src='https://picsum.photos/800/850?random=1' className='rounded-3xl'/>
+        <div className='hidden lg:block'>
+            <img src={career} className='rounded-3xl h-[800px]'/>
             </div>
         <div className="container mx-auto px-4" id='contact-form'>
           <div className="max-w-2xl mx-auto">
@@ -191,7 +195,7 @@ const CareerPage = () => {
             ) : (
               <form onSubmit={handleSubmit} className="bg-gray-50 rounded-xl p-6 md:p-8 border border-gray-200">
                 {formStatus.error && (
-                  <div className="bg-red-50 border border-red-200 rounded-lg p-4 mb-6 flex items-start">
+                  <div className="bg-red-50 z-10 border border-red-200 rounded-lg p-4 mb-6 flex items-start">
                     <AlertCircle size={20} className="text-red-500 mr-3 mt-0.5" />
                     <p className="text-red-700">Please fill out all required fields before submitting.</p>
                   </div>
@@ -205,7 +209,7 @@ const CareerPage = () => {
                     name="fullName"
                     value={formData.fullName}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition"
+                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-sky-500 focus:border-sky-500 outline-none transition"
                     placeholder="Enter your full name"
                     required
                   />
@@ -220,7 +224,7 @@ const CareerPage = () => {
                       name="email"
                       value={formData.email}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition"
+                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-sky-500 focus:border-sky-500 outline-none transition"
                       placeholder="your@email.com"
                       required
                     />
@@ -232,9 +236,11 @@ const CareerPage = () => {
                       type="tel"
                       id="phone"
                       name="phone"
+                      pattern="^[6-9]\d{9}$"
+                      title="Please enter a valid 10-digit phone number starting with 6 to 9."
                       value={formData.phone}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition"
+                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-sky-500 focus:border-sky-500 outline-none transition"
                       placeholder="Your phone number"
                       required
                     />
@@ -248,7 +254,7 @@ const CareerPage = () => {
                     name="jobProfile"
                     value={formData.jobProfile}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition"
+                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-sky-500 focus:border-sky-500 outline-none transition"
                     required
                   >
                     <option value="" disabled>Select a position</option>
@@ -271,8 +277,8 @@ const CareerPage = () => {
                       required
                     />
                     <label htmlFor="resumeUpload" className="cursor-pointer">
-                      <div className="mx-auto w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-3">
-                        <Upload size={20} className="text-blue-600" />
+                      <div className="mx-auto w-12 h-12 bg-sky-100 rounded-full flex items-center justify-center mb-3">
+                        <Upload size={20} className="text-sky-600" />
                       </div>
                       <p className="text-gray-600 mb-1">
                         {formData.resume ? formData.resume.name : "Drag and drop your resume or click to browse"}
@@ -285,7 +291,7 @@ const CareerPage = () => {
                 <div className="flex justify-end">
                   <button 
                     type="submit" 
-                    className="px-8 py-3 bg-blue-600 text-white font-medium rounded-lg shadow hover:bg-blue-700 transition duration-300 focus:ring-4 focus:ring-blue-200"
+                    className="px-8 py-3 bg-sky-600 text-white font-medium rounded-lg shadow hover:bg-sky-700 transition duration-300 focus:ring-4 focus:ring-sky-200"
                   >
                     Submit Application
                   </button>
@@ -297,11 +303,11 @@ const CareerPage = () => {
       </div>
       
       {/* Footer CTA */}
-      <div className="bg-blue-900 text-white py-16">
+      <div className="bg-sky-600 text-white py-16">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-2xl md:text-3xl font-bold mb-4">Don't See a Position That Fits?</h2>
-          <p className="text-blue-200 mb-8 max-w-xl mx-auto">We're always looking for talented individuals. Send us your resume and we'll keep it on file for future opportunities.</p>
-          <a href="mailto:careers@treco.in" className="inline-flex items-center px-6 py-3 bg-white text-blue-900 font-medium rounded-lg shadow-lg hover:bg-blue-50 transition duration-300">
+          <p className="text-sky-200 mb-8 max-w-xl mx-auto">We're always looking for talented individuals. Send us your resume and we'll keep it on file for future opportunities.</p>
+          <a href="mailto:careers@treco.in" className="inline-flex items-center px-6 py-3 bg-white text-sky-900 font-medium rounded-lg shadow-lg hover:bg-sky-50 transition duration-300">
             Contact Our Recruiting Team
           </a>
         </div>

@@ -7,7 +7,7 @@ function Breadcrumb({ title, items, bgImage }) {
   return (
     <div
       className="relative lg:h-[350px] h-[250px] w-scree overflow-hidden bg-center bg-no-repeat bg-cover"
-      style={{ backgroundImage: `url(${bgImage})`, backgroundPosition:'bottom' }}
+      style={{ backgroundImage: `url(${bgImage})`, backgroundPosition:'botto' }}
     >
       {/* Overlay for better readability */}
       <div className="absolute inset-0 bg-black/30"></div>

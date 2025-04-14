@@ -37,6 +37,9 @@ app.use('/admin', userRoutes);
 import blogRoutes from './routes/blog.routes.js';
 app.use('/blog', blogRoutes);
 
+import careerRoutes from './routes/career.routes.js';
+app.use('/career', careerRoutes);
+
 
 
 

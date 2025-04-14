@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import googlePlay from "../assets/footer/Google-Play.png";
 import ios from "../assets/footer/IoS.png";
-import { FaPhoneVolume } from "react-icons/fa";
+import { FaPhoneVolume, FaWhatsapp } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { FaLocationDot } from "react-icons/fa6";
 import BottomFooter from "./BottomFooter";
@@ -43,12 +43,12 @@ const Footer = () => {
         <div className="container mx-auto">
           {/* Top section with logo and social media */}
           <div className="flex flex-col md:flex-row justify-between items-center mb-10 border-b border-white/10 pb-8">
-            <div className="mb-6 md:mb-0">
+            <Link to='/' className="block mb-6 md:mb-0">
               <img className="h-20" src={logo} alt="Company Logo" />
               {/* <p className="mt-4 max-w-md text-sm">
                 Your trusted partner in home and industrial automation solutions, bringing innovative technology to enhance your lifestyle and business efficiency.
               </p> */}
-            </div>
+            </Link>
             <div className="hidden md:flex items-center space-x-4">
             <a href="https://www.facebook.com/TRECO-Technologies-1103251483062862" target="_blank" rel="noopener noreferrer" className="bg-sky-500 p-2 rounded-full  text-white hover:bg-sky-600 hover:scale-105 ">
               <Facebook size={20} />
@@ -56,8 +56,8 @@ const Footer = () => {
             <a href="https://twitter.com/TrecoTechnolog1" target="_blank" rel="noopener noreferrer" className="bg-sky-500 p-2 rounded-full  text-white hover:bg-sky-600 hover:scale-105 ">
               <Twitter size={20} />
             </a>
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="bg-sky-500 p-2 rounded-full  text-white hover:bg-sky-600 hover:scale-105 ">
-              <Instagram size={20} />
+            <a href="https://wa.me/+91-9810894981" target="_blank" rel="noopener noreferrer" className="bg-sky-500 p-2 rounded-full  text-white hover:bg-sky-600 hover:scale-105 ">
+              <FaWhatsapp size={20} />
             </a>
             <a href="https://www.linkedin.com/in/treco-technologies-7198b0129/" target="_blank" rel="noopener noreferrer" className="bg-sky-500 p-2 rounded-full  text-white hover:bg-sky-600 hover:scale-105 ">
               <Linkedin size={20} />
@@ -127,9 +127,9 @@ const Footer = () => {
               <h3 className="font-semibold mb-4 text-xl text-white">Contact Us</h3>
               <ul className="space-y-2">
                 <li>
-                  <a href="tel:+966500761791" className="hover:text-white flex items-start">
+                  <a href="tel:9810894981" className="hover:text-white flex items-start">
                     <FaPhoneVolume className="mr-2 text-lg -rotate-12 mt-1 flex-shrink-0" />
-                    <span>+966 500761791</span>
+                    <span>+91-9810894981</span>
                   </a>
                 </li>
                 <li>
@@ -139,7 +139,7 @@ const Footer = () => {
                   </a>
                 </li>
                 <li>
-                  <a href="https://maps.app.goo.gl/vZrfWDywdjPauz6n7" className="hover:text-white flex items-start">
+                  <a href="https://maps.app.goo.gl/2dZBVek9ECTG5YZ86" className="hover:text-white flex items-start">
                     <FaLocationDot className='mr-2 text-lg mt-1 flex-shrink-0' />
                     <span>A-7, IInd Floor Kailash Plaza, Mayur Vihar, Phase-I, New Delhi</span>
                   </a>
@@ -154,7 +154,7 @@ const Footer = () => {
               </h3>
               <div className="flex flex-col space-y-3">
                 <a
-                  href="https://play.google.com"
+                  href="https://treco.in/wp-content/uploads/2020/11/Google-Play-1024x336.png"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="transition-transform hover:scale-105"
@@ -166,7 +166,7 @@ const Footer = () => {
                   />
                 </a>
                 <a
-                  href="https://www.apple.com/app-store/"
+                  href="https://treco.in/wp-content/uploads/2020/11/IoS-1024x335.png"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="transition-transform hover:scale-105"

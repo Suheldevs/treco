@@ -4,13 +4,14 @@ import Breadcrumb from '../components/Breadcrumb';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchproductData } from '../redux/dataSlice';
 import { Link } from 'react-router-dom';
-
+import bread from '../assets/product-bread.jpg'
 const ProductCard = ({ product ,index }) => {
   const [isHovered, setIsHovered] = useState(false);
   const backendUrl = import.meta.env.VITE_BACKEND_URL
 
   return (
-    <div 
+    <Link
+    to={`/products/${product.slug}`} 
       className="bg-white rounded-xl overflow-hidden shadow-md transition-all duration-300 hover:shadow-xl"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -47,7 +48,7 @@ const ProductCard = ({ product ,index }) => {
         
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 
@@ -93,7 +94,7 @@ dispatch(fetchproductData())
     <>
     <Breadcrumb 
   title="Latest Products"
-  bgImage="https://img.freepik.com/free-vector/smart-farm_107791-3702.jpg?t=st=1744025666~exp=1744029266~hmac=b5729289480b7692416c84d070cbae9ff75fa3b3f63764d7a0274baf10f7928c&w=826" 
+  bgImage={bread}
   items={[
     { label: "Home", path: "/" },
     { label: "Products", path: "/product" },

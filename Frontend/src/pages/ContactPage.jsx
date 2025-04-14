@@ -11,10 +11,9 @@ import {
   AlertTriangle
 } from "lucide-react";
 import Breadcrumb from "../components/Breadcrumb";
-import FAQSection from "../components/FaqSection";
-import FaqItem from "../components/FaqItem";
 import axios from "axios";
-
+import bread from '../assets/contact.jpg'
+import FaqItem from "../components/FaqItem";
 const ContactPage = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -122,7 +121,7 @@ const ContactPage = () => {
     <>
       <Breadcrumb 
         title="Contact Us"
-        bgImage="https://treco.in/wp-content/uploads/2020/12/Contact-cover-pic-e1608727652960.jpg"
+        bgImage={bread}
         items={[
           { label: "Home", path: "/" },
           { label: "Contact", path: "/contact" },
@@ -145,10 +144,21 @@ const ContactPage = () => {
                   Our support team is available Monday to Friday, 8am to 6pm.
                 </p>
                 <a
-                  href="tel:+1234567890"
+                  href="tel:9810894981"
                   className="text-sky-600 font-medium inline-flex items-center group"
                 >
-                  +1 (234) 567-890
+                  +91-9810894981
+                  <ArrowRight
+                    size={16}
+                    className="ml-1 transform transition-transform duration-300 group-hover:translate-x-1"
+                  />
+                </a>
+                <br/>
+                <a
+                  href="tel:011-45662460"
+                  className="text-sky-600 font-medium inline-flex items-center group"
+                >
+                 011-45662460
                   <ArrowRight
                     size={16}
                     className="ml-1 transform transition-transform duration-300 group-hover:translate-x-1"
@@ -178,6 +188,16 @@ const ContactPage = () => {
                     className="ml-1 transform transition-transform duration-300 group-hover:translate-x-1"
                   />
                 </a>
+                <a
+                  href="mailto:trecotechnology@gmail.com"
+                  className="text-sky-600 font-medium inline-flex items-center group"
+                >
+                 trecotechnology@gmail.com
+                  <ArrowRight
+                    size={16}
+                    className="ml-1 transform transition-transform duration-300 group-hover:translate-x-1"
+                  />
+                </a>
               </div>
             </div>
 
@@ -192,13 +212,13 @@ const ContactPage = () => {
                 <p className="text-gray-600 mb-4">
                   Come visit our showroom to experience our solutions firsthand.
                 </p>
-                <address className="text-sky-600 font-medium not-italic inline-flex items-center group">
-                  123 Tech Avenue, Innovation City
+                <a href="https://maps.app.goo.gl/2dZBVek9ECTG5YZ86" className="text-sky-600 font-medium not-italic inline-flex items-center group">
+                A-7, 2nd Floor, Kailash Plazza, Mayur Vihar Phase-I, New Delhi
                   <ArrowRight
                     size={16}
                     className="ml-1 transform transition-transform duration-300 group-hover:translate-x-1"
                   />
-                </address>
+                </a>
               </div>
             </div>
           </div>
@@ -442,7 +462,7 @@ const ContactPage = () => {
               </div>
             </div>
           </div>
-          <FaqItem/>
+         <FaqItem/>
         </div>
 
         {/* CSS for animations */}

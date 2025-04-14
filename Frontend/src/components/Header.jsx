@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, X, ChevronDown, Home, Info, Lightbulb, Music, Box, Mail, Facebook, Twitter, Instagram, Linkedin } from 'lucide-react';
 import logo from '../assets/logo.webp'
+import { FaWhatsapp } from "react-icons/fa";
+
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState({
@@ -134,8 +136,8 @@ const Header = () => {
             <a href="https://twitter.com/TrecoTechnolog1" target="_blank" rel="noopener noreferrer" className="bg-sky-500 p-2 rounded-full  text-white hover:bg-sky-600 hover:scale-105 ">
               <Twitter size={20} />
             </a>
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="bg-sky-500 p-2 rounded-full  text-white hover:bg-sky-600 hover:scale-105 ">
-              <Instagram size={20} />
+            <a href="https://wa.me/+91-9810894981" target="_blank" rel="noopener noreferrer" className="bg-sky-500 p-2 rounded-full  text-white hover:bg-sky-600 hover:scale-105 ">
+              <FaWhatsapp size={20} />
             </a>
             <a href="https://www.linkedin.com/in/treco-technologies-7198b0129/" target="_blank" rel="noopener noreferrer" className="bg-sky-500 p-2 rounded-full  text-white hover:bg-sky-600 hover:scale-105 ">
               <Linkedin size={20} />
@@ -146,9 +148,9 @@ const Header = () => {
           <div className="md:hidden flex items-center">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-500 hover:text-gray-700 focus:outline-none"
+              className="text-gray-900 hover:text-gray-950 focus:outline-none"
             >
-              {isOpen ? <X size={24} /> : <Menu size={24} />}
+              {isOpen ? <X size={26} /> : <Menu size={26} />}
             </button>
           </div>
         </div>
@@ -159,11 +161,11 @@ const Header = () => {
         <div className="md:hidden bg-white shadow-lg py-4">
           <div className="container mx-auto px-4">
             <div className="flex flex-col space-y-4">
-              <Link to="/" className="flex items-center text-gray-700 hover:text-sky-600 font-medium py-2" onClick={() => setIsOpen(false)}>
+              <Link to="/" className="flex items-center text-gray-800 hover:text-sky-600 font-medium py-2" onClick={() => setIsOpen(false)}>
                 <Home size={18} className="mr-2" />
                 <span>Home</span>
               </Link>
-              <Link to="/about" className="flex items-center text-gray-700 hover:text-sky-600 font-medium py-2" onClick={() => setIsOpen(false)}>
+              <Link to="/about" className="flex items-center text-gray-800 hover:text-sky-600 font-medium py-2" onClick={() => setIsOpen(false)}>
                 <Info size={18} className="mr-2" />
                 <span>About</span>
               </Link>
@@ -171,7 +173,7 @@ const Header = () => {
               {/* Home Automation Dropdown - Mobile */}
               <div className="flex flex-col">
                 <button 
-                  className="flex items-center justify-between text-gray-700 hover:text-sky-600 font-medium py-2"
+                  className="flex items-center justify-between text-gray-800 hover:text-sky-600 font-medium py-2"
                   onClick={() => toggleDropdown('homeAutomation')}
                 >
                   <span>Home Automation</span>
@@ -179,15 +181,22 @@ const Header = () => {
                 </button>
                 {dropdownOpen.homeAutomation && (
                   <div className="ml-4 mt-1 flex flex-col space-y-2">
-                    <Link to="/home-automation/smart-hub" className="text-gray-600 hover:text-sky-600 py-1" onClick={() => setIsOpen(false)}>
-                      Smart Hub
-                    </Link>
-                    <Link to="/home-automation/security" className="text-gray-600 hover:text-sky-600 py-1" onClick={() => setIsOpen(false)}>
-                      Security
-                    </Link>
-                    <Link to="/home-automation/climate" className="text-gray-600 hover:text-sky-600 py-1" onClick={() => setIsOpen(false)}>
-                      Climate Control
-                    </Link>
+                    <Link to="/home-automation/touch-switches" onClick={() => setIsOpen(false)} className="block px-4 py-2 font-medium text-gray-900 hover:bg-gray-100">
+                    Touch Switches
+                  </Link>
+                  <Link to="/home-automation/modular-switches" onClick={() => setIsOpen(false)} className="block px-4 py-2 font-medium text-gray-900 hover:bg-gray-100">
+                    Modular Switches
+                  </Link>
+                  <Link to="/home-automation/motion-sensor" onClick={() => setIsOpen(false)} className="block px-4 py-2 font-medium text-gray-900 hover:bg-gray-100">
+                    Motion Sensor
+                  </Link>
+                  <Link to="/home-automation/smart-module" onClick={() => setIsOpen(false)} className="block px-4 py-2 font-medium text-gray-900 hover:bg-gray-100">
+                    Smart Module
+                  </Link>
+                  <Link to="/home-automation/curtain-blind-motor" onClick={() => setIsOpen(false)} className="block px-4 py-2 font-medium text-gray-900 hover:bg-gray-100">
+                    Curtain/Blind Motor
+                  </Link>
+                   
                   </div>
                 )}
               </div>
@@ -195,7 +204,7 @@ const Header = () => {
               {/* Lighting Automation Dropdown - Mobile */}
               <div className="flex flex-col">
                 <button 
-                  className="flex items-center justify-between text-gray-700 hover:text-sky-600 font-medium py-2"
+                  className="flex items-center justify-between text-gray-800 hover:text-sky-600 font-medium py-2"
                   onClick={() => toggleDropdown('lightingAutomation')}
                 >
                   <div className="flex items-center">
@@ -206,44 +215,45 @@ const Header = () => {
                 </button>
                 {dropdownOpen.lightingAutomation && (
                   <div className="ml-4 mt-1 flex flex-col space-y-2">
-                    <Link to="/lighting/smart-bulbs" className="text-gray-600 hover:text-sky-600 py-1" onClick={() => setIsOpen(false)}>
-                      Smart Bulbs
-                    </Link>
-                    <Link to="/lighting/controllers" className="text-gray-600 hover:text-sky-600 py-1" onClick={() => setIsOpen(false)}>
-                      Controllers
-                    </Link>
-                    <Link to="/lighting/scenes" className="text-gray-600 hover:text-sky-600 py-1" onClick={() => setIsOpen(false)}>
-                      Lighting Scenes
-                    </Link>
+                     <Link to="/lighting/architecture-light" className="block px-4 py-2 font-medium text-gray-900 hover:bg-gray-100">
+                    Architecture Light
+                  </Link>
+                  <Link to="/lighting/indoor-light" className="block px-4 py-2 font-medium text-gray-900 hover:bg-gray-100">
+                    Indoor Light
+                  </Link>
+                  <Link to="/lighting/outdoor-light" className="block px-4 py-2 font-medium text-gray-900 hover:bg-gray-100">
+                    Outdoor Light
+                  </Link>
+                   
                   </div>
                 )}
               </div>
               
-              <Link to="/audio-visual" className="flex items-center text-gray-700 hover:text-sky-600 font-medium py-2" onClick={() => setIsOpen(false)}>
+              <Link to="/audio-visual" className="flex items-center text-gray-800 hover:text-sky-600 font-medium py-2" onClick={() => setIsOpen(false)}>
                 <Music size={18} className="mr-2" />
                 <span>Audio Visual</span>
               </Link>
-              <Link to="/products" className="flex items-center text-gray-700 hover:text-sky-600 font-medium py-2" onClick={() => setIsOpen(false)}>
+              <Link to="/products" className="flex items-center text-gray-800 hover:text-sky-600 font-medium py-2" onClick={() => setIsOpen(false)}>
                 <Box size={18} className="mr-2" />
                 <span>Products</span>
               </Link>
-              <Link to="/contact" className="flex items-center text-gray-700 hover:text-sky-600 font-medium py-2" onClick={() => setIsOpen(false)}>
+              <Link to="/contact" className="flex items-center text-gray-800 hover:text-sky-600 font-medium py-2" onClick={() => setIsOpen(false)}>
                 <Mail size={18} className="mr-2" />
                 <span>Contact</span>
               </Link>
               
               {/* Social Media Links - Mobile */}
               <div className="flex space-x-6 pt-2 border-t border-gray-200">
-                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-sky-600">
+                <a href="https://www.facebook.com/TRECO-Technologies-1103251483062862" target="_blank" rel="noopener noreferrer" className="text-gray-800 hover:text-sky-600">
                   <Facebook size={20} />
                 </a>
-                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-sky-400">
+                <a href="https://twitter.com/TrecoTechnolog1" target="_blank" rel="noopener noreferrer" className="text-gray-800 hover:text-sky-400">
                   <Twitter size={20} />
                 </a>
-                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-pink-600">
-                  <Instagram size={20} />
+                <a href="https://wa.me/+91-9810894981" target="_blank" rel="noopener noreferrer" className="text-gray-800 hover:text-pink-600">
+                  <FaWhatsapp size={20} />
                 </a>
-                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-sky-800">
+                <a href="https://www.linkedin.com/in/treco-technologies-7198b0129/" target="_blank" rel="noopener noreferrer" className="text-gray-800 hover:text-sky-800">
                   <Linkedin size={20} />
                 </a>
               </div>

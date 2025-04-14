@@ -47,7 +47,8 @@ const saveProduct = async (req, res, next) => {
 
 const getAllProducts = async (req, res, next) => {
   try {
-    const products = await Product.find().sort({ createdAt: -1 });
+    // const products = await Product.find().sort({ createdAt: -1 });
+    const products = await Product.find()
     res.status(200).json({ success: true, products });
   } catch (err) {
     next(ApiError(err.message, 500));
