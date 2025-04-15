@@ -9,6 +9,7 @@ import ProductPage from './pages/ProductPage'
 import BlogPage from './pages/BlogPage'
 import InquiryPage from './pages/InquiryPage'
 import AdminLogin from './pages/Login';
+import CareerPage from './pages/CareerPage';
 function App() {
   return (
     <BrowserRouter>
@@ -19,6 +20,7 @@ function App() {
       <Route path='/product' element={<AdminLayout><ProductPage/></AdminLayout>} />
       <Route path='/blog' element={<AdminLayout><BlogPage/></AdminLayout>} />
       <Route path='/inquiry' element={<AdminLayout><InquiryPage/></AdminLayout>} />
+      <Route path='/job-application' element={<AdminLayout><CareerPage/></AdminLayout>} />
     </Routes>
     </BrowserRouter>
     // <Home/>

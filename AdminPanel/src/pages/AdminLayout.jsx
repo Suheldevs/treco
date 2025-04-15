@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, ChevronLeft, ChevronRight, LayoutDashboard, ShoppingCart, FileText, MessageSquare } from 'lucide-react';
+import { Menu, X, ChevronLeft, ChevronRight, LayoutDashboard, ShoppingCart, FileText, MessageSquare, Info } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import cclogo from '../assets/ccogo-suhel.webp';
 export default function AdminLayout({ children }) {
@@ -29,6 +29,7 @@ export default function AdminLayout({ children }) {
     { path: '/product', name: 'Products', icon: <ShoppingCart size={20} /> },
     { path: '/blog', name: 'Blog', icon: <FileText size={20} /> },
     { path: '/inquiry', name: 'Inquiry', icon: <MessageSquare size={20} /> },
+    { path: '/job-application', name: 'Job Applications', icon: <Info size={20} /> },
   ];
 
   const isActive = (path) => {

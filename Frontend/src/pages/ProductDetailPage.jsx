@@ -17,7 +17,6 @@ const ProductDetailPage = () => {
   
   // In a real application, this would come from your Redux store
   const { productData, error, status } = useSelector((state) => state.data);
-  console.log(productData)
   // Mock data for demonstration
   const [loading, setLoading] = useState(true);
   const [product, setProduct] = useState(null);

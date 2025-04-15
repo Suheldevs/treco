@@ -77,7 +77,6 @@ export default function InquiryModal({ isOpen, setIsOpen }) {
       validateForm()
       
       const res = await axios.post(`${api}/inquiry/save`, formData);
-      console.log("Form submission successful:", res);
       setSuccess(true);
       
       setTimeout(() => {

@@ -29,10 +29,12 @@ const CareerPage = () => {
   
   const jobPositions = [
     { id: 1, title: "Automation Engineer", department: "Engineering", location: "Remote" },
-    { id: 2, title: "Frontend Developer", department: "Development", location: "Bangalore" },
-    { id: 3, title: "UX/UI Designer", department: "Design", location: "Hybrid" },
-    { id: 4, title: "Project Manager", department: "Operations", location: "Mumbai" },
-    { id: 5, title: "AI Specialist", department: "R&D", location: "Pune" },
+    { id: 2, title: "Home Automation Technician", department: "Development", location: "Bangalore" },
+    { id: 3, title: "Smart Home Installer", department: "Design", location: "Hybrid" },
+    { id: 4, title: "Production Engineer", department: "Operations", location: "Mumbai" },
+    { id: 5, title: "Production Engineer", department: "R&D", location: "Pune" },
+    { id: 5, title: "Area Sales Manager", department: "R&D", location: "Pune" },
+    { id: 5, title: "Other", department: "R&D", location: "Pune" },
   ];
   
   const handleInputChange = (e) => {
@@ -58,10 +60,8 @@ const CareerPage = () => {
       return;
     }
     
-    // Form submission logic would go here
-    console.log("Form submitted:", formData);
-const res = await axios.post(`${backendUrl}/career/save`,formData)
-console.log(res)
+const res = await axios.post(`${backendUrl}/career/save`,formData,{headers:{'Content-Type':'multipart/form-data'}})
+
     alert('Application Submited Success fully')
     // Show success message
     setFormStatus({ submitted: true, error: false });

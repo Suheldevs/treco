@@ -115,7 +115,6 @@ export default function BlogModal({ isOpen, blog, onClose, onSave }) {
           { headers: { 'Content-Type': 'multipart/form-data' } }
         );
       }
-      console.log(response)
       if (response.data) {
         onSave();
       } else {

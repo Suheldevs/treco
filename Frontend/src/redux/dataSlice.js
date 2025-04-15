@@ -13,7 +13,6 @@ const initialState = {
 
 export const fetchproductData = createAsyncThunk('data/fetchproductData',async()=>{
     const response = await axios.get(`${backendUrl}/product/getall`)
-    console.log(response)
     return response.data.products
 })
 

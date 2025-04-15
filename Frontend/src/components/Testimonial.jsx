@@ -5,21 +5,21 @@ function Testimonial() {
   const testimonials = [
     {
       id: 1,
-      name: "Sarah Johnson",
+      name: "Mukesh Verma",
       role: "Manufacturing Director",
       quote: "AutomateX transformed our production line with their cutting-edge solutions. Our efficiency increased by 40% within just three months of implementation.",
       rating: 5
     },
     {
       id: 2,
-      name: "Michael Chen",
+      name: "Aman Rathi",
       role: "Operations Manager", 
       quote: "From initial consultation to deployment, the AutomateX team demonstrated exceptional expertise. Their automation systems have dramatically reduced our operational costs.",
       rating: 5
     },
     {
       id: 3,
-      name: "Laura & David Smith",
+      name: "Rajat Yadav",
       role: "Small Business Owners",
       quote: "The customized workflow automation tools have revolutionized how we handle customer orders. AutomateX truly understood our unique business challenges.",
       rating: 5
@@ -105,7 +105,7 @@ function Testimonial() {
               <div className="flex items-center">
                 <div className="w-12 h-12 rounded-full bg-gray-200 mr-4"></div>
                 <div>
-                  <h4 className="font-semibold">{testimonials[currentMobileTestimonial].name}</h4>
+                  <div  className="font-semibold">{testimonials[currentMobileTestimonial].name}</div>
                   <p className="text-sm text-gray-500">{testimonials[currentMobileTestimonial].role}</p>
                 </div>
               </div>

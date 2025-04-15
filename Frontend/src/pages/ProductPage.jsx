@@ -129,7 +129,7 @@ dispatch(fetchproductData())
               className={`px-4 py-2 rounded transition-all duration-200 whitespace-nowrap ${
                 activeCategory === category
                   ? 'bg-blue-500 text-white font-medium shadow-md'
-                  : 'bg-white border border-slate-200 text-gray-700 hover:bg-gray-100'
+                  : 'bg-white border border-slate-200 text-gray-900 hover:bg-gray-100'
               }`}
             >
               {category}

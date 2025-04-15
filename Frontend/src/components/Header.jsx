@@ -51,6 +51,7 @@ const Header = () => {
             {/* Home Automation Dropdown */}
             <div className="relative group">
               <button 
+              aria-label='home auto'
               title='Home Automation'
                 className="flex items-center  text-black  hover:text-sky-600 font-semibold"
                 onClick={() => toggleDropdown('homeAutomation')}
@@ -88,6 +89,8 @@ const Header = () => {
             {/* Lighting Automation Dropdown */}
             <div className="relative group">
               <button 
+              title='Light'
+              id='light'
                 className="flex items-center  text-black  hover:text-sky-600 font-semibold"
                 onClick={() => toggleDropdown('lightingAutomation')}
                 onMouseEnter={() => setDropdownOpen({...dropdownOpen, lightingAutomation: true})}
@@ -149,6 +152,9 @@ const Header = () => {
           {/* Mobile menu button */}
           <div className="md:hidden flex items-center">
             <button
+            aria-label='Toggle menu'
+            title='Toggle menu'
+            id='Toggle'
               onClick={() => setIsOpen(!isOpen)}
               className="text-gray-900 hover:text-gray-950 focus:outline-none"
             >
@@ -175,6 +181,8 @@ const Header = () => {
               {/* Home Automation Dropdown - Mobile */}
               <div className="flex flex-col">
                 <button 
+                title='Home automation'
+                aria-label='Home automation'
                   className="flex items-center justify-between text-gray-800 hover:text-sky-600 font-medium py-2"
                   onClick={() => toggleDropdown('homeAutomation')}
                 >
@@ -206,6 +214,8 @@ const Header = () => {
               {/* Lighting Automation Dropdown - Mobile */}
               <div className="flex flex-col">
                 <button 
+                title='Light'
+                aria-label='Lighting'
                   className="flex items-center justify-between text-gray-800 hover:text-sky-600 font-medium py-2"
                   onClick={() => toggleDropdown('lightingAutomation')}
                 >

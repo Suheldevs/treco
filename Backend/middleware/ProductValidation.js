@@ -8,7 +8,6 @@ const ProductValidation = async (req, res, next) => {
       return next(new ApiError('All fields are required', 400));
     }
 
-    console.log('Validation passed ✅');
     next();
   } catch (err) {
     next(new ApiError(err.message, 500));

@@ -240,12 +240,10 @@ export default function ProductModal({ isOpen, product = null, onClose, onSave }
       let response;
       if (isEditMode) {
           response = await axios.put(url, formDataToSend, config);
-          console.log(formDataToSend)
       } else {
         response = await axios.post(url, formDataToSend, config);
       }
     
-    console.log(response)
       onSave(response.data);
       onClose();
       
