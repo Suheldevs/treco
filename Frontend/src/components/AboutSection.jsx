@@ -2,7 +2,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 // import about from '../assets/Home/about.jpg'
-import about from '../assets/Home/a2.jpg'
+import about from '../assets/Home/a2.webp'
 const AboutSection = () => {
   return (
     <section className="relative lg:py-14 md:py-12 py-10 bg-gradient-to-br from-gray-50 to-white overflow-hidden">
@@ -107,7 +107,7 @@ const AboutSection = () => {
           
           {/* Text Content with Modern Design */}
           <div className="order-1 md:order-2 text-justify">
-            <h3 className="text-3xl font-bold mb-6 text-gray-800">Our Innovative Approach</h3>
+            <h3 className="text-3xl font-bold mb-6 text-gray-800 text-left">Our Innovative Approach</h3>
             <p className="text-gray-600 mb-4 leading-relaxed">
               We combine cutting-edge technology with thoughtful design to create home automation systems 
               that truly enhance your daily life. Our team of experts works tirelessly to ensure that every 

@@ -96,8 +96,8 @@ dispatch(fetchproductData())
   title="Latest Products"
   bgImage={bread}
   items={[
-    { label: "Home", path: "/" },
-    { label: "Products", path: "/product" },
+    { label: "Home", link: "/" },
+    { label: "Products", link: "/products" },
     // { label: "Electronics", path: "/products/electronics" }
   ]}
 />
@@ -123,6 +123,7 @@ dispatch(fetchproductData())
         <div className="hidden md:flex mb-8 space-x-2 overflow-x-auto pb-2  justify-center items-center">
           {categories.map((category) => (
             <button
+            title='Category selection button'
               key={category}
               onClick={() => setActiveCategory(category)}
               className={`px-4 py-2 rounded transition-all duration-200 whitespace-nowrap ${

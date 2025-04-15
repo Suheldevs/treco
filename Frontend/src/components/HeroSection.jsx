@@ -1,5 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import {Link} from 'react-router-dom'
+import Home from '../assets/Home/home-automation.webp'
+import light from '../assets/Home/lighting.webp'
+import audio from '../assets/Home/audio.webp'
+
+
 const HeroSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   
@@ -7,19 +12,19 @@ const HeroSection = () => {
     {
       title: "Smart Home Automation",
       subtitle: "Transform your living space with intelligent control systems",
-      image: "https://treco.in/wp-content/uploads/2024/04/stephan-bechert-yFV39g6AZ5o-unsplash.jpg",
+      image: Home,
       features: ["Touchless Control", "Energy Efficient", "Voice Activated"]
     },
     {
       title: "Advanced Lighting Solutions",
       subtitle: "Precision lighting that adapts to your lifestyle",
-      image: "https://treco.in/wp-content/uploads/2024/04/patrick-schneider-mFnbFaCIu1I-unsplash.jpg",
+      image: light,
       features: ["Mood Settings", "Schedule Control", "Energy Monitoring"]
     },
     {
       "title": "Immersive Audio-Visual Experience",
       "subtitle": "Enhance your spaces with smart lighting and high-fidelity sound",
-      "image": "https://treco.in/wp-content/uploads/2024/04/ivan-bandura-lZCHy8PLyyo-unsplash.jpg",
+      "image": audio,
       "features": ["Smart Lighting Sync", "High-Quality Surround Sound", "Seamless Device Integration"]
     }
     
@@ -51,6 +56,7 @@ const HeroSection = () => {
           <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/40 z-10" />
           <img 
             src={slide.image} 
+            loading='eager'
             alt={slide.title} 
             className="h-full w-full object-cover"
           />
@@ -93,10 +99,10 @@ const HeroSection = () => {
 
             {/* Action buttons - static across slides */}
             <div className="flex flex-col lg:text-left text-center sm:flex-row gap-4">
-              <Link to='/products'  className="bg-sky-500 hover:bg-blue-500 text-white px-8 py-3 rounded-full text-lg font-medium transition-colors">
+              <Link aria-label='Explore Products' title='Explore Products' to='/products'  className="bg-sky-500 hover:bg-blue-500 text-black px-8 py-3 rounded-full text-lg font-medium transition-colors">
               Explore Products
               </Link>
-              <Link to='/about' className="bg-transparent border-2 border-white text-white px-8 py-3 rounded-full text-lg font-medium hover:bg-white hover:text-blue-900 transition-colors">
+              <Link aria-label='About Treco' title='About Treco' to='/about' className="bg-transparent border-2 border-white text-white px-8 py-3 rounded-full text-lg font-medium hover:bg-white hover:text-blue-900 transition-colors">
                 About Treco
               </Link>
             </div>
@@ -105,7 +111,7 @@ const HeroSection = () => {
       </div>
 
       {/* Slide indicators */}
-      <div className="absolute lg:bottom-10 bottom-2 lg:right-10 right-2 z-20 flex space-x-3">
+      <div className="absolute lg:bottom-10 bottom-5 lg:right-10 right-2 z-20 flex space-x-3">
         {slides.map((_, index) => (
           <button
             key={index}

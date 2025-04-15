@@ -167,6 +167,7 @@ export default function InquiryModal({ isOpen, setIsOpen }) {
             Project Information
           </h2>
           <button 
+          title='close'
             onClick={handleClose} 
             className="text-black hover:text-gray-700 bg-white bg-opacity-20 rounded-full p-2 transition-all hover:bg-opacity-30"
             disabled={loading}
@@ -179,6 +180,8 @@ export default function InquiryModal({ isOpen, setIsOpen }) {
         <div className="bg-gray-50 px-6 py-3">
           <div className="flex justify-between items-center">
             <button 
+            title='first step'
+            aria-label='first step'
               className={`rounded-full ${formStep === 1 ? 'bg-sky-600 text-white' : 'bg-gray-200 text-gray-600'} h-8 w-8 flex items-center justify-center font-medium`}
               onClick={() => !loading && setFormStep(1)}
               disabled={loading}

@@ -67,10 +67,9 @@ const ProductDetailPage = () => {
   title="Product Detail"
   bgImage={bread} 
   items={[
-    { label: "Home", path: "/" },
-    { label: "Products", path: "/products" },
-    { label: product.name, path: `/products/${product.slug}` },
-    // { label: "Electronics", path: "/products/electronics" }
+    { label: "Home", link: "/" },
+    { label: "Products", link: "/products" },
+    { label: product.name, link: `/products/${product.slug}` },
   ]}
 />
     <div className="bg-gray-50 min-h-screen">
@@ -106,7 +105,7 @@ const ProductDetailPage = () => {
             </div>
             
             {/* Product info */}
-          <div className="md:w-1/2 p-4~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ md:p-8">
+          <div className="md:w-1/2 p-4 md:p-8">
               <div className="mb-6">
                 <h1 className="text-3xl font-bold text-gray-900 mb-2">{product.name}</h1>
                 <div className="flex items-center mb-4">

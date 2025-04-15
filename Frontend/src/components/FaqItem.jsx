@@ -27,6 +27,7 @@ function FaqItem() {
               className="self-start bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg border-l-4 border-transparent hover:border-l-blue-500"
             >
               <button
+              title='Toggle answer'
                 onClick={() => toggleFAQ(index)}
                 className="w-full px-6 py-5 text-left flex justify-between items-center transition-colors focus:outline-none group"
                 aria-expanded={openIndex === index}

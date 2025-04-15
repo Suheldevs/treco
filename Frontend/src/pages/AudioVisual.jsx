@@ -1,46 +1,23 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Tv, Speaker, Headphones, Video, MonitorSpeaker, Mic, Radio, Film, ChevronRight, Play, Volume2, Music, Monitor, Smartphone } from 'lucide-react';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchproductData } from '../redux/dataSlice';
 
 export default function AudioVisual() {
-  const [hovered, setHovered] = useState(null);
+  const  subcategory  = 'audio-visual';
+  const dispatch = useDispatch();
+  const { productData, status } = useSelector((state) => state.data);
 
-  const products = [
-    { 
-      title: "Smart TVs & Displays", 
-      icon: <Tv />, 
-      description: "Crystal-clear 4K and 8K displays with smart connectivity features for immersive viewing."
-    },
-    { 
-      title: "Premium Sound Systems", 
-      icon: <Speaker />, 
-      description: "Room-filling audio solutions with precision acoustics and wireless connectivity."
-    },
-    { 
-      title: "Wireless Headphones", 
-      icon: <Headphones />, 
-      description: "High-fidelity personal audio with noise cancellation and extended battery life."
-    },
-    { 
-      title: "Projectors & Screens", 
-      icon: <Video />, 
-      description: "Transform any space into a home theater with our state-of-the-art projection systems."
-    },
-    { 
-      title: "Smart Soundbars", 
-      icon: <MonitorSpeaker />, 
-      description: "Sleek, powerful audio enhancements for your TV with voice control capabilities."
-    },
-    { 
-      title: "Audio Recording Equipment", 
-      icon: <Mic />, 
-      description: "Professional-grade microphones and mixers for perfect audio capture."
-    },
-    { 
-      title: "Multi-Room Audio Systems", 
-      icon: <Radio />, 
-      description: "Synchronized, whole-home audio solutions for seamless listening experiences."
-    }
-  ];
+  useEffect(() => {
+    dispatch(fetchproductData());
+  }, [dispatch]);
+
+  const filteredProducts = productData.filter(
+    (product) =>
+      product.subcategory.toLowerCase().replace(/\s+/g, "-") ===
+      subcategory.toLowerCase()
+  );
+
 
   const features = [
     { icon: <Play />, title: "Immersive Experience", description: "Theater-quality visuals and audio in your own space" },
@@ -113,7 +90,7 @@ export default function AudioVisual() {
       </section>
 
       {/* Products Cards Section */}
-      <section className="py-12 bg-gray-50">
+      {/* <section className="py-12 bg-gray-50">
         <div className="container mx-auto px-6">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 text-gray-800">Our Audio Visual Products</h2>
           
@@ -140,75 +117,75 @@ export default function AudioVisual() {
             ))}
           </div>
         </div>
-      </section>
-
-      {/* Featured Product Showcase */}
-      {/* <section className="py-12 bg-white">
-        <div className="container mx-auto px-6">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 text-gray-800">Featured Technology</h2>
-          
-          <div className="flex flex-col lg:flex-row items-center bg-gradient-to-br from-gray-100 to-gray-200 rounded-2xl overflow-hidden">
-            <div className="lg:w-1/2 p-8 lg:p-12">
-              <div className="inline-block bg-sky-600 text-white text-sm font-semibold px-3 py-1 rounded-full mb-4">NEW ARRIVAL</div>
-              <h3 className="text-2xl md:text-3xl font-bold mb-4 text-gray-800">UltraSound 360° Spatial Audio System</h3>
-              <p className="text-gray-700 mb-6">
-                Experience sound like never before with our revolutionary spatial audio system that creates a three-dimensional soundscape around you. Feel every note, every sound effect as if you were right there in the action.
-              </p>
-              <ul className="space-y-3 mb-8">
-                <li className="flex items-center text-gray-700">
-                  <div className="w-2 h-2 bg-sky-500 rounded-full mr-2"></div>
-                  24-bit/96kHz high-resolution audio
-                </li>
-                <li className="flex items-center text-gray-700">
-                  <div className="w-2 h-2 bg-sky-500 rounded-full mr-2"></div>
-                  AI-powered room calibration
-                </li>
-                <li className="flex items-center text-gray-700">
-                  <div className="w-2 h-2 bg-sky-500 rounded-full mr-2"></div>
-                  Wireless connectivity with ultra-low latency
-                </li>
-              </ul>
-              <button className="bg-sky-600 text-white font-semibold py-3 px-6 rounded-lg hover:bg-sky-700 transition duration-300 flex items-center">
-                Learn more <ChevronRight className="ml-1" size={16} />
-              </button>
-            </div>
-            <div className="lg:w-1/2 p-6 flex justify-center">
-              <div className="bg-white rounded-xl shadow-lg p-6 relative">
-                <div className="absolute -top-4 -left-4 w-16 h-16 bg-sky-600 rounded-full flex items-center justify-center text-white">
-                  <Music size={32} />
-                </div>
-                <div className="pt-8">
-                  <div className="w-64 h-64 bg-sky-100 rounded-full flex items-center justify-center mb-4 mx-auto">
-                    <Speaker className="w-32 h-32 text-sky-600" />
-                  </div>
-                  <div className="text-center mt-4">
-                    <span className="text-gray-500 text-sm uppercase tracking-wide">Starting at</span>
-                    <p className="text-3xl font-bold text-gray-800">$899.99</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
       </section> */}
 
-      {/* Call to Action */}
-      {/* <section className="bg-gradient-to-r from-sky-600 to-purple-600 text-white py-16">
-        <div className="container mx-auto px-6 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">Experience Superior Audio and Visual Quality</h2>
-          <p className="text-lg md:text-xl mb-8 max-w-3xl mx-auto">
-            Visit our showroom to experience our premium audio visual products in person, or schedule a virtual consultation with our experts.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-white text-sky-600 font-semibold py-3 px-8 rounded-lg hover:bg-sky-50 transition duration-300">
-              Find a Showroom
-            </button>
-            <button className="bg-transparent border-2 border-white text-white font-semibold py-3 px-8 rounded-lg hover:bg-white/10 transition duration-300">
-              Book a Consultation
-            </button>
-          </div>
-        </div>
-      </section> */}
+       <div className="container mx-auto p-4 min-h-screen">
+         <h2 className="text-2xl font-semibold mb-6 capitalize">{subcategory.replace(/-/g, " ")}</h2>
+         {status === "loading" && <p>Loading...</p>}
+         {status === "error" && <p>Something went wrong!</p>}
+         <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3">
+           {filteredProducts.map((product, index) => (
+             <ProductCard key={product._id} product={product} index={index} />
+           ))}
+         </div>
+         {filteredProducts.length === 0 && status === "success" && (
+           <p>No products found in this subcategory.</p>
+         )}
+       </div>
     </div>
   );
 }
+
+
+export const ProductCard = ({ product, index }) => {
+  const [isHovered, setIsHovered] = useState(false);
+  const backendUrl = import.meta.env.VITE_BACKEND_URL;
+
+  return (
+    <div
+      className="bg-white rounded-xl overflow-hidden shadow-md transition-all duration-300 hover:shadow-xl"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      <div className="relative overflow-hidden h-64">
+        <span className="absolute top-2 left-2 z-20 text-xs px-2 py-1 bg-white text-sky-600 rounded-full">
+          {product.category}
+        </span>
+        <img
+          src={`${backendUrl}/${product.image}`}
+          alt={product.name}
+          className={`w-full h-full object-cover transition-transform duration-700 ${
+            isHovered ? "scale-110" : "scale-100"
+          }`}
+        />
+        <div
+          className={`absolute top-0 left-0 w-full h-full bg-black/40 flex items-center justify-center opacity-0 transition-opacity duration-300 ${
+            isHovered ? "opacity-100" : ""
+          }`}
+        >
+          <Link
+            to={`/products/${product.slug}`}
+            className="bg-white group text-sky-600 rounded-xl px-3 py-2 mx-2 hover:bg-sky-500 hover:text-white transition-colors duration-300"
+          >
+            View Detail <ArrowUpRight className="inline rotate-12 group-hover:rotate-0" />
+          </Link>
+        </div>
+      </div>
+      <div className="p-4">
+        <div className="flex items-center text-yellow-400 mb-2">
+          {[...Array(4)].map((_, i) => (
+            <Star key={i} size={16} fill="currentColor" />
+          ))}
+          <Star size={16} className="text-gray-300" fill="currentColor" />
+          <span className="text-gray-600 text-sm ml-2">(24 reviews)</span>
+        </div>
+        <h3 className="font-semibold text-lg text-gray-800 mb-1">
+          {product.name}
+        </h3>
+        <p className="text-gray-500 text-sm mb-3 line-clamp-2">
+          {product.description}
+        </p>
+      </div>
+    </div>
+  );
+};

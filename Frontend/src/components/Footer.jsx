@@ -1,13 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import googlePlay from "../assets/footer/Google-Play.png";
-import ios from "../assets/footer/IoS.png";
+import googlePlay from "../assets/footer/Google-Play.webp";
+import ios from "../assets/footer/IoS.webp";
 import { FaPhoneVolume, FaWhatsapp } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
-import { FaLocationDot } from "react-icons/fa6";
+import { FaLocationDot, FaXTwitter } from "react-icons/fa6";
 import BottomFooter from "./BottomFooter";
 import logo from '../assets/logo.webp';
-import { Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
+import { Facebook, Linkedin, } from "lucide-react";
 
 const Footer = () => {
   // Company links data
@@ -54,7 +54,7 @@ const Footer = () => {
               <Facebook size={20} />
             </a>
             <a href="https://twitter.com/TrecoTechnolog1" target="_blank" rel="noopener noreferrer" className="bg-sky-500 p-2 rounded-full  text-white hover:bg-sky-600 hover:scale-105 ">
-              <Twitter size={20} />
+              <FaXTwitter size={20} />
             </a>
             <a href="https://wa.me/+91-9810894981" target="_blank" rel="noopener noreferrer" className="bg-sky-500 p-2 rounded-full  text-white hover:bg-sky-600 hover:scale-105 ">
               <FaWhatsapp size={20} />

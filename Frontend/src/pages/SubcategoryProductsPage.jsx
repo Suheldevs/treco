@@ -6,7 +6,19 @@ import { fetchproductData } from "../redux/dataSlice";
 import Breadcrumb from "../components/Breadcrumb";
 import bread from '../assets/product-bread.jpg'
 const SubcategoryProductsPage = () => {
-  const { subcategory } = useParams();
+  const { subcategory, "*" : wildcard } = useParams();
+const [category, setCategory] = useState('');
+
+useEffect(() => {
+  if (wildcard) {
+    const pathSegments = wildcard.split('/');
+    setCategory(pathSegments[0]);
+  } else {
+    setCategory('home-automation');  
+  }
+}, [wildcard]);
+
+  
   const dispatch = useDispatch();
   const { productData, status } = useSelector((state) => state.data);
 
@@ -26,9 +38,9 @@ const SubcategoryProductsPage = () => {
       title="Latest Product"
       bgImage={bread}
       items={[
-        { label: "Home", path: "/" },
-        { label: "Home Automation", path: "/home-automation" },
-        { label:subcategory.replace(/-/g, " ") , path: subcategory }
+        { label: "Home", link: "/" },
+        { label: category.replace(/-/g, " "), link: `/${category}` },
+        { label:subcategory.replace(/-/g, " ") , link: `/${category}/${subcategory}` }
       ]}
     />
     

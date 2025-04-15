@@ -114,12 +114,16 @@ function Testimonial() {
             {/* Mobile Navigation */}
             <div className="flex justify-center mt-6 space-x-4">
               <button 
+              aria-label='Previous'
+              title='Previous'
                 onClick={prevMobileTestimonial}
                 className="bg-blue-100 text-blue-600 p-2 rounded-full hover:bg-blue-200 transition"
               >
                 <ChevronLeft size={24} />
               </button>
               <button 
+              aria-label='Next'
+              title='Next'
                 onClick={nextMobileTestimonial}
                 className="bg-blue-100 text-blue-600 p-2 rounded-full hover:bg-blue-200 transition"
               >
@@ -182,13 +186,13 @@ function Testimonial() {
           <div className="flex justify-center mt-8 space-x-4">
             <button 
               onClick={prevDesktopTestimonials}
-              className="bg-blue-100 text-blue-600 p-2 rounded-full hover:bg-blue-200 transition"
+              className=""
             >
               <ChevronLeft size={24} />
             </button>
             <button 
               onClick={nextDesktopTestimonials}
-              className="bg-blue-100 text-blue-600 p-2 rounded-full hover:bg-blue-200 transition"
+              className=""
             >
               <ChevronRight size={24} />
             </button>

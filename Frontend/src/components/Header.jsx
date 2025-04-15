@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Menu, X, ChevronDown, Home, Info, Lightbulb, Music, Box, Mail, Facebook, Twitter, Instagram, Linkedin } from 'lucide-react';
 import logo from '../assets/logo.webp'
 import { FaWhatsapp } from "react-icons/fa";
+import { FaXTwitter } from 'react-icons/fa6';
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -31,18 +32,18 @@ const Header = () => {
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <Link to="/" className="flex items-center">
-              <img src={logo} alt="Logo" className="h-16" />
+            <Link to="/" title='Treco-Logo' aria-label='Treco-Logo' className="flex items-center">
+              <img src={logo} alt="Logo"  className="h-16" />
             </Link>
           </div>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-6">
-            <Link to="/" className="flex items-center  text-black  hover:text-sky-600 font-semibold">
+            <Link to="/" aria-label='Home' title='Home' className="flex items-center  text-black  hover:text-sky-600 font-semibold">
               <Home size={18} className="mr-1 hover:scale-105" />
               {/* <span>Home</span> */}
             </Link>
-            <Link to="/about" className="flex items-center text-black hover:text-sky-600 font-semibold">
+            <Link to="/about" aria-label='About' title='About' className="flex items-center text-black hover:text-sky-600 font-semibold">
               {/* <Info size={18} className="mr-1" /> */}
               <span>About</span>
             </Link>
@@ -50,12 +51,13 @@ const Header = () => {
             {/* Home Automation Dropdown */}
             <div className="relative group">
               <button 
+              title='Home Automation'
                 className="flex items-center  text-black  hover:text-sky-600 font-semibold"
                 onClick={() => toggleDropdown('homeAutomation')}
                 onMouseEnter={() => setDropdownOpen({...dropdownOpen, homeAutomation: true})}
                 onMouseLeave={() => setDropdownOpen({...dropdownOpen, homeAutomation: false})}
               >
-                <Link to='/home-automation'>Home Automation</Link>
+                <Link to='/home-automation'aria-label='Home Automation'>Home Automation</Link>
                 <ChevronDown size={18} className="ml-1" />
               </button>
               {dropdownOpen.homeAutomation && (
@@ -114,15 +116,15 @@ const Header = () => {
               )}
             </div>
             
-            <Link to="/audio-visual" className="flex items-center  text-black  hover:text-sky-600 font-semibold">
+            <Link aria-label='Audio' title='Audio' to="/audio-visual" className="flex items-center  text-black  hover:text-sky-600 font-semibold">
               {/* <Music size={18} className="mr-1" /> */}
               <span>Audio Visual</span>
             </Link>
-            <Link to="/products" className="flex items-center  text-black  hover:text-sky-600 font-semibold">
+            <Link aria-label='Products' title='Products' to="/products" className="flex items-center  text-black  hover:text-sky-600 font-semibold">
               {/* <Box size={18} className="mr-1" /> */}
               <span>Products</span>
             </Link>
-            <Link to="/contact" className="flex items-center  text-black  hover:text-sky-600 font-semibold">
+            <Link aria-label='contact' title='contact' to="/contact" className="flex items-center  text-black  hover:text-sky-600 font-semibold">
               {/* <Mail size={18} className="mr-1" /> */}
               <span>Contact</span>
             </Link>
@@ -130,16 +132,16 @@ const Header = () => {
 
           {/* Social Media Links - Desktop */}
           <div className="hidden md:flex items-center space-x-3">
-            <a href="https://www.facebook.com/TRECO-Technologies-1103251483062862" target="_blank" rel="noopener noreferrer" className="bg-sky-500 p-2 rounded-full  text-white hover:bg-sky-600 hover:scale-105 ">
+            <a aria-label='Facebook' title='Facebook' href="https://www.facebook.com/TRECO-Technologies-1103251483062862" target="_blank" rel="noopener noreferrer" className="bg-sky-500 p-2 rounded-full  text-white hover:bg-sky-600 hover:scale-105 ">
               <Facebook size={20} />
             </a>
-            <a href="https://twitter.com/TrecoTechnolog1" target="_blank" rel="noopener noreferrer" className="bg-sky-500 p-2 rounded-full  text-white hover:bg-sky-600 hover:scale-105 ">
-              <Twitter size={20} />
+            <a aria-label='X' title='X' href="https://twitter.com/TrecoTechnolog1" target="_blank" rel="noopener noreferrer" className="bg-sky-500 p-2 rounded-full  text-white hover:bg-sky-600 hover:scale-105 ">
+              <FaXTwitter size={20} />
             </a>
-            <a href="https://wa.me/+91-9810894981" target="_blank" rel="noopener noreferrer" className="bg-sky-500 p-2 rounded-full  text-white hover:bg-sky-600 hover:scale-105 ">
+            <a aria-label='Whatsapp' title='Whatsapp' href="https://wa.me/+91-9810894981" target="_blank" rel="noopener noreferrer" className="bg-sky-500 p-2 rounded-full  text-white hover:bg-sky-600 hover:scale-105 ">
               <FaWhatsapp size={20} />
             </a>
-            <a href="https://www.linkedin.com/in/treco-technologies-7198b0129/" target="_blank" rel="noopener noreferrer" className="bg-sky-500 p-2 rounded-full  text-white hover:bg-sky-600 hover:scale-105 ">
+            <a aria-label='Linkedin' title='Linkedin' href="https://www.linkedin.com/in/treco-technologies-7198b0129/" target="_blank" rel="noopener noreferrer" className="bg-sky-500 p-2 rounded-full  text-white hover:bg-sky-600 hover:scale-105 ">
               <Linkedin size={20} />
             </a>
           </div>
@@ -244,16 +246,16 @@ const Header = () => {
               
               {/* Social Media Links - Mobile */}
               <div className="flex space-x-6 pt-2 border-t border-gray-200">
-                <a href="https://www.facebook.com/TRECO-Technologies-1103251483062862" target="_blank" rel="noopener noreferrer" className="text-gray-800 hover:text-sky-600">
+                <a aria-label='facebook' title='facebook' href="https://www.facebook.com/TRECO-Technologies-1103251483062862" target="_blank" rel="noopener noreferrer" className="text-gray-800 hover:text-sky-600">
                   <Facebook size={20} />
                 </a>
-                <a href="https://twitter.com/TrecoTechnolog1" target="_blank" rel="noopener noreferrer" className="text-gray-800 hover:text-sky-400">
-                  <Twitter size={20} />
+                <a aria-label='x' title='x' href="https://twitter.com/TrecoTechnolog1" target="_blank" rel="noopener noreferrer" className="text-gray-800 hover:text-sky-400">
+                  <FaXTwitter size={20} />
                 </a>
-                <a href="https://wa.me/+91-9810894981" target="_blank" rel="noopener noreferrer" className="text-gray-800 hover:text-pink-600">
+                <a aria-label='Whatsapp' title='Whatsapp' href="https://wa.me/+91-9810894981" target="_blank" rel="noopener noreferrer" className="text-gray-800 hover:text-pink-600">
                   <FaWhatsapp size={20} />
                 </a>
-                <a href="https://www.linkedin.com/in/treco-technologies-7198b0129/" target="_blank" rel="noopener noreferrer" className="text-gray-800 hover:text-sky-800">
+                <a aria-label='Linkedin' title='Linkedin' href="https://www.linkedin.com/in/treco-technologies-7198b0129/" target="_blank" rel="noopener noreferrer" className="text-gray-800 hover:text-sky-800">
                   <Linkedin size={20} />
                 </a>
               </div>
