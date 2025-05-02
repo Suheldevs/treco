@@ -94,7 +94,7 @@ dispatch(fetchproductData())
 
   return (
     <div className="">
-      <div className="container mx-auto px-4 lg:py-14 py-12">
+      <div className="container mx-auto px-4 lg:pt-14 py-10">
         {/* Header & Search */}
         <div className="container mx-auto px-4 relative">
         <div className="text-center">
@@ -171,6 +171,14 @@ dispatch(fetchproductData())
           
         </div>
         
+      <div className=" rounded-lg text-center  mt-4">
+                    <Link to='/products' className="inline-flex group items-center justify-center px-8 py-4 border border-transparent text-base font-medium rounded-lg text-white bg-gradient-to-r from-sky-500 to-sky-600 hover:from-sky-600 hover:to-sky-700 transition-all duration-300">
+                      View More Products
+                      <svg className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                      </svg>
+                    </Link>
+                  </div>
         {/* Empty state */}
         {filteredProducts.length === 0 && (
           <div className="text-center py-16">

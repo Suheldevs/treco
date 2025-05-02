@@ -44,7 +44,7 @@ useEffect(() => {
       ]}
     />
     
-    <div className="container mx-auto p-4 min-h-screen">
+    <div className="container mx-auto p-4 py-10 min-h-screen">
       <h2 className="text-2xl font-semibold mb-6 capitalize">{subcategory.replace(/-/g, " ")}</h2>
       {status === "loading" && <p>Loading...</p>}
       {status === "error" && <p>Something went wrong!</p>}

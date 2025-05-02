@@ -28,8 +28,14 @@ export default function ProductModal({ isOpen, product = null, onClose, onSave }
     imagePreview: null,
     description: '',
     features: [
-      // { label: 'Product Model', value: '' },
-      // { label: 'Product Voltage', value: '' }
+       // { label: 'Product Model', value: '' },
+              // { label: 'Product Voltage', value: '' },
+              // { label: 'Model Number', value: '' },
+              // { label: 'Size', value: '' },
+              // { label: 'Power', value: '' },
+              // { label: 'Material', value: 'Glass / Arcylic' },
+              // { label: 'CCT', value: '' },
+              // { label: 'Colour', value: 'Black / White' },
     ]
   });
   
@@ -50,8 +56,14 @@ export default function ProductModal({ isOpen, product = null, onClose, onSave }
         features: product.features && product.features.length > 0 
           ? product.features 
           : [
-              { label: 'Product Model', value: '' },
-              { label: 'Product Voltage', value: '' }
+              // { label: 'Product Model', value: '' },
+              // { label: 'Product Voltage', value: '' },
+              // { label: 'Model Number', value: '' },
+              // { label: 'Size', value: '' },
+              // { label: 'Power', value: '' },
+              // { label: 'Material', value: 'Glass / Arcylic' },
+              // { label: 'CCT', value: '' },
+              // { label: 'Colour', value: 'Black / White' },
             ]
       });
     } else {
@@ -64,8 +76,23 @@ export default function ProductModal({ isOpen, product = null, onClose, onSave }
         imagePreview: null,
         description: '',
         features: [
-          // { label: 'Product Model', value: '' },
-          // { label: 'Product Voltage', value: '' }
+         // { label: 'Product Model', value: '' },
+              // { label: 'Product Voltage', value: '' },
+              // { label: 'Model Number', value: '' },
+              // { label: 'Size', value: '' },
+              // { label: 'Power', value: '' },
+              // { label: 'Material', value: 'Glass / Arcylic' },
+              // { label: 'CCT', value: '' },
+              // { label: 'Colour', value: 'Black / White' },
+  //             { label: 'Operating Voltage', value: '230V AC' },
+  // { label: 'Technology', value: 'Cap Sense 1 Million Touch Capacity' },
+  // { label: 'Load', value: '6 AMP Load Max. Current Per Load' },
+  // { label: 'Operating Environment', value: 'Temperature: 0°C to 45°C, Humidity: 5% to 90% RH' },
+  // { label: 'Load Type', value: 'CFL, LED Light, Tube Light, Resistive Load, Wiring Incandescent Lighting' },
+  // { label: 'Module Type', value: '2' },
+  // { label: 'Panel Colour', value: 'Black, White & Grey' },
+  // { label: 'Panel Material', value: 'Glass, Acrylic & Wooden/Vinyl' },
+  // { label: 'Mobile App/Android/IOS/ALEXA/Google Home', value: 'Yes' }
         ]
       });
     }
@@ -249,7 +276,7 @@ export default function ProductModal({ isOpen, product = null, onClose, onSave }
       
     } catch (error) {
       console.error('Error saving product:', error);
-      const errorMessage = error.response?.data?.message || error.message || 'Failed to save product. Please try again.';
+      const errorMessage = error.response?.data?.message || error.message || 'Failed to save product. Please try again. || Please try other product name';
       setErrors({
         ...errors,
         submit: errorMessage
@@ -306,6 +333,7 @@ export default function ProductModal({ isOpen, product = null, onClose, onSave }
                     type="text"
                     id="name"
                     name="name"
+                    placeholder='Product Name'
                     value={formData.name}
                     onChange={handleChange}
                     className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 ${
@@ -452,9 +480,9 @@ export default function ProductModal({ isOpen, product = null, onClose, onSave }
                     <p className="mb-3 text-sm text-red-600 bg-red-50 p-2 rounded">{errors.features}</p>
                   )}
                   
-                  <div className="space-y-3">
+                  <div className="space-y-1">
                     {formData.features.map((feature, index) => (
-                      <div key={index} className="flex items-start gap-2 bg-white p-3 rounded-md border border-gray-100 shadow-sm">
+                      <div key={index} className="flex items-start gap-2 bg-white p-2 rounded-md border border-gray-100 shadow-sm">
                         <div className="flex-1">
                           <input
                             type="text"
