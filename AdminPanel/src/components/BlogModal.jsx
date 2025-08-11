@@ -38,7 +38,6 @@ export default function BlogModal({ isOpen, blog, onClose, onSave }) {
   useEffect(() => {
     if (isOpen) {
       if (blog) {
-
         const { slug, ...blogDataWithoutSlug } = blog;
         dispatch({ 
           type: 'SET_FORM', 
@@ -77,7 +76,6 @@ export default function BlogModal({ isOpen, blog, onClose, onSave }) {
     }
   };
 
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     
@@ -85,7 +83,6 @@ export default function BlogModal({ isOpen, blog, onClose, onSave }) {
       setIsSubmitting(true);
       
       const formDataToSend = new FormData();
-      
       
       Object.keys(formData).forEach(key => {
         if (key !== 'imageUrl' || !imageFile) { 
@@ -131,25 +128,25 @@ export default function BlogModal({ isOpen, blog, onClose, onSave }) {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 overflow-y-auto bg-black/50 flex items-center justify-center p-4">
-      <div className="bg-white rounded-lg shadow-xl w-full max-w-2xl max-h-[95vh] overflow-auto flex flex-col">
+    <div className="fixed inset-0 z-50 overflow-y-auto bg-black/60 backdrop-blur-sm flex items-center justify-center p-2">
+      <div className="bg-white rounded-lg shadow-2xl w-full max-w-2xl max-h-[96vh] overflow-hidden flex flex-col">
         {/* Modal header */}
-        <div className="p-6 border-b border-gray-200 flex justify-between items-center bg-indigo-50 rounded-t-lg">
-          <h2 className="text-xl font-bold text-gray-800">
-            {blog ? 'Edit Blog Post' : 'Add New Blog Post'}
+        <div className="p-3 border-b  border-gray-200 flex justify-between items-center bg-gradient-to-r from-slate-50 to-gray-100">
+          <h2 className="text-lg font-semibold text-gray-800">
+            {blog ? 'Edit Post' : 'New Post'}
           </h2>
           <button
             onClick={onClose}
-            className="p-1 rounded-full hover:bg-indigo-100 text-gray-500 hover:text-gray-700 focus:outline-none"
+            className="p-1 rounded-full hover:bg-gray-200 text-gray-500 hover:text-gray-700 transition-colors"
           >
-            <X size={24} />
+            <X size={20} />
           </button>
         </div>
         
         {/* Modal body */}
-        <div className="overflow-y-auto p-6">
+        <div className="overflow-y-auto p-3">
           <form onSubmit={handleSubmit}>
-            <div className="space-y-6">
+            <div className="space-y-3">
               {/* Title field */}
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">
@@ -160,15 +157,15 @@ export default function BlogModal({ isOpen, blog, onClose, onSave }) {
                   required
                   value={formData.title}
                   onChange={(e) => dispatch({ field: 'title', value: e.target.value })}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  className="w-full px-3 py-2 border border-gray-200 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500 text-sm"
                   placeholder="Enter blog title"
                 />
               </div>
               
               {/* Category and Author fields - side by side */}
-              <div className="flex flex-col sm:flex-row gap-4">
+              <div className="grid grid-cols-2 gap-3">
                 {/* Category field */}
-                <div className="flex-1">
+                <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">
                     Category <span className="text-red-500">*</span>
                   </label>
@@ -177,13 +174,13 @@ export default function BlogModal({ isOpen, blog, onClose, onSave }) {
                     required
                     value={formData.category}
                     onChange={(e) => dispatch({ field: 'category', value: e.target.value })}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                    placeholder="e.g. Technology, Design, Business"
+                    className="w-full px-3 py-2 border border-gray-200 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500 text-sm"
+                    placeholder="Technology"
                   />
                 </div>
                 
                 {/* Posted by field */}
-                <div className="flex-1">
+                <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">
                     Author <span className="text-red-500">*</span>
                   </label>
@@ -192,7 +189,7 @@ export default function BlogModal({ isOpen, blog, onClose, onSave }) {
                     required
                     value={formData.postedBy}
                     onChange={(e) => dispatch({ field: 'postedBy', value: e.target.value })}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                    className="w-full px-3 py-2 border border-gray-200 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500 text-sm"
                     placeholder="Author name"
                   />
                 </div>
@@ -201,11 +198,11 @@ export default function BlogModal({ isOpen, blog, onClose, onSave }) {
               {/* Image upload */}
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Featured Image
+                  Image
                 </label>
-                <div className="flex items-center space-x-4">
+                <div className="flex items-center gap-3">
                   <div className="flex-1">
-                    <div className="relative border border-gray-300 rounded-md px-3 py-2 focus-within:ring-2 focus-within:ring-indigo-500 hover:bg-gray-50 cursor-pointer">
+                    <div className="relative border border-dashed border-gray-300 rounded-md px-3 py-2 hover:border-blue-400 cursor-pointer transition-colors">
                       <input
                         type="file"
                         onChange={handleImageChange}
@@ -213,16 +210,16 @@ export default function BlogModal({ isOpen, blog, onClose, onSave }) {
                         accept="image/*"
                       />
                       <div className="flex items-center">
-                        <Upload size={18} className="text-gray-400 mr-2" />
-                        <span className="text-gray-500">
-                          {imageFile ? imageFile.name : "Choose an image"}
+                        <Upload size={16} className="text-gray-400 mr-2" />
+                        <span className="text-sm text-gray-500 truncate">
+                          {imageFile ? imageFile.name : "Upload image"}
                         </span>
                       </div>
                     </div>
                   </div>
                   
                   {imagePreview && (
-                    <div className="w-20 h-20 relative border border-gray-200 rounded-md overflow-hidden">
+                    <div className="w-14 h-14 relative border border-gray-200 rounded-md overflow-hidden flex-shrink-0">
                       <img
                         src={imagePreview}
                         alt="Preview"
@@ -235,9 +232,9 @@ export default function BlogModal({ isOpen, blog, onClose, onSave }) {
                           setImageFile(null);
                           dispatch({ field: 'imageUrl', value: '' });
                         }}
-                        className="absolute top-0 right-0 bg-red-500 text-white p-1 rounded-bl-md hover:bg-red-600"
+                        className="absolute -top-1 -right-1 bg-red-500 text-white rounded-full w-5 h-5 flex items-center justify-center hover:bg-red-600 text-xs"
                       >
-                        <X size={14} />
+                        <X size={12} />
                       </button>
                     </div>
                   )}
@@ -249,50 +246,53 @@ export default function BlogModal({ isOpen, blog, onClose, onSave }) {
                 <label className="block text-sm font-medium text-gray-700 mb-1">
                   Content <span className="text-red-500">*</span>
                 </label>
-                <SunEditor
-                  setContents={formData.description}
-                  onChange={(value) => dispatch({ field: "description", value })}
-                  setOptions={{
-                    minHeight: "150px",
-                    height: "200px",
-                    buttonList: [
-                      ["undo", "redo"],
-                      ["bold", "underline", "italic", "strike"],
-                      ["font", "fontSize", "formatBlock"],
-                      ["fontColor", "hiliteColor"],
-                      ["align", "list", "lineHeight"],
-                      ["table"],
-                      ["link"],
-                      ["image", "video"],
-                      ["codeView"],
-                    ],
-                    linkProtocol: "",
-                    addTagsWhitelist: "a[href]",
-                    sanitize: false,
-                    defaultTag: "div",
-                  }}
-                />
+                <div className="border border-gray-200 rounded-md overflow-hidden">
+                  <SunEditor
+                    setContents={formData.description}
+                    onChange={(value) => dispatch({ field: "description", value })}
+                    setOptions={{
+                      minHeight: "120px",
+                      height: "150px",
+                      buttonList: [
+                        ["undo", "redo"],
+                        ["bold", "underline", "italic", "strike"],
+                        ["fontSize", "formatBlock"],
+                        ["fontColor", "hiliteColor"],
+                        ["align", "list"],
+                        ["link"],
+                        ["image"],
+                        ["codeView"],
+                      ],
+                      linkProtocol: "",
+                      addTagsWhitelist: "a[href]",
+                      sanitize: false,
+                      defaultTag: "div",
+                      showPathLabel: false,
+                      charCounter: false,
+                    }}
+                  />
+                </div>
               </div>
             </div>
             
             {/* Form actions */}
-            <div className="flex justify-end space-x-3 pt-6 mt-6 border-t border-gray-200">
+            <div className="flex justify-end gap-2 pt-3 mt-3 border-t border-gray-200">
               <button
                 type="button"
                 onClick={onClose}
-                className="px-4 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50"
+                className="px-3 py-2 text-sm border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50 transition-colors"
               >
                 Cancel
               </button>
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 disabled:opacity-50 disabled:cursor-not-allowed flex items-center"
+                className="px-3 py-2 text-sm bg-blue-600 text-white rounded-md hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed flex items-center transition-colors"
               >
                 {isSubmitting && (
-                  <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin mr-2"></div>
+                  <div className="w-3 h-3 border-2 border-white border-t-transparent rounded-full animate-spin mr-2"></div>
                 )}
-                {blog ? 'Update Blog' : 'Create Blog'}
+                {blog ? 'Update' : 'Create'}
               </button>
             </div>
           </form>

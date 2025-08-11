@@ -56,7 +56,7 @@ export default function ProductModal({ isOpen, product = null, onClose, onSave }
         features: product.features && product.features.length > 0 
           ? product.features 
           : [
-              // { label: 'Product Model', value: '' },
+              { label: 'Product Model', value: '' },
               // { label: 'Product Voltage', value: '' },
               // { label: 'Model Number', value: '' },
               // { label: 'Size', value: '' },
@@ -76,7 +76,7 @@ export default function ProductModal({ isOpen, product = null, onClose, onSave }
         imagePreview: null,
         description: '',
         features: [
-         // { label: 'Product Model', value: '' },
+         { label: 'Product Model', value: '' },
               // { label: 'Product Voltage', value: '' },
               // { label: 'Model Number', value: '' },
               // { label: 'Size', value: '' },
@@ -290,9 +290,9 @@ export default function ProductModal({ isOpen, product = null, onClose, onSave }
   
   return (
     <div className="fixed inset-0 bg-black/50 z-50 overflow-y-auto flex items-center justify-center p-4">
-      <div className="w-full max-w-5xl bg-white rounded-lg shadow-xl flex flex-col max-h-[90vh]">
+      <div className="w-full max-w-3xl bg-white rounded-lg shadow-xl flex flex-col max-h-[90vh]">
         {/* Header */}
-        <div className="px-6 py-4 bg-blue-600 text-white rounded-t-lg flex justify-between items-center">
+        <div className="px-4 py-2 bg-blue-600 text-white rounded-t-lg flex justify-between items-center">
           <h2 className="text-xl font-bold">
             {isEditMode ? `Edit Product: ${product.name}` : 'Add New Product'}
           </h2>
@@ -307,7 +307,7 @@ export default function ProductModal({ isOpen, product = null, onClose, onSave }
         
         {/* Form */}
         <form onSubmit={handleSubmit} className="flex-1 overflow-y-auto">
-          <div className="p-6">
+          <div className="p-4">
             
             {/* Error Banner */}
             {errors.submit && (
@@ -321,12 +321,12 @@ export default function ProductModal({ isOpen, product = null, onClose, onSave }
               </div>
             )}
             
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {/* Left Column */}
-              <div className="space-y-6">
+              <div className="space-y-2">
                 {/* Name */}
                 <div>
-                  <label className="block mb-2 text-sm font-medium text-gray-700" htmlFor="name">
+                  <label className="block mb-1 text-sm font-medium text-gray-700" htmlFor="name">
                     Product Name *
                   </label>
                   <input
@@ -345,7 +345,7 @@ export default function ProductModal({ isOpen, product = null, onClose, onSave }
                 
                 {/* Category Dropdown */}
                 <div>
-                  <label className="block mb-2 text-sm font-medium text-gray-700" htmlFor="category">
+                  <label className="block mb-1 text-sm font-medium text-gray-700" htmlFor="category">
                     Category *
                   </label>
                   <select
@@ -369,7 +369,7 @@ export default function ProductModal({ isOpen, product = null, onClose, onSave }
                 
                 {/* Subcategory Dropdown */}
                 <div>
-                  <label className="block mb-2 text-sm font-medium text-gray-700" htmlFor="subcategory">
+                  <label className="block mb-1 text-sm font-medium text-gray-700" htmlFor="subcategory">
                     Subcategory *
                   </label>
                   <select
@@ -394,7 +394,7 @@ export default function ProductModal({ isOpen, product = null, onClose, onSave }
                 
                 {/* Image Upload */}
                 <div>
-                  <label className="block mb-2 text-sm font-medium text-gray-700">
+                  <label className="block mb-1 text-sm font-medium text-gray-700">
                     Product Image {!isEditMode && '*'}
                   </label>
                   <div className="mt-1">
@@ -417,9 +417,9 @@ export default function ProductModal({ isOpen, product = null, onClose, onSave }
                         </div>
                       </div>
                     ) : (
-                      <div className="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center bg-gray-50">
-                        <Upload size={32} className="mx-auto text-gray-400 mb-2" />
-                        <p className="text-gray-500 mb-2">Drag and drop an image or click to browse</p>
+                      <div className="border-2 border-dashed border-gray-300 rounded-lg p-2 text-center bg-gray-50">
+                        <Upload size={32} className="mx-auto text-gray-400 mb-1" />
+                        <p className="text-gray-500 mb-1">Drag and drop an image or click to browse</p>
                         <p className="text-xs text-gray-400">JPG, PNG or WebP (Max 5MB)</p>
                       </div>
                     )}
@@ -443,7 +443,7 @@ export default function ProductModal({ isOpen, product = null, onClose, onSave }
               <div className="space-y-6">
                 {/* Description */}
                 <div>
-                  <label className="block mb-2 text-sm font-medium text-gray-700" htmlFor="description">
+                  <label className="block mb-1 text-sm font-medium text-gray-700" htmlFor="description">
                     Description *
                   </label>
                   <textarea

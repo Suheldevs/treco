@@ -103,14 +103,13 @@ export default function ProductPage() {
     <>
       <div className="bg-white rounded-lg shadow-md">
         {/* Header with add button */}
-        <div className="p-6 border-b border-gray-200 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 bg-blue-50">
+        <div className="p-2 border-b rounded-md border-gray-200 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 bg-gradient-to-r from-blue-600 to-purple-600">
           <div>
-            <h1 className="text-2xl font-bold text-gray-800">Products Management</h1>
-            <p className="text-gray-600">Manage your product inventory</p>
+            <h1 className="text-2xl font-bold text-white ">Products Management</h1>
           </div>
           <button 
             onClick={openAddModal}
-            className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors flex items-center shadow-sm"
+            className="px-4 py-2 bg-white text-blue-600 rounded-md hover:bg-gray-200 cursor-pointer transition-colors flex items-center shadow-sm"
           >
             <Plus size={16} className="mr-2" />
             Add Product

@@ -16,12 +16,14 @@ function App() {
      <ToastContainer />
     <Routes>
       <Route path='/' element={<AdminLogin/>} />
-      <Route path='/dashboard' element={<AdminLayout><Home/></AdminLayout>} />
+      <Route path='/dashboard' element={<AdminLayout> <Home/></AdminLayout>} />
       <Route path='/product' element={<AdminLayout><ProductPage/></AdminLayout>} />
       <Route path='/blog' element={<AdminLayout><BlogPage/></AdminLayout>} />
       <Route path='/inquiry' element={<AdminLayout><InquiryPage/></AdminLayout>} />
       <Route path='/job-application' element={<AdminLayout><CareerPage/></AdminLayout>} />
+      
     </Routes>
+    
     </BrowserRouter>
     // <Home/>
   )

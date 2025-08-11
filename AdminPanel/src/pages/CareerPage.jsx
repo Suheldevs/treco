@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Eye } from 'lucide-react';
+import Table from '../components/Table';
+import PageHeader from '../components/PageHeader';
 
 function CareerPage() {
   const [careerData, setCareerData] = useState([]);
@@ -22,55 +24,41 @@ function CareerPage() {
     }
   };
 
+
+const ColumnConfig = (backendUrl) => ({
+  fullName: { label: "Full Name" },
+  email: { label: "Email" },
+  phone: { label: "Phone" },
+  jobProfile: { label: "Job Profile" },
+  resume: {
+    label: "Resume",
+    render: (val) => (
+      <a
+        href={`${backendUrl}/${val}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-flex items-center text-sky-600 hover:text-sky-800"
+      >
+        <Eye className="w-4 h-4 mr-1" /> View
+      </a>
+    ),
+  },
+  createdAt: {
+    label: "Date",
+    render: (val) => new Date(val).toLocaleDateString("en-IN"),
+  },
+});
+
+
   return (
-    <div className="p-6 min-h-screen ">
-      <h1 className="text-3xl font-bold text-sky-600  mb-6">Job Application List</h1>
+    <div className="p-2 min-h-screen ">
+    <PageHeader title='Job Application List'/>
       {loading ? (
         <p className="text-sky-600">Loading career inquiries...</p>
-      ) : (
-        <div className="overflow-x-auto rounded-2xl shadow-sm">
-          <table className="min-w-full bg-white">
-            <thead>
-              <tr className="bg-sky-100 text-sky-700">
-                <th className="p-3 text-left">Full Name</th>
-                <th className="p-3 text-left">Email</th>
-                <th className="p-3 text-left">Phone</th>
-                <th className="p-3 text-left">Job Profile</th>
-                <th className="p-3 text-left">Resume</th>
-                <th className="p-3 text-left">Date</th>
-              </tr>
-            </thead>
-            <tbody>
-              {careerData.map((item) => (
-                <tr key={item._id} className="border-b border-gray-200 hover:bg-sky-50">
-                  <td className="p-3">{item.fullName}</td>
-                  <td className="p-3">{item.email}</td>
-                  <td className="p-3">{item.phone}</td>
-                  <td className="p-3">{item.jobProfile}</td>
-                  <td className="p-3">
-                    <a
-                      href={`${backendUrl}/${item.resume}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center text-sky-600 hover:text-sky-800"
-                    >
-                      <Eye className="w-4 h-4 mr-1" /> View
-                    </a>
-                  </td>
-                  <td className="p-3">{new Date(item.createdAt).toLocaleDateString()}</td>
-                </tr>
-              ))}
-              {careerData.length === 0 && (
-                <tr>
-                  <td colSpan="6" className="text-center text-gray-500 p-4">
-                    No inquiries found.
-                  </td>
-                </tr>
-              )}
-            </tbody>
-          </table>
-        </div>
-      )}
+      ) : <Table
+  data={careerData}
+  columnConfig={ColumnConfig(backendUrl)}
+/>}
     </div>
   );
 }

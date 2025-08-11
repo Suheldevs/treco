@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, ChevronLeft, ChevronRight, LayoutDashboard, ShoppingCart, FileText, MessageSquare, Info } from 'lucide-react';
+import { Menu, X, ChevronLeft, ChevronRight, LayoutDashboard, ShoppingCart, FileText, MessageSquare, Info, MenuIcon, User } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import cclogo from '../assets/ccogo-suhel.webp';
+import CopyRight from '../components/CopyRight';
 export default function AdminLayout({ children }) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -41,20 +42,21 @@ export default function AdminLayout({ children }) {
   };
 
   return (
-    <div className="flex h-screen bg-gray-50">
+    <div className="flex h-screen relative bg-gray-50">
       {/* Sidebar for desktop */}
+        
       <aside 
-        className={`bg-blue-700 text-white transition-all duration-300 ease-in-out hidden md:flex flex-col ${
+        className={`bg-blue-800 text-white transition-all duration-300 ease-in-out hidden md:flex flex-col ${
           isSidebarOpen ? 'md:w-64' : 'md:w-20'
         }`}
       >
-        <div className={`p-4 flex items-center justify-between ${!isSidebarOpen && 'justify-center'}`}>
+        <div className={`p-4 border-b border-b-white/10 flex items-center justify-between ${!isSidebarOpen && 'justify-center'}`}>
           {isSidebarOpen && <h1 className="text-xl font-bold"><img src={cclogo} className='h-12'/></h1>}
           <button 
             onClick={toggleSidebar}
-            className="p-1 rounded-full hover:bg-blue-600 focus:outline-none"
+            className="p-1 rounded-full cursor-pointer hover:bg-blue-600 focus:outline-none"
           >
-            {isSidebarOpen ? <ChevronLeft size={20} /> : <ChevronRight size={20} />}
+            <MenuIcon size={20} /> 
           </button>
         </div>
         
@@ -64,10 +66,10 @@ export default function AdminLayout({ children }) {
               <li key={item.path}>
                 <Link 
                   to={item.path}
-                  className={`flex items-center py-3 px-4 ${
+                  className={`flex items-center  py-3 px-4 ${
                     isActive(item.path) 
-                      ? 'bg-blue-800 border-r-4 border-white' 
-                      : 'hover:bg-blue-600'
+                      ? 'bg-blue-900 border-l-4 border-white' 
+                      : 'hover:bg-blue-900 border-b border-white/10'
                   } ${!isSidebarOpen && 'justify-center'}`}
                 >
                   <span className="mr-3">{item.icon}</span>
@@ -120,7 +122,7 @@ export default function AdminLayout({ children }) {
       <div className="flex-1 flex flex-col overflow-hidden">
         {/* Top navbar */}
         <header className="bg-white shadow-sm z-10">
-          <div className="py-4 px-6 flex items-center justify-between">
+          <div className="py-3 px-6 flex items-center justify-between">
             <div className="flex items-center">
               <button 
                 onClick={() => setIsMobileMenuOpen(true)}
@@ -133,8 +135,8 @@ export default function AdminLayout({ children }) {
               </h2>
             </div>
             <div className="flex items-center gap-4">
-              <div className="h-8 w-8 rounded-full bg-blue-600 text-white flex items-center justify-center">
-                <span className="font-medium">A</span>
+              <div className="h-9 w-9 rounded-full bg-blue-600 text-white flex items-center justify-center">
+                <span className="font-medium"><User/></span>
               </div>
             </div>
           </div>
@@ -144,7 +146,12 @@ export default function AdminLayout({ children }) {
         <main className="flex-1 overflow-auto p-6 bg-gray-50">
           {children}
         </main>
+         <div className=" border-t border-gray-200 w-full ">
+
+      <CopyRight/>
+</div>
       </div>
+  
     </div>
   );
 }
