@@ -90,7 +90,7 @@ const ProductDetailPage = () => {
         <div className="bg-white rounded-xl shadow-sm overflow-hidden">
           <div className="md:flex">
             {/* Product image */}
-            <div className="md:w-1/2">
+            <div className="md:w-1/2 border-r border-r-gray-200 ">
               <div className="relative aspect-square bg-gray-100">
                 <img 
                  src={`${backendUrl}/${product.image}`} 
@@ -148,7 +148,7 @@ const ProductDetailPage = () => {
               <div className="space-y-4">
                 <button onClick={()=>setIsOpen(!isOpen)} className="w-full bg-sky-600 hover:bg-sky-700 text-white font-medium py-3 px-6 rounded-lg flex items-center justify-center transition duration-150">
                   <ShoppingCart className="w-5 h-5 mr-2" />
-                  Get Quetes
+                  Get Quote
                 </button>
                 
                 {/* <div className="grid grid-cols-2 gap-4">
@@ -164,13 +164,13 @@ const ProductDetailPage = () => {
               </div>
               
               {/* Additional info */}
-              <div className="mt-8 pt-6 border-t border-gray-200">
+              {/* <div className="mt-8 pt-6 border-t border-gray-200">
                 <div className="flex items-center text-sm text-gray-500">
                   <span>Product ID: {product.productId}</span>
                   <span className="mx-2">•</span>
                   <span>Category: {product.category}</span>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
@@ -201,7 +201,7 @@ const ProductDetailPage = () => {
                 <div className="flex items-center justify-between">
                   {/* <span className="text-xl font-bold text-gray-900">${relatedProduct.price}</span> */}
                   <Link to={`/products/${relatedProduct.slug}`} className="bg-sky-100 hover:bg-sky-200 text-sky-600 font-medium py-2 px-4 rounded-lg transition duration-150">
-                    View Details
+                   View Detail
                   </Link>
                 </div>
               </div>

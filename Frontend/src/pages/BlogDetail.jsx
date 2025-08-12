@@ -68,7 +68,7 @@ const BlogDetail = () => {
           {/* Back to Blogs Button */}
           <Link
             to="/blogs"
-            className="mt-6 inline-block bg-primary-btn text-white px-6 py-3 hover:bg-[#7A5F4D] transition-all duration-300"
+            className="mt-6 inline-block bg-sky-600-btn text-white px-6 py-3 hover:bg-[#7A5F4D] transition-all duration-300"
           >
             Back to Blogs
           </Link>

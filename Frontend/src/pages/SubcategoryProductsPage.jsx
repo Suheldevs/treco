@@ -91,7 +91,7 @@ export const ProductCard = ({ product, index }) => {
             to={`/products/${product.slug}`}
             className="bg-white group text-sky-600 rounded-xl px-3 py-2 mx-2 hover:bg-sky-500 hover:text-white transition-colors duration-300"
           >
-            View Detail <ArrowUpRight className="inline rotate-12 group-hover:rotate-0" />
+            Detail <ArrowUpRight className="inline rotate-12 group-hover:rotate-0" />
           </Link>
         </div>
       </div>

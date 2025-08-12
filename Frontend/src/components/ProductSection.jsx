@@ -25,22 +25,22 @@ const ProductCard = ({ product ,index }) => {
         <div className={`absolute  top-0 left-0 w-full h-full bg-black/40 flex items-center justify-center opacity-0 transition-opacity duration-300 ${isHovered ? 'opacity-100' : ''}`}>
           <div  className="bg-white group text-sky-600 rounded-xl px-3 py-2 mx-2 hover:bg-sky-500 hover:text-white transition-colors duration-300">
             {/* <ShoppingCart size={20} />  */}
-            View Detail <ArrowUpRight className='inline rotate-12 group-hover:rotate-0' />
+            Detail <ArrowUpRight className='inline rotate-12 group-hover:rotate-0' />
           </div>
           {/* <button className="bg-white text-gray-800 rounded-full p-3 mx-2 hover:bg-blue-500 hover:text-white transition-colors duration-300">
             <Heart size={20} />
           </button> */}
         </div>
       </div>
-      <div className="p-4">
-        <div className="flex items-center text-yellow-400 mb-2">
+      <div className="p-4 border-t border-gray-200">
+        {/* <div className="flex items-center text-yellow-400 mb-2">
           <Star size={16} fill="currentColor" />
           <Star size={16} fill="currentColor" />
           <Star size={16} fill="currentColor" />
           <Star size={16} fill="currentColor" />
           <Star size={16} className="text-gray-300" fill="currentColor" />
           <span className="text-gray-600 text-sm ml-2">(24 reviews)</span>
-        </div>
+        </div> */}
         <h3 className="font-semibold text-lg text-gray-800 mb-1">{product.name}</h3>
         <p className="text-gray-500 text-sm mb-3 line-clamp-2">{product.description}</p>
         <div className="flex justify-between items-center">
@@ -172,7 +172,7 @@ dispatch(fetchproductData())
         </div>
         
       <div className=" rounded-lg text-center  mt-4">
-                    <Link to='/products' className="inline-flex group items-center justify-center px-8 py-4 border border-transparent text-base font-medium rounded-lg text-white bg-gradient-to-r from-sky-500 to-sky-600 hover:from-sky-600 hover:to-sky-700 transition-all duration-300">
+                    <Link to='/products' className="inline-flex group items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-lg text-white bg-gradient-to-r from-sky-500 to-sky-600 hover:from-sky-600 hover:to-sky-700 transition-all duration-300">
                       View More Products
                       <svg className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />

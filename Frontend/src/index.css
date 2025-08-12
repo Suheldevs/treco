@@ -5,6 +5,9 @@ html, body{
     font-family: "Poppins", sans-serif; */
     font-family: "Space Grotesk", sans-serif;
 }
+@theme{
+  ---color-sky-600:'#14a78b'
+}
 
 
   

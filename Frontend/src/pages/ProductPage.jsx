@@ -26,22 +26,22 @@ const ProductCard = ({ product ,index }) => {
         <div className={`absolute  top-0 left-0 w-full h-full bg-black/40 flex items-center justify-center opacity-0 transition-opacity duration-300 ${isHovered ? 'opacity-100' : ''}`}>
           <Link to={`/products/${product.slug}`} className="bg-white group text-sky-600 rounded-xl px-3 py-2 mx-2 hover:bg-sky-500 hover:text-white transition-colors duration-300">
             {/* <ShoppingCart size={20} />  */}
-            View Detail <ArrowUpRight className='inline rotate-12 group-hover:rotate-0' />
+            Detail <ArrowUpRight className='inline rotate-12 group-hover:rotate-0' />
           </Link>
           {/* <button className="bg-white text-gray-800 rounded-full p-3 mx-2 hover:bg-blue-500 hover:text-white transition-colors duration-300">
             <Heart size={20} />
           </button> */}
         </div>
       </div>
-      <div className="p-4">
-        <div className="flex items-center text-yellow-400 mb-2">
+      <div className="p-4 border-t border-gray-200">
+        {/* <div className="flex items-center text-yellow-400 mb-2">
           <Star size={16} fill="currentColor" />
           <Star size={16} fill="currentColor" />
           <Star size={16} fill="currentColor" />
           <Star size={16} fill="currentColor" />
           <Star size={16} className="text-gray-300" fill="currentColor" />
           <span className="text-gray-600 text-sm ml-2">(24 reviews)</span>
-        </div>
+        </div> */}
         <h3 className="font-semibold text-lg text-gray-800 mb-1">{product.name}</h3>
         <p className="text-gray-500 text-sm mb-3 line-clamp-2">{product.description}</p>
         <div className="flex justify-between items-center">

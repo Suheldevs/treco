@@ -129,7 +129,7 @@ const Header = () => {
             </Link>
             <Link aria-label='contact' title='contact' to="/contact" className="flex items-center  text-black  hover:text-sky-600 font-semibold">
               {/* <Mail size={18} className="mr-1" /> */}
-              <span>Contact</span>
+              <span>Contact Us</span>
             </Link>
           </nav>
 
