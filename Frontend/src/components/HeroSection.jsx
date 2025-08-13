@@ -99,7 +99,7 @@ const HeroSection = () => {
 
             {/* Action buttons - static across slides */}
             <div className="flex flex-col lg:text-left text-center sm:flex-row gap-4">
-              <Link aria-label='Explore Products' title='Explore Products' to='/products'  className="bg-sky-500 hover:bg-blue-500 text-black px-8 py-3 rounded-full text-lg font-medium transition-colors">
+              <Link aria-label='Explore Products' title='Explore Products' to='/products'  className="bg-sky-500 hover:bg-blue-500 text-white px-8 py-3 rounded-full text-lg font-medium transition-colors">
               Explore Products
               </Link>
               <Link aria-label='About Treco' title='About Treco' to='/about' className="bg-transparent border-2 border-white text-white px-8 py-3 rounded-full text-lg font-medium hover:bg-white hover:text-blue-900 transition-colors">

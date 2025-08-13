@@ -96,13 +96,13 @@ export const ProductCard = ({ product, index }) => {
         </div>
       </div>
       <div className="p-4">
-        <div className="flex items-center text-yellow-400 mb-2">
+        {/* <div className="flex items-center text-yellow-400 mb-2">
           {[...Array(4)].map((_, i) => (
             <Star key={i} size={16} fill="currentColor" />
           ))}
           <Star size={16} className="text-gray-300" fill="currentColor" />
           <span className="text-gray-600 text-sm ml-2">(24 reviews)</span>
-        </div>
+        </div> */}
         <h3 className="font-semibold text-lg text-gray-800 mb-1">
           {product.name}
         </h3>

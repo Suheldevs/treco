@@ -5,36 +5,50 @@ html, body{
     font-family: "Poppins", sans-serif; */
     font-family: "Space Grotesk", sans-serif;
 }
-@theme{
-  ---color-sky-600:'#14a78b'
+
+@theme {
+  --color-sky-500: #14a78b;
+  --color-sky-600: #11977f;
+  --color-sky-400: #11977f;
+  --color-blue-500: #235d83;
+  --color-blue-600: #235d83;
+  --color-blue-400: #235d83;
 }
 
 
   
 .blog ul{
     list-style: disc !important;
-    list-style-position: inside !important;
+    margin-left: 25px;
+    /* list-style-position: inside !important; */
   }
   .blog ol{
     list-style: decimal !important;
-    list-style-position: inside !important;
+     margin-left: 25px;
+    /* list-style-position: inside !important; */
   }
   
   .blog h1{
     font-size: 28px;
     font-weight: 600;
     line-height: 40px;
+      margin-top: 10px;
+      margin-bottom: 4px;
   }
   .blog h2{
     font-size: 23px;
     font-weight: 600;
     line-height: 32px;
+    margin-top: 10px;
+     margin-bottom: 4px;
   }
   .blog h3{
     font-size: 20px;
     margin-top: 1rem;
     font-weight: 600;
     line-height: 28px;
+     margin-top: 10px;
+     margin-bottom: 4px;
   }
   
   .blog strong{

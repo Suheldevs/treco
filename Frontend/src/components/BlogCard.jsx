@@ -30,7 +30,7 @@ const BlogCard = ({ date, category, title, imageUrl, slug, description }) => {
               <Clock className="h-3 w-3 mr-1" />
               {formattedDate(date)}
             </div>
-            <div className="inline-flex items-center bg-black px-2 py-1 rounded-sm text-xs font-medium text-white">
+            <div className="inline-flex items-center bg-sky-500 px-2 py-1 rounded-sm text-xs font-medium text-white">
               <Tag className="h-3 w-3 mr-1" />
               {category}
             </div>

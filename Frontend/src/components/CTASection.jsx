@@ -38,7 +38,7 @@ export default function CTASection() {
           transition={{ delay: 0.6 }}
         >
           <button aria-label="Get Quotes" title="Quotes" onClick={()=>setIsOpen(!isOpen)} className="bg-white text-blue-600 font-medium px-6 py-3 rounded-xl shadow-lg hover:bg-gray-200 transition flex items-center gap-2">
-            Get Quotes
+            Get Quote
           </button>
           <Link to='/products' className="bg-transparent border-2 border-white text-white font-medium px-6 py-3 rounded-xl shadow-lg hover:bg-white hover:text-blue-600 transition flex items-center gap-2">
             View Products
