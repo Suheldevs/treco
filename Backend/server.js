@@ -8,7 +8,7 @@ import cors from 'cors'
 const app = express()
 app.use(cookieParser());
 app.use(express.json())
-app.use(cors({origin:["https://treco-in.netlify.app","https://treco-admin.netlify.app","http://localhost:5173","http://localhost:5174"]}))
+app.use(cors({origin:["https://treco-in.netlify.app","https://treco-admin.netlify.app","http://localhost:5173","http://localhost:5174","https://dfmr0pxf-5173.inc1.devtunnels.ms"]}))
 dotenv.config()
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
