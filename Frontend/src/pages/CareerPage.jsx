@@ -171,13 +171,13 @@ const res = await axios.post(`${backendUrl}/career/save`,formData,{headers:{'Con
       {/* Application Form */}
       <div className="py-12 container mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 bg-white" id="application-form">
         <div className='hidden lg:block'>
-            <img src={career} className='rounded-3xl h-[800px]'/>
+            <img src='https://static.vecteezy.com/system/resources/previews/024/593/351/large_2x/we-re-hiring-logo-free-free-vector.jpg' className='rounded-3xl h-[800px]'/>
             </div>
         <div className="container mx-auto px-4" id='contact-form'>
           <div className="max-w-2xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">Apply Now</h2>
-              <p className="text-gray-600">Fill out the form below to apply for a position at Treco.</p>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">Apply For Latest Jobs Together</h2>
+              <p className="text-gray-600">Send us your resume using this form methods.</p>
             </div>
             
             {formStatus.submitted ? (

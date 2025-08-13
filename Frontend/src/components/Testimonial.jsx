@@ -68,7 +68,7 @@ function Testimonial() {
   };
 
   return (
-    <div className="container mx-auto lg:px-4 py-4 scroll-m-20" id='testimonials' data-aos='fade-up'>
+    <div className="container mx-auto  py-4 scroll-m-20" id='testimonials' data-aos='fade-up'>
       <div className="bg-gray-50 rounded-3xl py-8 px-5 md:p-8 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-64 h-64 bg-blue-100 rounded-full -translate-y-1/2 translate-x-1/2 opacity-70"></div>
         
@@ -76,7 +76,7 @@ function Testimonial() {
           <h2 className="text-2xl md:text-5xl font-bold mt-2 mb-4 messiri">What Our Clients Say</h2>
           <div className="w-20 h-1 bg-blue-600 rounded-full"></div>
         </div> */}
-        <div className={`text-center mb-24 transform transition-all duration-1000
+        <div className={`text-center mb-12 transform transition-all duration-1000
        `}>
           <span className="text-sky-600 font-medium uppercase tracking-wider mb-6">Testimonials</span>
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-w tracking-tight">

@@ -5,6 +5,8 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
 import Home from './pages/Home';  // Normal import for Home page
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
 
 // Lazy load all other pages
 const ContactPage = lazy(() => import('./pages/ContactPage'));

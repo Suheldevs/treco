@@ -19,7 +19,7 @@ function FaqItem() {
             Find answers to common questions about our services, installation process, and support options. Can't find what you're looking for? Contact us directly.
           </p>
         </div>
-           <div className="grid md:grid-cols-2 gap-x-8 gap-y-4 max-w-6xl mx-auto">
+           <div className="grid md:grid-cols-2 gap-x-8 gap-y-4 max-w-7xl mx-auto">
           {faqItems?.slice(0,6).map((item, index) => (
             <div 
               id={`faq-${faqItems.findIndex(faq => faq.question === item.question)}`}
