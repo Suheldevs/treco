@@ -209,10 +209,10 @@ const ContactPage = () => {
                   />
                 </a>
                 <a
-                  href="mailto:A MAD technology@gmail.com"
+                  href="mailto:A-Mad technology@gmail.com"
                   className="text-sky-600 font-medium inline-flex items-center group"
                 >
-                  A MAD technology@gmail.com
+                  A-Mad technology@gmail.com
                   <ArrowRight
                     size={16}
                     className="ml-1 transform transition-transform duration-300 group-hover:translate-x-1"

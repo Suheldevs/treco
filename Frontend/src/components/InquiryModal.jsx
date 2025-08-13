@@ -79,7 +79,7 @@ export default function InquiryModal({ isOpen, setIsOpen }) {
   const serviceOptions = [
     'Robotics System',
     'Home Automation',
-    'A MAD  K&E Sharing',
+    'A-Mad  K&E Sharing',
     'Industrial Automation',
     'Internet of Things',
     'Social Service'
@@ -242,7 +242,7 @@ export default function InquiryModal({ isOpen, setIsOpen }) {
         <div className="bg-gradient-to-r from-sky-500 to-blue-500 p-3 flex justify-between items-center sticky top-0 z-10">
           <h2 className="text-xl font-bold text-white flex items-center gap-2">
             <Briefcase size={24} />
-            Project Information
+            Request A Quote
           </h2>
           <button 
             title='Close'
@@ -254,16 +254,29 @@ export default function InquiryModal({ isOpen, setIsOpen }) {
           </button>
         </div>
         
-     <div className="bg-gray-50 px-6 py-4 sticky top-[88px] z-10">
-  <div className="relative flex justify-between items-center mb-3 w-full">
-    {/* Connector lines */}
-    {["Personal Information", "Project Details", "Features & Additional Information"].map((_, index) => {
-     
-    })}
+     <div className="bg-gray-50 px-6 py-4 sticky  z-10">
+  <div className="relative flex justify-between items-center  w-full">
+    {/* {["Personal Information", "Project Details", "Features & Additional Information"].map((_, index) => {
+      if (index === 2) return null; 
+      return (
+        <div
+          key={index}
+          className={`absolute top-5 left-[calc((100%/3)*${index}+1.25rem)] h-1 w-[calc(100%/3-2.5rem)] transition-colors ${
+            formStep > index + 1
+              ? 'bg-green-500'
+              : formStep === index + 1
+                ? 'bg-sky-500'
+                : 'bg-gray-200'
+          }`}
+        />
+      );
+    })} */}
 
     {/* Step buttons + labels */}
     {["Personal Information", "Project Details", "Features & Additional Information"].map((label, index) => (
       <div key={index} className="flex-1 flex flex-col items-center relative z-10">
+
+        
         <button
           title={`Step ${index + 1}`}
           className={`rounded-full transition-colors ${

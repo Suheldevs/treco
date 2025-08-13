@@ -7,6 +7,7 @@ import ScrollToTop from './components/ScrollToTop';
 import Home from './pages/Home';  // Normal import for Home page
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
+import DynamicServices from './pages/ServiceDetailPage';
 
 // Lazy load all other pages
 const ContactPage = lazy(() => import('./pages/ContactPage'));
@@ -53,10 +54,11 @@ function App() {
                 <Route path='/lighting/:subcategory' element={<SubcategoryProductsPage />} />
                 <Route path='/faq' element={<FaqPage />} />
                 <Route path='/inquiry' element={<InquiryModal />} />
-                <Route path='/home-automation' element={<HomeAutomation />} />
+                <Route path='/service/home-automation' element={<HomeAutomation />} />
                 <Route path='/audio-visual' element={<AudioVisual />} />
                 <Route path='/blog' element={<BlogPage />} />
                 <Route path='/blog/:slug' element={<BlogDetail />} />
+                <Route path='/service/:slug' element={<DynamicServices />} />
                 <Route path="*" element={<PageNotFound />} />
               </Routes>
             </Suspense>

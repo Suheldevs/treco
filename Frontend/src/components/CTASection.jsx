@@ -10,7 +10,7 @@ export default function CTASection() {
     <InquiryModal isOpen={isOpen} setIsOpen={setIsOpen} />
     <section className={`relative w-full py-20 z-0  bg-cover bg-center
  text-white text-center`}  style={{ backgroundImage: `url(${cta})` }}>
-  <div className="absolute inset-0 bg-black/30 -z-10"></div>
+  <div className="absolute inset-0 bg-black/60 -z-10"></div>
       <div className="max-w-3xl mx-auto px-6 z-10">
         <motion.h2
           className="text-4xl font-bold mb-4"
@@ -27,8 +27,9 @@ export default function CTASection() {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3 }}
         >
-          Discover premium <span className="font-semibold">touch switches</span> and{" "}
-          <span className="font-semibold">motion sensors</span> for seamless home automation.
+          {/* Discover premium <span className="font-semibold">touch switches</span> and{" "}
+          <span className="font-semibold">motion sensors</span> for seamless home automation. */}
+          Experience the perfect blend of luxury, convenience, and technology with our premium touch switches and intelligent motion sensors—designed for effortless control and seamless living.
         </motion.p>
 
         <motion.div
@@ -38,10 +39,10 @@ export default function CTASection() {
           transition={{ delay: 0.6 }}
         >
           <button aria-label="Get Quotes" title="Quotes" onClick={()=>setIsOpen(!isOpen)} className="bg-white text-blue-600 font-medium px-6 py-3 rounded-xl shadow-lg hover:bg-gray-200 transition flex items-center gap-2">
-            Get Quote
+           Request a Quote
           </button>
           <Link to='/products' className="bg-transparent border-2 border-white text-white font-medium px-6 py-3 rounded-xl shadow-lg hover:bg-white hover:text-blue-600 transition flex items-center gap-2">
-            View Products
+            Explore Products
           </Link>
         </motion.div>
       </div>

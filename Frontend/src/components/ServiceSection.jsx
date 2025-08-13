@@ -62,7 +62,7 @@ const ServiceCard = ({ title, description, icon: Icon, index, slug }) => {
           <div className={`transform transition-all duration-500 ${
             isHovered ? 'translate-y-0 opacity-100' : 'translate-y-0 opacity-100'
           }`}>
-            <Link to={slug} className={`group inline-flex items-center text-white font-medium py-2 px-4 rounded-lg bg-gradient-to-r ${gradients[index % gradients.length]}`}>
+            <Link to={`/service/${slug}`} className={`group inline-flex items-center text-white font-medium py-2 px-4 rounded-lg bg-gradient-to-r ${gradients[index % gradients.length]}`}>
               <span>Explore</span>
               <svg 
                 xmlns="http://www.w3.org/2000/svg" 
@@ -97,31 +97,31 @@ const ServicesSection = () => {
     {
       title: "Robotics System",
       description: "Research on specific robotics challenges to build more sophisticated, efficient and commercially viable products.",
-      slug:'/home-automation',
+      slug: 'robotics-system',
       icon: Bot ,
     },
     {
-      title: "A MAD  K&E Sharing",
+      title: "A-Mad  K&E Sharing",
       description: "We're involved in interesting Mechatronics research projects to develop useful commercially viable products.",
-      slug:'/home-automation',
+     slug: 'amad-kne-sharing',
       icon: Brain,
     },
     {
       title: "Industrial Automation",
       description: "An integrated, intelligent, flexible and low-cost industrial automation platform that promotes a safe and efficient industrial environment.",
-      slug:'/home-automation',
+      slug: 'industrial-automation',
       icon: Factory,
     },
     {
       title: "Internet of Things",
       description: "We research interesting IoT projects to utilize its magical power to change human life and promote a safe and secure environment.",
-      slug:'/home-automation',
+      slug: 'internet-of-things',
       icon: Wifi,
     },
     {
       title: "Social Service",
       description: "We understand our responsibility towards the nation and support all initiatives for social betterment.",
-      slug:'/home-automation',
+     slug: 'social-service',
       icon: Heart,
     },
   ];

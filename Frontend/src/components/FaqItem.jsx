@@ -77,6 +77,7 @@ function FaqItem() {
             </div>
           ))}
         </div>
+          
         <div className='flex mt-8 justify-center items-center'>
         <Link
                    to='/faq'
