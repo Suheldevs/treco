@@ -2,6 +2,7 @@ import React, { lazy, Suspense } from 'react';
 import HeroSection from '../components/HeroSection';
 import BlogPage from '../components/BlogSection';
 import BlogSection from '../components/BlogSection';
+import BranchSection from '../components/BranchSection';
 
 // Lazy imports for the rest
 const AboutSection = lazy(() => import('../components/AboutSection'));
@@ -26,6 +27,7 @@ function Home() {
         <ServicesSection />
         <ProductSection />
         <CTASection />
+        <BranchSection/>
         <Testimonial />
         <BlogSection/>
       </Suspense>

@@ -13,7 +13,7 @@ const BottomFooter = () => {
           <p className="">Copyright</p>
           {/* <FaRegCopyright className="text-[1rem]" /> */}
           <p className=" messiri">
-            {new Date().getFullYear()} Treco India Technical Services
+            {new Date().getFullYear()} A MAD Electricals Technical Services
           </p>
           <span className="hidden sm:inline-block">||</span>
           <p className="">All Rights Reserved</p>

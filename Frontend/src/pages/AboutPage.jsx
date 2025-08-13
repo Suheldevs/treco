@@ -10,11 +10,11 @@ const AboutPage = () => {
       <section className="relative h-96">
         <img
           src={bread}
-          alt="Treco Engineering Header"
+          alt="A MAD  Engineering Header"
           className="w-full h-full object-cover brightness-75"
         />
         {/* <div className="absolute inset-0 flex flex-col justify-center items-center text-white bg-black/40 ">
-          <h1 className="text-5xl font-bold mb-2">About Treco</h1>
+          <h1 className="text-5xl font-bold mb-2">About A MAD </h1>
           <div className="h-2 w-1/4 bg-gradient-to-r from-sky-500 to-sky-300 rounded-full mt-2 mx-auto"></div>
           <p className="text-xl max-w-2xl text-center px-4">Engineering excellence and innovative solutions for a better tomorrow</p>
         </div> */}
@@ -22,7 +22,7 @@ const AboutPage = () => {
           <div className="text-center">
             <h2 className="inline-block relative">
               <span className="text-4xl md:text-5xl lg:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-sky-600 to-sky-400">
-                About Treco India
+                About A MAD Electricals
               </span>
               <div className="h-2 w-2/3 bg-gradient-to-r from-sky-600 to-sky-400 rounded-full mt-2 mx-auto"></div>
             </h2>
@@ -63,7 +63,7 @@ const AboutPage = () => {
           <div className="relative">
             <img
               src={about}
-              alt="Treco Team at Work"
+              alt="A MAD  Team at Work"
               className="rounded-lg h-auto shadow-xl z-10 relative"
             />
             <div className="absolute -bottom-4 -right-4 w-full h-full bg-sky-200 rounded-lg -z-10"></div>
@@ -141,7 +141,7 @@ const AboutPage = () => {
           <h2 className="text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-sky-500 to-blue-600 mb-6">Our Core Values</h2>
           <div className="h-1 w-24 bg-gradient-to-r from-sky-500 to-blue-600 mx-auto mt-2 mb-8 rounded-full"></div>
           <p className="text-lg max-w-2xl mx-auto text-gray-600">
-            These fundamental principles drive our innovation and guide our manufacturing excellence at Treco India.
+            These fundamental principles drive our innovation and guide our manufacturing excellence at A MAD Electricals.
           </p>
         </div>
 
@@ -166,7 +166,7 @@ const AboutPage = () => {
                 
                 {/* Subtle card footer */}
                 {/* <div className="mt-8 pt-4 border-t border-gray-100 flex justify-between items-center">
-                  <span className="text-xs font-semibold text-gray-400 uppercase tracking-wider">Treco Value</span>
+                  <span className="text-xs font-semibold text-gray-400 uppercase tracking-wider">A MAD  Value</span>
                   <div className="w-8 h-8 rounded-full overflow-hidden">
                     <img src={value.image} alt="" className="w-full h-full object-cover" />
                   </div>
@@ -233,7 +233,7 @@ const coreValues = [
   {
     id: 2,
     title: "Excellence",
-    description: "Our commitment to precision engineering and quality control ensures every Treco product meets the highest manufacturing standards.",
+    description: "Our commitment to precision engineering and quality control ensures every A MAD  product meets the highest manufacturing standards.",
     image: "https://picsum.photos/id/634/200/200",
     icon: (
       <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">

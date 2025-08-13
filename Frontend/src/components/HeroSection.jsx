@@ -102,8 +102,8 @@ const HeroSection = () => {
               <Link aria-label='Explore Products' title='Explore Products' to='/products'  className="bg-sky-500 hover:bg-blue-500 text-white px-8 py-3 rounded-full text-lg font-medium transition-colors">
               Explore Products
               </Link>
-              <Link aria-label='About Treco' title='About Treco' to='/about' className="bg-transparent border-2 border-white text-white px-8 py-3 rounded-full text-lg font-medium hover:bg-white hover:text-blue-900 transition-colors">
-                About Treco
+              <Link aria-label='About A MAD ' title='About A MAD ' to='/about' className="bg-transparent border-2 border-white text-white px-8 py-3 rounded-full text-lg font-medium hover:bg-white hover:text-blue-900 transition-colors">
+                About A MAD 
               </Link>
             </div>
           </div>

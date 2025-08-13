@@ -199,20 +199,20 @@ const ContactPage = () => {
                   Send us an email and we'll get back to you within 24 hours.
                 </p>
                 <a
-                  href="mailto:info@treco.com"
+                  href="mailto:info@treco.in"
                   className="text-sky-600 font-medium inline-flex items-center group"
                 >
-                  info@treco.com
+                  info@treco.in
                   <ArrowRight
                     size={16}
                     className="ml-1 transform transition-transform duration-300 group-hover:translate-x-1"
                   />
                 </a>
                 <a
-                  href="mailto:trecotechnology@gmail.com"
+                  href="mailto:A MAD technology@gmail.com"
                   className="text-sky-600 font-medium inline-flex items-center group"
                 >
-                  trecotechnology@gmail.com
+                  A MAD technology@gmail.com
                   <ArrowRight
                     size={16}
                     className="ml-1 transform transition-transform duration-300 group-hover:translate-x-1"
@@ -354,7 +354,7 @@ const ContactPage = () => {
                           type="tel"
                           id="phone"
                           name="phone"
-                          maxlength="10"
+                          maxLength="10"
                           value={formData.phone}
                           onChange={handleChange}
                           className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-sky-500 focus:border-sky-500 transition-all"
@@ -475,7 +475,7 @@ const ContactPage = () => {
           <div className="mt-12">
             <div className="relative h-96 bg-gray-300">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.720474043652!2d77.290968774756!3d28.608161375678097!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce378cde7c251%3A0xa197c1153d5ea8a2!2sTreco%20Technologies%20Private%20Limited!5e0!3m2!1sen!2sin!4v1743681174385!5m2!1sen!2sin"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.720474043652!2d77.290968774756!3d28.608161375678097!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce378cde7c251%3A0xa197c1153d5ea8a2!2sA MAD %20Technologies%20Private%20Limited!5e0!3m2!1sen!2sin!4v1743681174385!5m2!1sen!2sin"
                 className="h-full w-full"
                 allowFullScreen=""
                 loading="lazy"

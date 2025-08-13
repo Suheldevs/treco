@@ -14,7 +14,7 @@ const AboutSection = () => {
         <div className="text-center">
           <h2 className="inline-block relative">
             <span className="text-4xl md:text-5xl lg:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-sky-600 to-sky-400">
-              About Treco India
+              About A MAD Electricals
             </span>
             <div className="h-2 w-2/3 bg-gradient-to-r from-sky-500 to-sky-300 rounded-full mt-2 mx-auto"></div>
           </h2>
@@ -37,7 +37,7 @@ const AboutSection = () => {
             Revolutionizing Home Automation with Machine Learning
           </h3>
           <p className="text-lg text-gray-600 leading-relaxed">
-            At Treco, we're not just creating smart homes—we're building intelligent living spaces that 
+            At A MAD , we're not just creating smart homes—we're building intelligent living spaces that 
             understand and anticipate your needs through our cutting-edge Lightning MLC technology.
           </p>
         </div>
@@ -111,12 +111,12 @@ const AboutSection = () => {
             <p className="text-gray-600 mb-4 leading-relaxed">
               We combine cutting-edge technology with thoughtful design to create home automation systems 
               that truly enhance your daily life. Our team of experts works tirelessly to ensure that every 
-              Treco solution delivers exceptional performance while remaining accessible and easy to use.
+              A MAD  solution delivers exceptional performance while remaining accessible and easy to use.
             </p>
             <p className="text-gray-600 mb-8 leading-relaxed">
               We combine cutting-edge technology with thoughtful design to create home automation systems 
               that truly enhance your daily life. Our team of experts works tirelessly to ensure that every 
-              Treco solution delivers exceptional performance while remaining accessible and easy to use.
+              A MAD  solution delivers exceptional performance while remaining accessible and easy to use.
             </p>
             
             {/* Modern Stats Display */}

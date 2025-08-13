@@ -101,7 +101,7 @@ const ServicesSection = () => {
       icon: Bot ,
     },
     {
-      title: "Treco K&E Sharing",
+      title: "A MAD  K&E Sharing",
       description: "We're involved in interesting Mechatronics research projects to develop useful commercially viable products.",
       slug:'/home-automation',
       icon: Brain,
@@ -146,7 +146,7 @@ const ServicesSection = () => {
           isInView ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'
         }`}>
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white tracking-tight">
-            Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-blue-500">Innovative</span> Services
+            Our <span className="text-transparent bg-clip-text bg-sky-500">Innovative</span> Services
           </h2>
          
           <div className="h-2 w-1/3 bg-gradient-to-r from-sky-500 to-blue-500 rounded-full mb-6 mx-auto"></div>

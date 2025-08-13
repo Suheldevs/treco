@@ -28,10 +28,10 @@ const PrivacyPolicy = () => {
 
       <h2 className="text-2xl font-semibold mt-6 mb-2">Security of Data</h2>
       <p className="mb-4">
-        Treco has implemented technology and security features to safeguard the privacy of your personal information. A secure server protects your personal information. Additionally, with Treco you can be assured that the information you provide is transmitted using Secure Socket Layer (SSL) encryption. If you become aware of any security breach, please let us know as soon as possible.
+        A MAD  has implemented technology and security features to safeguard the privacy of your personal information. A secure server protects your personal information. Additionally, with A MAD  you can be assured that the information you provide is transmitted using Secure Socket Layer (SSL) encryption. If you become aware of any security breach, please let us know as soon as possible.
       </p>
       <p className="mb-4">
-        We restrict access to customers’ personal and commercial information to Treco employees, contractors, and agents who need to know that information in order to process it in connection with the service, and who are subject to strict contractual confidentiality obligations. 
+        We restrict access to customers’ personal and commercial information to A MAD  employees, contractors, and agents who need to know that information in order to process it in connection with the service, and who are subject to strict contractual confidentiality obligations. 
       </p>
       
       <h2 className="text-2xl font-semibold mt-6 mb-2">Tracking & Cookies Data</h2>
@@ -39,7 +39,7 @@ const PrivacyPolicy = () => {
         We use cookies and similar tracking technologies to track the activity on our service and hold certain information. Cookies are sent to your browser from a website and stored on your device. Tracking technologies such as beacons, tags, and scripts collect and track information to improve and analyze our service.
       </p>
 
-      <h2 className="text-2xl font-semibold mt-6 mb-2">Treco Uses the Collected Data for Various Purposes</h2>
+      <h2 className="text-2xl font-semibold mt-6 mb-2">A MAD  Uses the Collected Data for Various Purposes</h2>
       <ul className="list-disc pl-6 mb-4">
         <li>To provide and maintain the service.</li>
         <li>To notify you about changes to our service.</li>
@@ -52,16 +52,16 @@ const PrivacyPolicy = () => {
 
       <h2 className="text-2xl font-semibold mt-6 mb-2">Transfer of Data</h2>
       <p className="mb-4">
-        Treco will take all steps reasonably necessary to ensure that your data is treated securely and in accordance with this Privacy Policy. No transfer of your Personal Data will take place unless there are adequate controls in place, including the security of your data and other personal information.
+        A MAD  will take all steps reasonably necessary to ensure that your data is treated securely and in accordance with this Privacy Policy. No transfer of your Personal Data will take place unless there are adequate controls in place, including the security of your data and other personal information.
       </p>
 
       <h2 className="text-2xl font-semibold mt-6 mb-2">Disclosure of Data</h2>
       <p className="mb-4">
-        Treco may disclose your Personal Data in the good faith belief that such action is necessary to:
+        A MAD  may disclose your Personal Data in the good faith belief that such action is necessary to:
       </p>
       <ul className="list-disc pl-6 mb-4">
         <li>Comply with a legal obligation.</li>
-        <li>Protect and defend the rights or property of Treco.</li>
+        <li>Protect and defend the rights or property of A MAD .</li>
         <li>Prevent or investigate possible wrongdoing in connection with the service.</li>
         <li>Protect the personal safety of users of the service or the public.</li>
         <li>Protect against legal liability.</li>
@@ -80,7 +80,7 @@ const PrivacyPolicy = () => {
       
       <h2 className="text-2xl font-semibold mt-6 mb-2">Contact Us</h2>
       <p className="mb-4">If you have any questions about this Privacy Policy, please contact us:</p>
-      <p className="text-blue-600 underline">Our website: <a href="https://www.treco.in" target="_blank" rel="noopener noreferrer">www.treco.in</a></p>
+      <p className="text-blue-600 underline">Our website: <a href="https://www.A MAD .in" target="_blank" rel="noopener noreferrer">www.A MAD .in</a></p>
     </div>
   );
 };

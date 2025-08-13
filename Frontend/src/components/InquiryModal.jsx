@@ -79,7 +79,7 @@ export default function InquiryModal({ isOpen, setIsOpen }) {
   const serviceOptions = [
     'Robotics System',
     'Home Automation',
-    'Treco K&E Sharing',
+    'A MAD  K&E Sharing',
     'Industrial Automation',
     'Internet of Things',
     'Social Service'

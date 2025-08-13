@@ -32,7 +32,7 @@ const Header = () => {
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <Link to="/" title='Treco-Logo' aria-label='Treco-Logo' className="flex items-center">
+            <Link to="/" title='A MAD -Logo' aria-label='A MAD -Logo' className="flex items-center">
               <img src={logo} alt="Logo"  className="h-16" />
             </Link>
           </div>
@@ -135,16 +135,16 @@ const Header = () => {
 
           {/* Social Media Links - Desktop */}
           <div className="hidden md:flex items-center space-x-3">
-            <a aria-label='Facebook' title='Facebook' href="https://www.facebook.com/TRECO-Technologies-1103251483062862" target="_blank" rel="noopener noreferrer" className="bg-sky-500 p-2 rounded-full  text-white hover:bg-sky-600 hover:scale-105 ">
+            <a aria-label='Facebook' title='Facebook' href="https://www.facebook.com/A MAD -Technologies-1103251483062862" target="_blank" rel="noopener noreferrer" className="bg-sky-500 p-2 rounded-full  text-white hover:bg-sky-600 hover:scale-105 ">
               <Facebook size={20} />
             </a>
-            <a aria-label='X' title='X' href="https://twitter.com/TrecoTechnolog1" target="_blank" rel="noopener noreferrer" className="bg-sky-500 p-2 rounded-full  text-white hover:bg-sky-600 hover:scale-105 ">
+            <a aria-label='X' title='X' href="https://twitter.com/A MAD Technolog1" target="_blank" rel="noopener noreferrer" className="bg-sky-500 p-2 rounded-full  text-white hover:bg-sky-600 hover:scale-105 ">
               <FaXTwitter size={20} />
             </a>
             <a aria-label='Whatsapp' title='Whatsapp' href="https://wa.me/+91-9810894981" target="_blank" rel="noopener noreferrer" className="bg-sky-500 p-2 rounded-full  text-white hover:bg-sky-600 hover:scale-105 ">
               <FaWhatsapp size={20} />
             </a>
-            <a aria-label='Linkedin' title='Linkedin' href="https://www.linkedin.com/in/treco-technologies-7198b0129/" target="_blank" rel="noopener noreferrer" className="bg-sky-500 p-2 rounded-full  text-white hover:bg-sky-600 hover:scale-105 ">
+            <a aria-label='Linkedin' title='Linkedin' href="https://www.linkedin.com/in/A MAD -technologies-7198b0129/" target="_blank" rel="noopener noreferrer" className="bg-sky-500 p-2 rounded-full  text-white hover:bg-sky-600 hover:scale-105 ">
               <Linkedin size={20} />
             </a>
           </div>
@@ -256,16 +256,16 @@ const Header = () => {
               
               {/* Social Media Links - Mobile */}
               <div className="flex space-x-6 pt-2 border-t border-gray-200">
-                <a aria-label='facebook' title='facebook' href="https://www.facebook.com/TRECO-Technologies-1103251483062862" target="_blank" rel="noopener noreferrer" className="text-gray-800 hover:text-sky-600">
+                <a aria-label='facebook' title='facebook' href="https://www.facebook.com/A MAD -Technologies-1103251483062862" target="_blank" rel="noopener noreferrer" className="text-gray-800 hover:text-sky-600">
                   <Facebook size={20} />
                 </a>
-                <a aria-label='x' title='x' href="https://twitter.com/TrecoTechnolog1" target="_blank" rel="noopener noreferrer" className="text-gray-800 hover:text-sky-400">
+                <a aria-label='x' title='x' href="https://twitter.com/A MAD Technolog1" target="_blank" rel="noopener noreferrer" className="text-gray-800 hover:text-sky-400">
                   <FaXTwitter size={20} />
                 </a>
                 <a aria-label='Whatsapp' title='Whatsapp' href="https://wa.me/+91-9810894981" target="_blank" rel="noopener noreferrer" className="text-gray-800 hover:text-pink-600">
                   <FaWhatsapp size={20} />
                 </a>
-                <a aria-label='Linkedin' title='Linkedin' href="https://www.linkedin.com/in/treco-technologies-7198b0129/" target="_blank" rel="noopener noreferrer" className="text-gray-800 hover:text-sky-800">
+                <a aria-label='Linkedin' title='Linkedin' href="https://www.linkedin.com/in/A MAD -technologies-7198b0129/" target="_blank" rel="noopener noreferrer" className="text-gray-800 hover:text-sky-800">
                   <Linkedin size={20} />
                 </a>
               </div>

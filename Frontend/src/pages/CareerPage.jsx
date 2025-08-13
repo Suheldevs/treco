@@ -89,7 +89,7 @@ const res = await axios.post(`${backendUrl}/career/save`,formData,{headers:{'Con
           <div className="absolute bottom-0 left-0 w-96 h-96 bg-white opacity-5 rounded-full translate-y-1/2 -translate-x-1/2"></div>
           
           <div className="max-w-3xl relative z-10">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">Join Our Team at Treco</h1>
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">Join Our Team at A MAD </h1>
             <p className="text-xl md:text-2xl text-sky-100 mb-8">Help us build the future of automation technology and transform industries worldwide.</p>
             {/* <a href="#apply" className="inline-flex items-center px-6 py-3 bg-white text-sky-600 font-medium rounded-lg shadow-lg hover:bg-sky-50 transition duration-300">
               View Open Positions
@@ -184,7 +184,7 @@ const res = await axios.post(`${backendUrl}/career/save`,formData,{headers:{'Con
               <div className="bg-green-50 border border-green-200 rounded-xl p-6 text-center">
                 <CheckCircle size={48} className="text-green-500 mx-auto mb-4" />
                 <h3 className="text-xl font-bold mb-2">Application Submitted!</h3>
-                <p className="text-gray-600 mb-4">Thank you for your interest in joining Treco. We'll review your application and get back to you soon.</p>
+                <p className="text-gray-600 mb-4">Thank you for your interest in joining A MAD . We'll review your application and get back to you soon.</p>
                 <button 
                   onClick={() => setFormStatus({ submitted: false, error: false })}
                   className="px-6 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition duration-300"
@@ -307,7 +307,7 @@ const res = await axios.post(`${backendUrl}/career/save`,formData,{headers:{'Con
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-2xl md:text-3xl font-bold mb-4">Don't See a Position That Fits?</h2>
           <p className="text-sky-200 mb-8 max-w-xl mx-auto">We're always looking for talented individuals. Send us your resume and we'll keep it on file for future opportunities.</p>
-          <a href="mailto:careers@treco.in" className="inline-flex items-center px-6 py-3 bg-white text-sky-900 font-medium rounded-lg shadow-lg hover:bg-sky-50 transition duration-300">
+          <a href="mailto:careers@A MAD .in" className="inline-flex items-center px-6 py-3 bg-white text-sky-900 font-medium rounded-lg shadow-lg hover:bg-sky-50 transition duration-300">
             Contact Our Recruiting Team
           </a>
         </div>
