@@ -5,10 +5,10 @@ import logo3 from "../assets/treco-arabia.webp";
 import logo4 from "../assets/logo3.webp";
 const BranchSection = () => {
   const branches = [
-      { name: "Bangalore Branch", logo: logo3 },
-      { name: "Delhi Branch", logo: logo1 },
-      { name: "Delhi Branch", logo: logo4 },
-      { name: "h", logo: logo2 },
+      { name: "Treco Arabia", logo: logo3 },
+      { name: "Treco India", logo: logo1 },
+      { name: "Build Track", logo: logo4 },
+      { name: "Hogar", logo: logo2 },
     // { name: "Chennai Branch", logo: "/api/placeholder/120/80" },
   ];
 
@@ -39,13 +39,14 @@ const BranchSection = () => {
               <div className="flex flex-col items-center justify-center h-full">
                 {/* Branch Logo Image */}
                 <div
+                title={branch.name}
                   className="w-full h-20 mb-4 flex items-center justify-center
                               group-hover:scale-105 transition-transform duration-300"
                 >
                   <img
                     src={branch.logo}
                     alt={`${branch.name} logo`}
-                    className={`${branch.name == "h" && 'bg-black'} max-w-full max-h-full object-contain transition-all duration-300`}
+                    className={`${branch.name == "Hogar" && 'bg-black p-2'} max-w-full max-h-full object-contain transition-all duration-300`}
                   />
                 </div>
               </div>

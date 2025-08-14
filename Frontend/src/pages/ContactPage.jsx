@@ -16,8 +16,17 @@ import bread from "../assets/contact.jpg";
 import FaqItem from "../components/FaqItem";
 import map from "../assets/map.png";
 import pattern from "../assets/pattern.webp";
+
 const ContactPage = () => {
   const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    service: "",
+    message: "",
+    phone: "",
+  });
+
+  const [fieldErrors, setFieldErrors] = useState({
     name: "",
     email: "",
     service: "",
@@ -39,14 +48,95 @@ const ContactPage = () => {
     "Custom Integration",
   ];
 
+  // Validation functions
+  const validateName = (name) => {
+    if (!name.trim()) {
+      return "Full name is required";
+    }
+    if (name.trim().length < 2) {
+      return "Name must be at least 2 characters long";
+    }
+    if (!/^[A-Za-z\s]+$/.test(name.trim())) {
+      return "Name can only contain letters and spaces";
+    }
+    return "";
+  };
+
+  const validateEmail = (email) => {
+    if (!email.trim()) {
+      return "Email address is required";
+    }
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email.trim())) {
+      return "Please enter a valid email address";
+    }
+    return "";
+  };
+
+  const validatePhone = (phone) => {
+    if (!phone.trim()) {
+      return "Phone number is required";
+    }
+    if (phone.length !== 10) {
+      return "Phone number must be exactly 10 digits";
+    }
+    const phoneRegex = /^[6-9]\d{9}$/;
+    if (!phoneRegex.test(phone)) {
+      return "Phone number must start with 6, 7, 8, or 9";
+    }
+    return "";
+  };
+
+  const validateService = (service) => {
+    if (!service) {
+      return "Please select a service you're interested in";
+    }
+    return "";
+  };
+
+  const validateMessage = (message) => {
+    if (!message.trim()) {
+      return "Message is required";
+    }
+    if (message.trim().length < 10) {
+      return "Message must be at least 10 characters long";
+    }
+    return "";
+  };
+
   const handleChange = (e) => {
     const { name, value } = e.target;
+    
     setFormData((prevData) => ({
       ...prevData,
       [name]: value,
     }));
 
-    // Clear error when user starts typing again
+    // Real-time validation
+    let error = "";
+    switch (name) {
+      case "name":
+        error = validateName(value);
+        break;
+      case "email":
+        error = validateEmail(value);
+        break;
+      case "phone":
+        error = validatePhone(value);
+        break;
+      case "message":
+        error = validateMessage(value);
+        break;
+      default:
+        break;
+    }
+
+    setFieldErrors((prevErrors) => ({
+      ...prevErrors,
+      [name]: error,
+    }));
+
+    // Clear general form error when user starts typing
     if (formError) {
       setFormError("");
     }
@@ -59,7 +149,14 @@ const ContactPage = () => {
     }));
     setDropdownOpen(false);
 
-    // Clear error when user selects an interest
+    // Validate service selection
+    const serviceError = validateService(interest);
+    setFieldErrors((prevErrors) => ({
+      ...prevErrors,
+      service: serviceError,
+    }));
+
+    // Clear general form error when user selects an interest
     if (formError) {
       setFormError("");
     }
@@ -72,31 +169,26 @@ const ContactPage = () => {
     setFormSubmitting(true);
     setFormError(""); // Clear previous errors
 
+    // Validate all fields before submission
+    const errors = {
+      name: validateName(formData.name),
+      email: validateEmail(formData.email),
+      phone: validatePhone(formData.phone),
+      service: validateService(formData.service),
+      message: validateMessage(formData.message),
+    };
+
+    setFieldErrors(errors);
+
+    // Check if there are any errors
+    const hasErrors = Object.values(errors).some(error => error !== "");
+    if (hasErrors) {
+      setFormError("Please fix the errors above before submitting");
+      setFormSubmitting(false);
+      return;
+    }
+
     try {
-      // Validation logic
-      if (
-        !formData.name ||
-        !formData.phone ||
-        !formData.email ||
-        !formData.service
-      ) {
-        throw new Error("Please fill all required fields");
-      }
-
-      const phoneRegex = /^[6-9]\d{9}$/;
-      if (!phoneRegex.test(formData.phone)) {
-        throw new Error("Phone number must be 10 digits and start with 6-9");
-      }
-
-      if (!formData.email.includes("@")) {
-        throw new Error("Please enter a valid email address");
-      }
-
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailRegex.test(formData.email)) {
-        throw new Error("Please enter a valid email address");
-      }
-
       // If validation passes, submit the form
       const res = await axios.post(`${api}/inquiry/save`, formData);
 
@@ -113,12 +205,19 @@ const ContactPage = () => {
             message: "",
             phone: "",
           });
+          setFieldErrors({
+            name: "",
+            email: "",
+            service: "",
+            message: "",
+            phone: "",
+          });
         }, 3000);
       }, 1500);
     } catch (error) {
-      // Handle validation or submission errors
+      // Handle submission errors
       console.error("Form submission error:", error);
-      setFormError(error.message || "Something went wrong. Please try again.");
+      setFormError("Something went wrong. Please try again.");
       setFormSubmitting(false);
     }
   };
@@ -316,10 +415,20 @@ const ContactPage = () => {
                           name="name"
                           value={formData.name}
                           onChange={handleChange}
-                          className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-sky-500 focus:border-sky-500 transition-all"
+                          className={`w-full px-4 py-3 rounded-lg border ${
+                            fieldErrors.name 
+                              ? 'border-red-300 focus:ring-red-500 focus:border-red-500' 
+                              : 'border-gray-300 focus:ring-sky-500 focus:border-sky-500'
+                          } focus:ring-2 transition-all`}
                           placeholder="Your name"
                           required
                         />
+                        {fieldErrors.name && (
+                          <p className="text-red-600 text-sm mt-1 flex items-center">
+                            <AlertTriangle size={14} className="mr-1" />
+                            {fieldErrors.name}
+                          </p>
+                        )}
                       </div>
 
                       <div>
@@ -335,10 +444,20 @@ const ContactPage = () => {
                           name="email"
                           value={formData.email}
                           onChange={handleChange}
-                          className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-sky-500 focus:border-sky-500 transition-all"
+                          className={`w-full px-4 py-3 rounded-lg border ${
+                            fieldErrors.email 
+                              ? 'border-red-300 focus:ring-red-500 focus:border-red-500' 
+                              : 'border-gray-300 focus:ring-sky-500 focus:border-sky-500'
+                          } focus:ring-2 transition-all`}
                           placeholder="your@email.com"
                           required
                         />
+                        {fieldErrors.email && (
+                          <p className="text-red-600 text-sm mt-1 flex items-center">
+                            <AlertTriangle size={14} className="mr-1" />
+                            {fieldErrors.email}
+                          </p>
+                        )}
                       </div>
                     </div>
 
@@ -357,12 +476,20 @@ const ContactPage = () => {
                           maxLength="10"
                           value={formData.phone}
                           onChange={handleChange}
-                          className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-sky-500 focus:border-sky-500 transition-all"
+                          className={`w-full px-4 py-3 rounded-lg border ${
+                            fieldErrors.phone 
+                              ? 'border-red-300 focus:ring-red-500 focus:border-red-500' 
+                              : 'border-gray-300 focus:ring-sky-500 focus:border-sky-500'
+                          } focus:ring-2 transition-all`}
                           placeholder="10 Digit Phone Number"
                           required
-                          pattern="[6-9]\d{9}"
-                          title="Phone number must be 10 digits and start with 6, 7, 8, or 9"
                         />
+                        {fieldErrors.phone && (
+                          <p className="text-red-600 text-sm mt-1 flex items-center">
+                            <AlertTriangle size={14} className="mr-1" />
+                            {fieldErrors.phone}
+                          </p>
+                        )}
                       </div>
 
                       <div className="relative">
@@ -375,7 +502,11 @@ const ContactPage = () => {
                         <button
                           type="button"
                           onClick={() => setDropdownOpen(!dropdownOpen)}
-                          className="w-full flex items-center justify-between px-4 py-3 rounded-lg border border-gray-300 bg-white hover:bg-gray-50 transition-colors text-left"
+                          className={`w-full flex items-center justify-between px-4 py-3 rounded-lg border ${
+                            fieldErrors.service 
+                              ? 'border-red-300' 
+                              : 'border-gray-300'
+                          } bg-white hover:bg-gray-50 transition-colors text-left`}
                         >
                           <span
                             className={
@@ -393,6 +524,12 @@ const ContactPage = () => {
                             }`}
                           />
                         </button>
+                        {fieldErrors.service && (
+                          <p className="text-red-600 text-sm mt-1 flex items-center">
+                            <AlertTriangle size={14} className="mr-1" />
+                            {fieldErrors.service}
+                          </p>
+                        )}
 
                         {dropdownOpen && (
                           <div className="absolute z-10 mt-1 w-full bg-white rounded-lg shadow-lg border border-gray-200 py-1 animate-fadeIn">
@@ -423,10 +560,20 @@ const ContactPage = () => {
                         value={formData.message}
                         onChange={handleChange}
                         rows="4"
-                        className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-sky-500 focus:border-sky-500 transition-all resize-y"
+                        className={`w-full px-4 py-3 rounded-lg border ${
+                          fieldErrors.message 
+                            ? 'border-red-300 focus:ring-red-500 focus:border-red-500' 
+                            : 'border-gray-300 focus:ring-sky-500 focus:border-sky-500'
+                        } focus:ring-2 transition-all resize-y`}
                         placeholder="Tell us about your project or question..."
                         required
                       ></textarea>
+                      {fieldErrors.message && (
+                        <p className="text-red-600 text-sm mt-1 flex items-center">
+                          <AlertTriangle size={14} className="mr-1" />
+                          {fieldErrors.message}
+                        </p>
+                      )}
                     </div>
 
                     <button
@@ -475,7 +622,7 @@ const ContactPage = () => {
           <div className="mt-12">
             <div className="relative h-96 bg-gray-300">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.720474043652!2d77.290968774756!3d28.608161375678097!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce378cde7c251%3A0xa197c1153d5ea8a2!2sA MAD %20Technologies%20Private%20Limited!5e0!3m2!1sen!2sin!4v1743681174385!5m2!1sen!2sin"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.720474043652!2d77.290968774756!3d28.608161375678097!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce378cde7c251%3A0xa197c1153d5ea8a2!2sA%20MAD%20Technologies%20Private%20Limited!5e0!3m2!1sen!2sin!4v1743681174385!5m2!1sen!2sin"
                 className="h-full w-full"
                 allowFullScreen=""
                 loading="lazy"

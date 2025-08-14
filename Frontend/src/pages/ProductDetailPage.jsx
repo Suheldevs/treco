@@ -23,20 +23,21 @@ const ProductDetailPage = () => {
   const [relatedProducts, setRelatedProducts] = useState([]);
   
   useEffect(() => {
-    dispatch(fetchproductData());
+  dispatch(fetchproductData());
+}, [dispatch]);
 
+useEffect(() => {
+  if (productData.length > 0) {
+    const currentProduct = productData.find(p => p.slug === slug) || productData[0];
+    const related = productData.filter(
+      p => p.category === currentProduct.category && p._id !== currentProduct._id
+    );
+    setProduct(currentProduct);
+    setRelatedProducts(related);
+    setLoading(false);
+  }
+}, [productData, slug]);
 
-    setTimeout(()=>
-    {
-        const currentProduct = productData.find(p => p.slug === slug) || productData[0];
-        const related = productData.filter(p => 
-            p.category === currentProduct.category && p._id !== currentProduct._id
-        )
-        setProduct(currentProduct);
-        setRelatedProducts(related);
-        setLoading(false);
-    },1000)
-  }, [dispatch, slug]);
   
   const [isOpen, setIsOpen] = useState(false);
   if (loading) {

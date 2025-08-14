@@ -11,7 +11,7 @@ const AboutPage = () => {
         <img
           src={bread}
           alt="A-Mad  Engineering Header"
-          className="w-full h-full object-cover brightness-75"
+          className="w-full h-full object-cover brightness-30"
         />
         {/* <div className="absolute inset-0 flex flex-col justify-center items-center text-white bg-black/40 ">
           <h1 className="text-5xl font-bold mb-2">About A-Mad </h1>

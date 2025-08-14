@@ -37,12 +37,12 @@ const BlogCard = ({ date, category, title, imageUrl, slug, description }) => {
           </div>
 
           {/* Title */}
-          <h3 className="font-bold text-lg text-black mb-2 line-clamp-1">
+          <h3 className="font-bold text-lg text-black mb-2 line-clamp-2">
             {title}
           </h3>
 
           {/* Description */}
-          <p className="text-gray-600 mb-4 line-clamp-3 flex-grow">
+          <p className="text-gray-600 mb-4 line-clamp-2 flex-grow">
             {
               new DOMParser().parseFromString(description, "text/html").body
                 .textContent

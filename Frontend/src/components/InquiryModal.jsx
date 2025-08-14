@@ -211,12 +211,6 @@ export default function InquiryModal({ isOpen, setIsOpen }) {
     }
   }, [isOpen]);
 
-  // Update form resolver when step changes
-  useEffect(() => {
-    const newResolver = yupResolver(getCurrentSchema());
-    // Re-trigger validation after schema change
-    setTimeout(() => trigger(), 0);
-  }, [formStep]);
 
   if (!isOpen) return null;
 

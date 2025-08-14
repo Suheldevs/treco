@@ -35,9 +35,9 @@ export default function AudioVisual() {
             <div className="md:w-1/2 mb-10 md:mb-0">
               <h1 className="text-4xl md:text-5xl font-bold mb-6">Premium Audio Visual Solutions</h1>
               <p className="text-lg md:text-xl mb-8">Experience entertainment like never before with our cutting-edge audio and visual technology that transforms how you see and hear the world.</p>
-              <button className="bg-white text-sky-600 font-semibold py-3 px-6 rounded-lg hover:bg-sky-50 transition duration-300 flex items-center">
+              <a href='#products' className="bg-white inline-flex text-sky-600 font-semibold py-3 px-6 rounded-lg hover:bg-sky-50 transition duration-300  items-center">
                 Explore Products <ChevronRight className="ml-2" size={20} />
-              </button>
+              </a>
             </div>
             <div className="md:w-1/2 flex justify-center">
               <div className="bg-white/20 backdrop-blur-sm p-8 rounded-2xl shadow-lg">
@@ -119,7 +119,7 @@ export default function AudioVisual() {
         </div>
       </section> */}
 
-       <div className="container mx-auto p-4 min-h-screen">
+       <div className="container mx-auto p-4 min-h-screen scroll-m-20" id='products'>
          <h2 className="text-2xl font-semibold mb-6 capitalize">{subcategory.replace(/-/g, " ")}</h2>
          {status === "loading" && <p>Loading...</p>}
          {status === "error" && <p>Something went wrong!</p>}
@@ -142,8 +142,8 @@ export const ProductCard = ({ product, index }) => {
   const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
   return (
-    <div
-      className="bg-white rounded-xl overflow-hidden shadow-md transition-all duration-300 hover:shadow-xl"
+    <div id='products' 
+      className="bg-white scroll-m-20 rounded-xl overflow-hidden shadow-md transition-all duration-300 hover:shadow-xl"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
