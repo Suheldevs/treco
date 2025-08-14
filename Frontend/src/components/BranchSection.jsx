@@ -5,10 +5,10 @@ import logo3 from "../assets/treco-arabia.webp";
 import logo4 from "../assets/logo3.webp";
 const BranchSection = () => {
   const branches = [
-      { name: "Treco Arabia", logo: logo3 },
-      { name: "Treco India", logo: logo1 },
-      { name: "Build Track", logo: logo4 },
-      { name: "Hogar", logo: logo2 },
+    { name: "Treco India", logo: logo1 },
+    { name: "Build Track", logo: logo4 },
+    { name: "Hogar", logo: logo2 },
+    { name: "Treco Arabia", logo: logo3 },
     // { name: "Chennai Branch", logo: "/api/placeholder/120/80" },
   ];
 

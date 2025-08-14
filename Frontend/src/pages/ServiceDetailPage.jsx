@@ -59,12 +59,12 @@ export default function DynamicServices() {
       </div> */}
 
       {/* Hero Section */}
-      <section className={`bg-gradient-to-r ${selectedService.color} text-white`}>
+      <section className={`bg-gradient-to-r  from-sky-500 to-sky-400 text-white`}>
         <div className="container mx-auto px-6 py-12">
           <div className="flex flex-col md:flex-row items-center">
             <div className="md:w-1/2 mb-10 md:mb-0">
               <div className="flex items-center mb-4">
-                <div className={`w-16 h-16 rounded-full mr-4 flex items-center justify-center ${selectedService.iconBg} ${selectedService.iconColor}`}>
+                <div className={`w-16 h-16 rounded-full mr-4 flex items-center justify-center bg-teal-100 text-teal-600`}>
                   {selectedService.icon}
                 </div>
                 <h1 className="text-4xl md:text-5xl font-bold">{selectedService.title}</h1>
@@ -147,10 +147,10 @@ export default function DynamicServices() {
                   onMouseEnter={() => setHovered(index)}
                   onMouseLeave={() => setHovered(null)}
                 >
-                  <div className={`h-2 ${hovered === index ? `bg-gradient-to-r ${selectedService.color}` : selectedService.iconBg} transition-all duration-300`}></div>
+                  <div className={`h-2 ${hovered != index ? `bg-gradient-to-r ${selectedService.color}` : selectedService.iconBg} transition-all duration-300`}></div>
                   <div className="p-6">
                     <div className={`w-14 h-14 rounded-full flex items-center justify-center mb-4 transition-all duration-300 ${
-                      hovered === index 
+                      hovered != index 
                         ? `bg-gradient-to-r ${selectedService.color} text-white` 
                         : `${selectedService.iconBg} ${selectedService.iconColor}`
                     }`}>

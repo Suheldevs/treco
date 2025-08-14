@@ -131,13 +131,13 @@ export default function BlogModal({ isOpen, blog, onClose, onSave }) {
     <div className="fixed inset-0 z-50 overflow-y-auto bg-black/60 backdrop-blur-sm flex items-center justify-center p-2">
       <div className="bg-white rounded-lg shadow-2xl w-full max-w-2xl max-h-[96vh] overflow-hidden flex flex-col">
         {/* Modal header */}
-        <div className="p-3 border-b  border-gray-200 flex justify-between items-center bg-gradient-to-r from-slate-50 to-gray-100">
-          <h2 className="text-lg font-semibold text-gray-800">
+        <div className="p-3 border-b border-gray-200 flex justify-between items-center bg-black">
+          <h2 className="text-lg font-semibold text-gray-200">
             {blog ? 'Edit Post' : 'New Post'}
           </h2>
           <button
             onClick={onClose}
-            className="p-1 rounded-full hover:bg-gray-200 text-gray-500 hover:text-gray-700 transition-colors"
+            className="p-1 rounded-full hover:bg-gray-200 text-gray-100 hover:text-gray-700 transition-colors"
           >
             <X size={20} />
           </button>
@@ -157,7 +157,7 @@ export default function BlogModal({ isOpen, blog, onClose, onSave }) {
                   required
                   value={formData.title}
                   onChange={(e) => dispatch({ field: 'title', value: e.target.value })}
-                  className="w-full px-3 py-2 border border-gray-200 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500 text-sm"
+                  className="w-full px-3 py-2 border border-gray-200 rounded-md focus:outline-none focus:ring-1 focus:ring-black focus:border-black text-sm"
                   placeholder="Enter blog title"
                 />
               </div>
@@ -174,7 +174,7 @@ export default function BlogModal({ isOpen, blog, onClose, onSave }) {
                     required
                     value={formData.category}
                     onChange={(e) => dispatch({ field: 'category', value: e.target.value })}
-                    className="w-full px-3 py-2 border border-gray-200 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500 text-sm"
+                    className="w-full px-3 py-2 border border-gray-200 rounded-md focus:outline-none focus:ring-1 focus:ring-black focus:border-black text-sm"
                     placeholder="Technology"
                   />
                 </div>
@@ -189,7 +189,7 @@ export default function BlogModal({ isOpen, blog, onClose, onSave }) {
                     required
                     value={formData.postedBy}
                     onChange={(e) => dispatch({ field: 'postedBy', value: e.target.value })}
-                    className="w-full px-3 py-2 border border-gray-200 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500 text-sm"
+                    className="w-full px-3 py-2 border border-gray-200 rounded-md focus:outline-none focus:ring-1 focus:ring-black focus:border-black text-sm"
                     placeholder="Author name"
                   />
                 </div>
@@ -202,7 +202,7 @@ export default function BlogModal({ isOpen, blog, onClose, onSave }) {
                 </label>
                 <div className="flex items-center gap-3">
                   <div className="flex-1">
-                    <div className="relative border border-dashed border-gray-300 rounded-md px-3 py-2 hover:border-blue-400 cursor-pointer transition-colors">
+                    <div className="relative border border-dashed border-gray-300 rounded-md px-3 py-2 hover:border-black cursor-pointer transition-colors">
                       <input
                         type="file"
                         onChange={handleImageChange}
@@ -287,7 +287,7 @@ export default function BlogModal({ isOpen, blog, onClose, onSave }) {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="px-3 py-2 text-sm bg-blue-600 text-white rounded-md hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed flex items-center transition-colors"
+                className="px-3 py-2 text-sm cursor-pointer bg-black text-white rounded-md hover:bg-black/80 disabled:opacity-50 disabled:cursor-not-allowed flex items-center transition-colors"
               >
                 {isSubmitting && (
                   <div className="w-3 h-3 border-2 border-white border-t-transparent rounded-full animate-spin mr-2"></div>

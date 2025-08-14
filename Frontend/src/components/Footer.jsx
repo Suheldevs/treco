@@ -154,7 +154,7 @@ const Footer = () => {
               </h3>
               <div className="flex flex-col space-y-3">
                 <a
-                  href="https://treco.in/wp-content/uploads/2020/11/Google-Play-1024x336.png"
+                  href="https://play.google.com/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="transition-transform hover:scale-105"
@@ -166,7 +166,7 @@ const Footer = () => {
                   />
                 </a>
                 <a
-                  href="https://treco.in/wp-content/uploads/2020/11/IoS-1024x335.png"
+                  href="https://www.apple.com/app-store"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="transition-transform hover:scale-105"

@@ -289,16 +289,16 @@ export default function ProductModal({ isOpen, product = null, onClose, onSave }
   if (!isOpen) return null;
   
   return (
-    <div className="fixed inset-0 bg-black/50 z-50 overflow-y-auto flex items-center justify-center p-4">
+    <div className="fixed inset-0 bg-black/80 z-50 overflow-y-auto flex items-center justify-center p-4">
       <div className="w-full max-w-3xl bg-white rounded-lg shadow-xl flex flex-col max-h-[90vh]">
         {/* Header */}
-        <div className="px-4 py-2 bg-blue-600 text-white rounded-t-lg flex justify-between items-center">
+        <div className="px-4 py-2 bg-black text-white rounded-t-lg flex justify-between items-center">
           <h2 className="text-xl font-bold">
             {isEditMode ? `Edit Product: ${product.name}` : 'Add New Product'}
           </h2>
           <button 
             onClick={onClose}
-            className="p-2 rounded-full hover:bg-blue-700 transition-colors"
+            className="p-2 rounded-full hover:bg-black transition-colors"
             aria-label="Close"
           >
             <X size={20} />
@@ -336,7 +336,7 @@ export default function ProductModal({ isOpen, product = null, onClose, onSave }
                     placeholder='Product Name'
                     value={formData.name}
                     onChange={handleChange}
-                    className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+                    className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-black ${
                       errors.name ? 'border-red-500 bg-red-50' : 'border-gray-300'
                     }`}
                   />
@@ -353,7 +353,7 @@ export default function ProductModal({ isOpen, product = null, onClose, onSave }
                     name="category"
                     value={formData.category}
                     onChange={handleChange}
-                    className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+                    className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-black ${
                       errors.category ? 'border-red-500 bg-red-50' : 'border-gray-300'
                     }`}
                   >
@@ -378,7 +378,7 @@ export default function ProductModal({ isOpen, product = null, onClose, onSave }
                     value={formData.subcategory}
                     onChange={handleChange}
                     disabled={!formData.category}
-                    className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+                    className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-black ${
                       errors.subcategory ? 'border-red-500 bg-red-50' : 'border-gray-300'
                     } ${!formData.category ? 'bg-gray-100 cursor-not-allowed' : ''}`}
                   >
@@ -424,7 +424,7 @@ export default function ProductModal({ isOpen, product = null, onClose, onSave }
                       </div>
                     )}
                     
-                    <label className={`mt-4 inline-flex items-center px-4 py-2 ${formData.imagePreview ? 'bg-gray-100 text-gray-700' : 'bg-blue-50 text-blue-700'} rounded-lg border border-blue-200 cursor-pointer hover:bg-blue-100 transition-colors`}>
+                    <label className={`mt-4 inline-flex items-center px-4 py-2 ${formData.imagePreview ? 'bg-gray-100 text-gray-700' : 'bg-blue-50 text-black'} rounded-lg border border-blue-200 cursor-pointer hover:bg-blue-100 transition-colors`}>
                       <Upload size={16} className="mr-2" />
                       <span>{formData.imagePreview ? 'Change Image' : 'Upload Image'}</span>
                       <input 
@@ -452,7 +452,7 @@ export default function ProductModal({ isOpen, product = null, onClose, onSave }
                     value={formData.description}
                     onChange={handleChange}
                     rows="5"
-                    className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+                    className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-black ${
                       errors.description ? 'border-red-500 bg-red-50' : 'border-gray-300'
                     }`}
                     placeholder="Enter product description..."
@@ -469,7 +469,7 @@ export default function ProductModal({ isOpen, product = null, onClose, onSave }
                     <button
                       type="button"
                       onClick={addFeature}
-                      className="flex items-center text-sm font-medium text-blue-600 hover:text-blue-800 transition-colors"
+                      className="flex items-center text-sm font-medium text-black hover:text-blue-800 transition-colors"
                     >
                       <Plus size={16} className="mr-1" />
                       Add Feature
@@ -489,7 +489,7 @@ export default function ProductModal({ isOpen, product = null, onClose, onSave }
                             value={feature.label}
                             onChange={(e) => handleFeatureChange(index, 'label', e.target.value)}
                             placeholder="Feature name"
-                            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
+                            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black text-sm"
                             disabled={
                               feature.label === 'Product Model' || 
                               feature.label === 'Product Voltage'
@@ -502,7 +502,7 @@ export default function ProductModal({ isOpen, product = null, onClose, onSave }
                             value={feature.value}
                             onChange={(e) => handleFeatureChange(index, 'value', e.target.value)}
                             placeholder="Feature value"
-                            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
+                            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black text-sm"
                           />
                         </div>
                         {!(
@@ -540,7 +540,7 @@ export default function ProductModal({ isOpen, product = null, onClose, onSave }
           <button
             type="button"
             onClick={handleSubmit}
-            className="flex items-center px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 disabled:bg-blue-400 font-medium transition-colors"
+            className="flex items-center px-6 py-2 bg-black text-white rounded-md hover:bg-black disabled:bg-blue-400 font-medium transition-colors"
             disabled={isSubmitting}
           >
             <Save size={18} className="mr-2" />

@@ -8,7 +8,7 @@ import axios from 'axios';
 // Validation schemas for each step
 const stepSchemas = {
   1: yup.object({
-    name: yup.string().required('Full name is required').min(2, 'Name must be at least 2 characters'),
+    name: yup.string().required('Full name is required').min(2, 'Name must be at least 2 characters').matches(/^[A-Za-z\s]+$/, 'Name must contain only letters'),
     phone: yup.string()
       .required('Mobile number is required')
       .matches(/^[6-9]\d{9}$/, 'Phone number must be 10 digits and start with 6-9'),
@@ -250,26 +250,12 @@ export default function InquiryModal({ isOpen, setIsOpen }) {
         
      <div className="bg-gray-50 px-6 py-4 sticky  z-10">
   <div className="relative flex justify-between items-center  w-full">
-    {/* {["Personal Information", "Project Details", "Features & Additional Information"].map((_, index) => {
-      if (index === 2) return null; 
-      return (
-        <div
-          key={index}
-          className={`absolute top-5 left-[calc((100%/3)*${index}+1.25rem)] h-1 w-[calc(100%/3-2.5rem)] transition-colors ${
-            formStep > index + 1
-              ? 'bg-green-500'
-              : formStep === index + 1
-                ? 'bg-sky-500'
-                : 'bg-gray-200'
-          }`}
-        />
-      );
-    })} */}
+ 
 
     {/* Step buttons + labels */}
     {["Personal Information", "Project Details", "Features & Additional Information"].map((label, index) => (
-      <div key={index} className="flex-1 flex flex-col items-center relative z-10">
-
+      <div key={index} className="flex-1  flex flex-col items-center relative z-10">
+<div className='flex justify-center items-center'>
         
         <button
           title={`Step ${index + 1}`}
@@ -285,10 +271,17 @@ export default function InquiryModal({ isOpen, setIsOpen }) {
         >
           {index + 1}
         </button>
-
+        {index==2? (' '):( <div
+          key={index}
+          className="w-24 h-1 absolute -right-10 bg-sky-600"
+        />)}
+       
+</div>
         <span className="mt-2 text-sm text-gray-600 font-medium text-center">
           {label}
         </span>
+        
+
       </div>
     ))}
   </div>
@@ -713,7 +706,7 @@ export default function InquiryModal({ isOpen, setIsOpen }) {
                             <Shield size={18} className="text-gray-400 mr-2" />
                             <span className={field.value?.length > 0 ? 'text-gray-900' : 'text-gray-500'}>
                               {field.value?.length > 0 
-                                ? `${field.value.length} feature${field.value.length > 1 ? 's' : ''} selected` 
+                                ? `${field.value}` 
                                 : 'Select features'}
                             </span>
                           </div>
@@ -777,7 +770,7 @@ export default function InquiryModal({ isOpen, setIsOpen }) {
                             <Music size={18} className="text-gray-400 mr-2" />
                             <span className={field.value?.length > 0 ? 'text-gray-900' : 'text-gray-500'}>
                               {field.value?.length > 0 
-                                ? `${field.value.length} option${field.value.length > 1 ? 's' : ''} selected` 
+                                ? `${field.value} ` 
                                 : 'Select options (optional)'}
                             </span>
                           </div>

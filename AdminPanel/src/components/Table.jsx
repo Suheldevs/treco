@@ -48,7 +48,7 @@ const Table = ({ data = [], columnConfig = {} }) => {
         className="min-w-max w-full text-sm text-left dataTable display stripe hover dataTable"
       >
         <thead>
-          <tr className="bg-blue-700 text-white">
+          <tr className="bg-black text-white">
             <th className="px-3 py-2 font-semibold text-xs uppercase text-center">
               S. No.
             </th>

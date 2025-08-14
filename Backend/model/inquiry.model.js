@@ -14,6 +14,10 @@ const inquirySchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    address: {
+      type: String,
+    },
+    
     service: {
       type: String,
       required: true,
@@ -25,19 +29,26 @@ const inquirySchema = new mongoose.Schema(
       type: String,
     },
     area: {
-      type: String,
+      type: Number,
     },
     floor: {
-      type: String,
+      type: Number,
+    },
+    
+    featuresOfInterest: {
+      type: [String],
+      default: []
+    },
+    mediaEntertainment: {
+      type: [String],
+      default: []
     },
     message: {
       type: String,
-      required: true,
     },
   },
   { timestamps: true }
 );
 
 const Inquiry = mongoose.model('Inquiry', inquirySchema);
-
 export default Inquiry;

@@ -92,32 +92,89 @@ export default function DashboardHome() {
   );
 
 
+   
   const columnConfig = {
-  actions: {
-    label: "Actions",
-    render: (val, row) => (
-      <div className="flex justify-center gap-3">
-        <button
-          onClick={() => handleDelete(row._id)}
-          className="text-red-600 hover:text-red-800 p-2 rounded-full hover:bg-red-50 transition-colors"
-          title="Delete"
-        >
-          <Trash2 size={16} />
-        </button>
-      </div>
-    ),
-  },
+  // actions: {
+  //   label: "Actions",
+  //   render: (val, row) => (
+  //     <div className="flex justify-center gap-3">
+  //       <button
+  //         onClick={() => handleDelete(row._id)}
+  //         className="text-red-600 hover:text-red-800 p-2 rounded-full hover:bg-red-50 transition-colors"
+  //         title="Delete"
+  //       >
+  //         <Trash2 size={16} />
+  //       </button>
+  //     </div>
+  //   ),
+  // },
   createdAt: {
     label: "Created Date",
-    render: (val) => formatDate(val), // ya new Date(val).toLocaleString("en-IN")
+    render: (val) => formatDate(val), 
   },
-  message: { label: "Message" },
-  service: { label: "Service" },
-  phone: { label: "Phone" },
-  email: { label: "Email" },
-  projectType: { label: "Project Type" },
-  projectName: { label: "Project Name" },
   name: { label: "Name" },
+  email: { label: "Email" },
+  phone: { label: "Phone" },
+  address: { 
+    label: "Address",
+    render: (val) => val || "N/A"
+  },
+  service: { label: "Service" },
+  projectName: { 
+    label: "Project Name",
+    render: (val) => val || "N/A"
+  },
+  projectType: { 
+    label: "Project Type",
+    render: (val) => val || "N/A"
+  },
+  area: { 
+    label: "Area (sq ft)",
+    render: (val) => val ? `${val} sq ft` : "N/A"
+  },
+  floor: { 
+    label: "Floor Count",
+    render: (val) => val || "N/A"
+  },
+  featuresOfInterest: {
+    label: "Features of Interest",
+    render: (val) => {
+      if (!val || val.length === 0) return "None";
+      return (
+        <div className="">
+          <div className="truncate" title={val.join(", ")}>
+            {val.join(", ")}
+          </div>
+        </div>
+      );
+    }
+  },
+  mediaEntertainment: {
+    label: "Media & Entertainment",
+    render: (val) => {
+      if (!val || val.length === 0) return "None";
+      return (
+        <div className="">
+          <div className="truncate" title={val.join(", ")}>
+            {val.join(", ")}
+          </div>
+        </div>
+      );
+    }
+  },
+  message: { 
+    label: "Message",
+    render: (val) => {
+      if (!val) return "N/A";
+      return (
+        <div className="max-w-sm">
+          <div className="truncate" title={val}>
+            {val}
+          </div>
+        </div>
+      );
+    }
+  }
 };
 
 
@@ -134,71 +191,71 @@ export default function DashboardHome() {
           </div>
         ) : (
           <>
-            {/* Stats Cards */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-              <div className="bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl shadow-lg p-6 text-white relative overflow-hidden">
-                <div className="absolute -z-20 right-0 top-0 h-24 w-24 rounded-full bg-blue-400 opacity-20 -mr-8 -mt-8"></div>
-                <div className="flex justify-between items-center mb-4">
-                  <h2 className="text-lg font-medium">Total Products</h2>
-                  <div className="p-3 bg-white bg-opacity-30 rounded-xl">
-                    <Package size={24} className="text-blue-600" />
-                  </div>
-                </div>
-                <div className="flex items-end">
-                  <span className="text-4xl font-bold">{stats.products}</span>
-                  <div className="flex items-center ml-4 text-sm">
-                    <TrendingUp size={16} className="mr-1 " />
-                    <span>Items</span>
-                  </div>
-                </div>
-                <div className="mt-4 text-blue-100 text-sm flex items-center">
-                  <ArrowUpRight size={16} className="mr-1" />
-                  <Link to="/product">View all products</Link>
-                </div>
-              </div>
+{/* Stats Cards */}
+<div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-8">
+  <div className="bg-white border border-gray-200 border-l-4 border-l-black rounded-xl shadow-md px-4 py-2 relative overflow-hidden hover:shadow-md transition-shadow">
+   
+    <div className="flex justify-between items-center ">
+      <h2 className="text-lg font-semibold text-gray-800 ">Total Products</h2>
+      <div className="p-2.5 bg-gray-100 rounded-lg">
+        <Package size={20} className="text-black" />
+      </div>
+    </div>
+    <div className="flex items-end">
+      <span className="text-3xl font-bold text-gray-900">{stats.products}</span>
+      <div className="flex items-center ml-3 text-sm text-gray-600">
+        <TrendingUp size={14} className="mr-1" />
+        <span>Items</span>
+      </div>
+    </div>
+    <div className="mt-4 text-gray-600 text-sm flex items-center">
+      <ArrowUpRight size={14} className="mr-1" />
+      <Link to="/product" className="hover:text-black transition-colors">View all products</Link>
+    </div>
+  </div>
 
-              <div className="bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl shadow-lg p-6 text-white relative overflow-hidden">
-                <div className="absolute -z-20 right-0 top-0 h-24 w-24 rounded-full bg-purple-400 opacity-20 -mr-8 -mt-8"></div>
-                <div className="flex justify-between items-center mb-4">
-                  <h2 className="text-lg font-medium">Total Inquiries</h2>
-                  <div className="p-3 bg-white bg-opacity-30 rounded-xl">
-                    <MessageSquare size={24} className="text-purple-600" />
-                  </div>
-                </div>
-                <div className="flex items-end">
-                  <span className="text-4xl font-bold">{stats.inquiries}</span>
-                  <div className="flex items-center ml-4 text-sm">
-                    <Users size={16} className="mr-1" />
-                    <span>Customers</span>
-                  </div>
-                </div>
-                <div className="mt-4 text-purple-100 text-sm flex items-center">
-                  <ArrowUpRight size={16} className="mr-1" />
-                  <Link to="/inquiry">View all inquiries</Link>
-                </div>
-              </div>
+  <div className="bg-white border border-gray-200 border-l-4 border-l-black rounded-xl shadow-md px-4 py-2 relative overflow-hidden hover:shadow-md transition-shadow">
 
-              <div className="bg-gradient-to-br from-green-500 to-green-600 rounded-2xl shadow-lg p-6 text-white relative overflow-hidden">
-                <div className="absolute -z-20 right-0 top-0 h-24 w-24 rounded-full bg-green-400 opacity-20 -mr-8 -mt-8"></div>
-                <div className="flex justify-between items-center mb-4">
-                  <h2 className="text-lg font-medium">Total Blogs</h2>
-                  <div className="p-3 bg-white bg-opacity-30 rounded-xl">
-                    <FileText size={24} className="text-green-600" />
-                  </div>
-                </div>
-                <div className="flex items-end">
-                  <span className="text-4xl font-bold">{stats.blogs}</span>
-                  <div className="flex items-center ml-4 text-sm">
-                    <Calendar size={16} className="mr-1" />
-                    <span>Articles</span>
-                  </div>
-                </div>
-                <div className="mt-4 text-green-100 text-sm flex items-center">
-                  <ArrowUpRight size={16} className="mr-1" />
-                  <Link to="/blog">View all blogs</Link>
-                </div>
-              </div>
-            </div>
+    <div className="flex justify-between items-center ">
+      <h2 className="text-base font-semibold text-gray-800">Total Inquiries</h2>
+      <div className="p-2.5 bg-gray-100 rounded-lg">
+        <MessageSquare size={20} className="text-black" />
+      </div>
+    </div>
+    <div className="flex items-end">
+      <span className="text-3xl font-bold text-gray-900">{stats.inquiries}</span>
+      <div className="flex items-center ml-3 text-sm text-gray-600">
+        <Users size={14} className="mr-1" />
+        <span>Customers</span>
+      </div>
+    </div>
+    <div className="mt-4 text-gray-600 text-sm flex items-center">
+      <ArrowUpRight size={14} className="mr-1" />
+      <Link to="/inquiry" className="hover:text-black transition-colors">View all inquiries</Link>
+    </div>
+  </div>
+
+  <div className="bg-white border border-gray-200 border-l-4 border-l-black rounded-xl shadow-md px-4 py-2 relative overflow-hidden hover:shadow-md transition-shadow">
+    
+    <div className="flex justify-between items-center">
+      <h2 className="text-base font-semibold text-gray-800">Total Blogs</h2>
+      <div className="p-2.5 bg-gray-100 rounded-lg">
+        <FileText size={20} className="text-black" />
+      </div>
+    </div>
+    <div className="flex items-end">
+      <span className="text-3xl font-bold text-gray-900">{stats.blogs}</span>
+      <div className="flex items-center ml-3 text-sm text-gray-600">
+        <Calendar size={14} className="mr-1" />
+        <span>Articles</span>
+      </div>
+    </div>
+    <div className="mt-4 text-gray-600 text-sm flex items-center">
+      <ArrowUpRight size={14} className="mr-1" />
+      <Link to="/blog" className="hover:text-black transition-colors">View all blogs</Link>
+    </div>
+  </div>
+</div>
 
             {/* Recent Inquiries */}
             <Table data={filteredInquiries} columnConfig={columnConfig} />

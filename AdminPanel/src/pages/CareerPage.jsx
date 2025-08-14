@@ -37,7 +37,7 @@ const ColumnConfig = (backendUrl) => ({
         href={`${backendUrl}/${val}`}
         target="_blank"
         rel="noopener noreferrer"
-        className="inline-flex items-center text-sky-600 hover:text-sky-800"
+        className="inline-flex items-center hover:underline text-blue-600 hover:text-blue-800"
       >
         <Eye className="w-4 h-4 mr-1" /> View
       </a>
@@ -54,7 +54,7 @@ const ColumnConfig = (backendUrl) => ({
     <div className="p-2 min-h-screen ">
     <PageHeader title='Job Application List'/>
       {loading ? (
-        <p className="text-sky-600">Loading career inquiries...</p>
+        <p className="text-black">Loading career inquiries...</p>
       ) : <Table
   data={careerData}
   columnConfig={ColumnConfig(backendUrl)}

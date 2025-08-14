@@ -103,13 +103,13 @@ export default function ProductPage() {
     <>
       <div className="bg-white rounded-lg shadow-md">
         {/* Header with add button */}
-        <div className="p-2 border-b rounded-md border-gray-200 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 bg-gradient-to-r from-blue-600 to-purple-600">
+        <div className="p-2 border-b rounded-md border-gray-200 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 bg-black">
           <div>
             <h1 className="text-2xl font-bold text-white ">Products Management</h1>
           </div>
           <button 
             onClick={openAddModal}
-            className="px-4 py-2 bg-white text-blue-600 rounded-md hover:bg-gray-200 cursor-pointer transition-colors flex items-center shadow-sm"
+            className="px-4 py-2 bg-white text-black rounded-md hover:bg-gray-200 cursor-pointer transition-colors flex items-center shadow-sm"
           >
             <Plus size={16} className="mr-2" />
             Add Product
@@ -148,7 +148,7 @@ export default function ProductPage() {
         </div>
         
         {/* Products list */}
-        <div className="p-6">
+        <div className="">
           {loading ? (
             <div className="py-12 flex justify-center items-center">
               <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500"></div>
@@ -162,45 +162,45 @@ export default function ProductPage() {
             <div className="overflow-x-auto">
               <table className="w-full">
                 <thead>
-                  <tr className="text-left bg-gray-50">
-                    <th className="px-4 py-3 font-medium text-gray-600">Image</th>
-                    <th className="px-4 py-3 font-medium text-gray-600">Name</th>
-                    <th className="px-4 py-3 font-medium text-gray-600">Category</th>
-                    <th className="px-4 py-3 font-medium text-gray-600">Subcategory</th>
-                    <th className="px-4 py-3 font-medium text-gray-600">Product ID</th>
-                    <th className="px-4 py-3 font-medium text-gray-600">Actions</th>
+                  <tr className="text-left bg-gray-50 border-b border-b-gray-200">
+                    <th className="px-4 py-3 font-medium text-gray-800">Image</th>
+                    <th className="px-4 py-3 font-medium text-gray-800">Name</th>
+                    <th className="px-4 py-3 font-medium text-gray-800">Category</th>
+                    <th className="px-4 py-3 font-medium text-gray-800">Subcategory</th>
+                    <th className="px-4 py-3 font-medium text-gray-800">Product ID</th>
+                    <th className="px-4 py-3 font-medium text-gray-800">Actions</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-200">
                   {filteredProducts.length > 0 ? (
                     filteredProducts.map((product) => (
                       <tr key={product._id} className="hover:bg-gray-50">
-                        <td className="px-4 py-3">
+                        <td className="px-3 py-1 cursor-pointer hover:scale-105 transition-all duration-500 ease-in-out" onClick={()=>{window.open(`${backendUrl}/${product.image}`, "_blank")}}>
                           <img 
                             src={`${backendUrl}/${product.image}`} 
                             alt={product.name} 
                             className="w-12 h-12 object-cover rounded-md border border-gray-200 shadow-sm"
                           />
                         </td>
-                        <td className="px-4 py-3 font-medium">{product.name}</td>
-                        <td className="px-4 py-3 text-gray-600">
+                        <td className="px-2 py-1 font-medium">{product.name}</td>
+                        <td className="px-2 py-1 text-gray-600">
                           <span className="px-2 py-1 bg-blue-50 text-blue-700 rounded-full text-xs font-medium">
                             {product.category || 'N/A'}
                           </span>
                         </td>
-                        <td className="px-4 py-3 text-gray-600">
+                        <td className="px-2 py-1 text-gray-600">
                           {product.subcategory || product.subCategory || 'N/A'}
                         </td>
-                        <td className="px-4 py-3">
+                        <td className="px-2 py-1">
                           <span className="font-mono text-sm">
                             {product.productId || 'N/A'}
                           </span>
                         </td>
-                        <td className="px-4 py-3">
+                        <td className="px-2 py-1">
                           <div className="flex space-x-2">
                             {/* <button 
                               onClick={() => handleViewDetails(product)}
-                              className="p-1 text-blue-600 hover:text-blue-800 hover:bg-blue-50 rounded"
+                              className="p-1 text-black hover:text-blue-800 hover:bg-blue-50 rounded"
                               title="View details"
                             >
                               <Eye size={18} />

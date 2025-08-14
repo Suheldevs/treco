@@ -75,7 +75,7 @@ const AboutPage = () => {
       <div className="max-w-6xl mx-auto px-6">
         <div className="mb-12">
           <span className="text-sky-600 font-semibold tracking-wider text-sm uppercase">Our Purpose</span>
-          <h2 className="text-4xl font-bold mt-2 bg-gradient-to-r from-sky-700 to-indigo-600 bg-clip-text text-transparent">
+          <h2 className="text-4xl font-bold mt-2 bg-sky-600  bg-clip-text text-transparent">
             Vision & Mission
           </h2>
         </div>
@@ -106,11 +106,11 @@ const AboutPage = () => {
           {/* Mission Card */}
           <div className="bg-white backdrop-blur-sm bg-opacity-70 p-8 rounded-3xl shadow-lg border border-gray-100 transition-all duration-300 hover:shadow-indigo-200 hover:shadow-xl group">
             <div className="flex items-start justify-between mb-6">
-              <div className="w-14 h-14 bg-indigo-600 rounded-2xl flex items-center justify-center">
+              <div className="w-14 h-14 bg-blue-600 rounded-2xl flex items-center justify-center">
                 <Rocket size={28} className="text-white" />
               </div>
               <div className="p-2 rounded-full bg-indigo-50 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-2 group-hover:translate-x-0">
-                <ArrowRight size={20} className="text-indigo-600" />
+                <ArrowRight size={20} className="text-blue-600" />
               </div>
             </div>
             
@@ -196,8 +196,7 @@ const AboutPage = () => {
             Join Our Journey
           </h2>
           <p className="text-xl text-white mb-8">
-            Become part of a team that's redefining what's possible in
-            engineering and innovation.
+            Be a part of a dynamic team that’s shaping the future of engineering, innovation, and technology. Together, we push boundaries, create impactful solutions, and drive progress.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Link to='/careers' className="bg-sky-600 hover:bg-sky-700 text-white font-bold py-3 px-8 rounded-full transition-colors">

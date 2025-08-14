@@ -27,14 +27,13 @@ function AdminLogin() {
     try {
       setLoading(true);
       const response = await axios.post(apiKey, formData);
-
       if (response.status === 200 || response.status === 201) {
         localStorage.setItem('admin', JSON.stringify(response?.data));
         toast.success('Login successful!');
         navigate('/dashboard', { state: { adminData: response.data } });
       }
-
     } catch (err) {
+        alert(err?.response.data?.message);
       const errorMessage = err.response?.data?.message || 'Login failed. Please try again.';
       toast.error(errorMessage);
     } finally {
@@ -43,27 +42,27 @@ function AdminLogin() {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-cover bg-center bg-[url('https://treco.in/wp-content/uploads/2024/04/stephan-bechert-yFV39g6AZ5o-unsplash.jpg')] px-4">
-     <div className="bg-white p-4  shadow-2xl w-full max-w-md border border-gray-100">
-  <div className="flex justify-center mb-6">
+    <div className="flex items-center  justify-center min-h-screen bg-cover bg-center bg-black px-4">
+     <div className="bg-white p-4 rounded-xl shadow-2xl w-full max-w-sm border border-gray-100">
+  <div className="flex justify-center mb-2">
     <div className="relative group">
       <div className="absolute inset-0 bg-blue-100 rounded-full blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
       <img 
         src={logo} 
         alt="Logo" 
-        className="h-32 w-32 object-contain  relative z-10 shadow-md transition-transform duration-300 hover:scale-105" 
+        className="h-24 object-contain  relative z-10 shadow-md transition-transform duration-300 hover:scale-105" 
       />
     </div>
   </div>
   
-  <h2 className="text-2xl font-bold text-center mb-6 text-black relative">
+  <h2 className="text-2xl italic font-bold text-center mb-4 text-black relative">
     Admin Login
-    <span className="block h-1 w-16 bg-blue-600 mx-auto mt-2 rounded-full"></span>
+    {/* <span className="block h-1 w-16 bg-black mx-auto mt-2 rounded-full"></span> */}
   </h2>
   
-  <form onSubmit={handleSubmit} className="space-y-6">
+  <form onSubmit={handleSubmit} className="space-y-3">
     <div className="transition-all duration-200 hover:translate-y-px">
-      <label className="block text-sm font-medium text-gray-700 mb-2">Email</label>
+      <label className="block font-semibold text-black mb-1 italic tracking-wide">Email</label> 
       <div className="relative">
         <input
           type="email"
@@ -71,7 +70,7 @@ function AdminLogin() {
           placeholder="Enter email"
           value={formData.email}
           onChange={handleChange}
-          className="w-full px-4 pl-10 py-3 border border-gray-200 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:outline-none transition-all duration-200"
+          className="w-full px-4 pl-10 py-3 border border-gray-200 rounded-lg shadow-sm focus:ring-2 focus:ring-black focus:border-black focus:outline-none transition-all duration-200"
           required
         />
         <svg 
@@ -87,7 +86,7 @@ function AdminLogin() {
     </div>
     
     <div className="transition-all duration-200 hover:translate-y-px">
-      <label className="block text-sm font-medium text-gray-700 mb-2">Password</label>
+      <label className="block font-semibold text-black mb-1 italic tracking-wide">Password</label>
       <div className="relative">
         <input
           type="password"
@@ -95,7 +94,7 @@ function AdminLogin() {
           placeholder="Enter password"
           value={formData.password}
           onChange={handleChange}
-          className="w-full px-4 pl-10 py-3 border border-gray-200 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:outline-none transition-all duration-200"
+          className="w-full px-4 pl-10 py-3 border border-gray-200 rounded-lg shadow-sm focus:ring-2 focus:ring-black focus:border-black focus:outline-none transition-all duration-200"
           required
         />
         <svg 
@@ -113,7 +112,7 @@ function AdminLogin() {
     <div className="pt-2">
       <button
         type="submit"
-        className={`w-full flex justify-center items-center gap-2 bg-gradient-to-r from-blue-600 to-blue-700 text-white py-3 rounded-lg font-semibold shadow-md hover:shadow-lg hover:translate-y-px transition-all duration-300 ${
+        className={`w-full cursor-pointer flex justify-center items-center gap-2 bg-gradient-to-r from-black to-black text-white py-3 rounded-lg font-semibold shadow-md hover:shadow-lg hover:translate-y-px transition-all duration-300 ${
           loading ? 'cursor-not-allowed opacity-80' : ''
         }`}
         disabled={loading}

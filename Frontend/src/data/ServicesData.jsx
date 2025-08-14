@@ -57,9 +57,9 @@ const servicesData = [
     title: 'Robotics System',
     icon: <Cpu />,
     description: 'Research on specific robotics challenges to build more sophisticated, efficient and commercially viable products.',
-    color: 'from-purple-500 to-pink-500',
-    iconBg: 'bg-purple-100',
-    iconColor: 'text-purple-600',
+    color: 'from-sky-500 to-sky-400',
+    iconBg: 'bg-teal-100',
+    iconColor: 'text-teal-600',
     solutions: [
       { 
         title: "Industrial Robotics", 
@@ -84,9 +84,9 @@ const servicesData = [
     title: 'A-Mad K&E Sharing',
     icon: <Network />,
     description: "We're involved in interesting Mechatronics research projects to develop useful commercially viable products.",
-    color: 'from-green-500 to-emerald-500',
-    iconBg: 'bg-green-100',
-    iconColor: 'text-green-600',
+     color: 'from-sky-500 to-sky-400',
+    iconBg: 'bg-teal-100',
+    iconColor: 'text-teal-600',
     solutions: [
       { 
         title: "Knowledge Sharing Platform", 
@@ -106,9 +106,9 @@ const servicesData = [
     title: 'Industrial Automation',
     icon: <Factory />,
     description: 'An integrated, intelligent, flexible and low-cost industrial automation platform that promotes a safe and efficient industrial environment.',
-    color: 'from-orange-500 to-red-500',
-    iconBg: 'bg-orange-100',
-    iconColor: 'text-orange-600',
+    color: 'from-sky-500 to-sky-400',
+    iconBg: 'bg-teal-100',
+    iconColor: 'text-teal-600',
     solutions: [
       { 
         title: "Process Automation", 
@@ -133,9 +133,9 @@ const servicesData = [
     title: 'Internet of Things',
     icon: <Wifi />,
     description: 'We research interesting IoT projects to utilize its magical power to change human life and promote a safe and secure environment.',
-    color: 'from-red-500 to-pink-500',
-    iconBg: 'bg-red-100',
-    iconColor: 'text-red-600',
+     color: 'from-sky-500 to-sky-400',
+    iconBg: 'bg-teal-100',
+    iconColor: 'text-teal-600',
     solutions: [
       { 
         title: "Smart Sensors", 
@@ -160,9 +160,9 @@ const servicesData = [
     title: 'Social Service',
     icon: <Heart />,
     description: 'We understand our responsibility towards the nation and support all initiatives for social betterment.',
-    color: 'from-blue-500 to-indigo-500',
-    iconBg: 'bg-blue-100',
-    iconColor: 'text-blue-600',
+     color: 'from-sky-500 to-sky-400',
+    iconBg: 'bg-teal-100',
+    iconColor: 'text-teal-600',
     solutions: [
       { 
         title: "Community Development", 

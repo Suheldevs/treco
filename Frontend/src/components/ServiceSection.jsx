@@ -91,7 +91,7 @@ const ServicesSection = () => {
     {
       title: "Home Automation",
       description: "Highly efficient, intelligent, safe and secure smart home technology for smart people.",
-      slug:'/home-automation',
+      slug:'home-automation',
       icon: Home,
     },
     {

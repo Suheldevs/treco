@@ -12,12 +12,13 @@ const HeroSection = () => {
     {
       title: "Smart Home Automation",
       subtitle: "Turn Your Home into a Seamless, Intelligent Living Space",
+      discription:" Transform the way you live with cutting-edge control systems that adapt to your lifestyle. From touchless convenience to voice activation and energy efficiency, we bring comfort, security, and elegance together—effortlessly.",
       image: Home,
       features: ["Touchless Control", "Energy Efficient", "Voice Activated"]
     },
     {
       title: "Advanced Lighting Solutions",
-      subtitle: "Precision lighting that adapts to your lifestyle",
+      subtitle: "Turn Your Home into a Seamless, Intelligent Living Space.",
       image: light,
       features: ["Mood Settings", "Schedule Control", "Energy Monitoring"]
     },
@@ -78,17 +79,26 @@ const HeroSection = () => {
                 }`}
               >
                 <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-3">
-                  {/* {slide.title} */}
-                  Smart Home Automation
+                  {slide.title}
+                  
                 </h1>
                 <div className="w-24 h-1 bg-sky-500 mb-6"></div>
                 <p className="text-xl md:text-2xl text-gray-200 mb-8">
-                  {/* {slide.subtitle} */}
-                 Turn Your Home into a Seamless, Intelligent Living Space.
+                  {slide.subtitle}
+                 
                 </p>
                 <p className="text-lg text-gray-200 mb-8">
-                  {/* {slide.subtitle} */}
-                  Transform the way you live with cutting-edge control systems that adapt to your lifestyle. From touchless convenience to voice activation and energy efficiency, we bring comfort, security, and elegance together—effortlessly.
+                {slide?.discription ? (slide?.discription):(<div className="flex flex-wrap gap-3 mb-10">
+                  {slide.features.map((feature, idx) => (
+                    <span 
+                      key={idx} 
+                      className="bg-white/10 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm"
+                    >
+                      {feature}
+                    </span>
+                  ))}
+                </div>)}
+                 
                 </p>
                 {/* <div className="flex flex-wrap gap-3 mb-10">
                   {slide.features.map((feature, idx) => (

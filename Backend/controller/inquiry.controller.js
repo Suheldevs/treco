@@ -6,15 +6,18 @@ export const createInquiry = async (req, res) => {
     name,
     phone,
     email,
+    address,
     service,
     projectName,
     projectType,
     area,
     floor,
+    featuresOfInterest,
+    mediaEntertainment,
     message,
   } = req.body;
 
-  if (!name || !phone || !email || !service || !message) {
+  if (!name || !phone || !email || !service) {
     return res.status(400).json({ message: 'Required fields are missing' });
   }
 
@@ -23,11 +26,14 @@ export const createInquiry = async (req, res) => {
       name,
       phone,
       email,
+      address,
       service,
       projectName,
       projectType,
       area,
       floor,
+      featuresOfInterest,
+      mediaEntertainment,
       message,
     });
 
@@ -41,6 +47,11 @@ export const createInquiry = async (req, res) => {
       },
       tls: { rejectUnauthorized: false },
     });
+
+    // Helper function to format arrays for display
+    const formatArray = (arr) => {
+      return arr && arr.length > 0 ? arr.join(', ') : 'None';
+    };
 
     const mailOptions = {
       from: process.env.EMAIL_USER,
@@ -56,12 +67,15 @@ export const createInquiry = async (req, res) => {
             <tr><td style="padding: 8px; border: 1px solid #ddd;"><strong>Name:</strong></td><td style="padding: 8px; border: 1px solid #ddd;">${name}</td></tr>
             <tr><td style="padding: 8px; border: 1px solid #ddd;"><strong>Email:</strong></td><td style="padding: 8px; border: 1px solid #ddd;">${email}</td></tr>
             <tr><td style="padding: 8px; border: 1px solid #ddd;"><strong>Phone:</strong></td><td style="padding: 8px; border: 1px solid #ddd;">${phone}</td></tr>
+            ${address ? `<tr><td style="padding: 8px; border: 1px solid #ddd;"><strong>Address:</strong></td><td style="padding: 8px; border: 1px solid #ddd;">${address}</td></tr>` : ''}
             <tr><td style="padding: 8px; border: 1px solid #ddd;"><strong>Service:</strong></td><td style="padding: 8px; border: 1px solid #ddd;">${service}</td></tr>
             ${projectName ? `<tr><td style="padding: 8px; border: 1px solid #ddd;"><strong>Project Name:</strong></td><td style="padding: 8px; border: 1px solid #ddd;">${projectName}</td></tr>` : ''}
             ${projectType ? `<tr><td style="padding: 8px; border: 1px solid #ddd;"><strong>Project Type:</strong></td><td style="padding: 8px; border: 1px solid #ddd;">${projectType}</td></tr>` : ''}
             ${area ? `<tr><td style="padding: 8px; border: 1px solid #ddd;"><strong>Area (sq ft):</strong></td><td style="padding: 8px; border: 1px solid #ddd;">${area}</td></tr>` : ''}
             ${floor ? `<tr><td style="padding: 8px; border: 1px solid #ddd;"><strong>Floor:</strong></td><td style="padding: 8px; border: 1px solid #ddd;">${floor}</td></tr>` : ''}
-            <tr><td style="padding: 8px; border: 1px solid #ddd;"><strong>Message:</strong></td><td style="padding: 8px; border: 1px solid #ddd;">${message}</td></tr>
+            ${featuresOfInterest && featuresOfInterest.length > 0 ? `<tr><td style="padding: 8px; border: 1px solid #ddd;"><strong>Features of Interest:</strong></td><td style="padding: 8px; border: 1px solid #ddd;">${formatArray(featuresOfInterest)}</td></tr>` : ''}
+            ${mediaEntertainment && mediaEntertainment.length > 0 ? `<tr><td style="padding: 8px; border: 1px solid #ddd;"><strong>Media & Entertainment:</strong></td><td style="padding: 8px; border: 1px solid #ddd;">${formatArray(mediaEntertainment)}</td></tr>` : ''}
+            ${message ? `<tr><td style="padding: 8px; border: 1px solid #ddd;"><strong>Message:</strong></td><td style="padding: 8px; border: 1px solid #ddd;">${message}</td></tr>` : ''}
           </table>
 
           <p>Please respond to this inquiry as soon as possible.</p>

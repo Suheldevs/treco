@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Star, ChevronLeft, ChevronRight, User } from 'lucide-react';
+import { useEffect } from 'react';
 
 function Testimonial() {
   const testimonials = [
@@ -42,6 +43,25 @@ function Testimonial() {
   
   const [currentMobileTestimonial, setCurrentMobileTestimonial] = useState(0);
   const [currentDesktopStartIndex, setCurrentDesktopStartIndex] = useState(0);
+
+
+ useEffect(() => {
+    const mobileInterval = setInterval(() => {
+      setCurrentMobileTestimonial(prev => (prev + 1) % testimonials.length);
+    }, 5000);
+
+    return () => clearInterval(mobileInterval);
+  }, []);
+
+ 
+  useEffect(() => {
+    const desktopInterval = setInterval(() => {
+      setCurrentDesktopStartIndex(prev => (prev + 1) % (testimonials.length - 2));
+    }, 5000); 
+
+    return () => clearInterval(desktopInterval);
+  }, []);
+
 
   const nextMobileTestimonial = () => {
     setCurrentMobileTestimonial((prev) => 
