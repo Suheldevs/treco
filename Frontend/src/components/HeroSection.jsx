@@ -45,7 +45,7 @@ const HeroSection = () => {
   }
 
   return (
-    <div className="relative lg:h-[90vh] h-[85vh] w-full overflow-hidden">
+    <div className="relative lg:h-[90vh] h-[85vh] overflow-hidden">
       {/* Background Slides */}
       {slides.map((slide, index) => (
         <div 

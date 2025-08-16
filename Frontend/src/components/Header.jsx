@@ -58,7 +58,7 @@ const Header = () => {
                 onMouseEnter={() => setDropdownOpen({...dropdownOpen, homeAutomation: true})}
                 onMouseLeave={() => setDropdownOpen({...dropdownOpen, homeAutomation: false})}
               >
-                <Link to='/home-automation'aria-label='Home Automation'>Home Automation</Link>
+                <Link to='/service/home-automation'aria-label='Home Automation'>Home Automation</Link>
                 <ChevronDown size={18} className="ml-1" />
               </button>
               {dropdownOpen.homeAutomation && (

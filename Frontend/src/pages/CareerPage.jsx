@@ -307,7 +307,7 @@ const res = await axios.post(`${backendUrl}/career/save`,formData,{headers:{'Con
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-2xl md:text-3xl font-bold mb-4">Don't See a Position That Fits?</h2>
           <p className="text-gray-100 mb-8 max-w-xl mx-auto">We're always looking for talented individuals. Send us your resume and we'll keep it on file for future opportunities.</p>
-          <a href="mailto:careers@A-Mad .in" className="inline-flex items-center px-6 py-3 bg-white text-sky-700 font-medium rounded-lg shadow-lg hover:bg-sky-50 transition duration-300">
+          <a href="mailto:info@treco.in" className="inline-flex items-center px-6 py-3 bg-white text-sky-700 font-medium rounded-lg shadow-lg hover:bg-sky-50 transition duration-300">
             Contact Our Recruiting Team
           </a>
         </div>

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Tv, Speaker, Headphones, Video, MonitorSpeaker, Mic, Radio, Film, ChevronRight, Play, Volume2, Music, Monitor, Smartphone } from 'lucide-react';
+import { Tv, Speaker, Headphones, Video, MonitorSpeaker, Mic, Radio, Film, ChevronRight, Play, Volume2, Music, Monitor, Smartphone, Headset } from 'lucide-react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchproductData } from '../redux/dataSlice';
 
@@ -29,28 +29,46 @@ export default function AudioVisual() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-sky-600 to-sky-400 text-white">
-        <div className="container mx-auto px-6 py-12">
-          <div className="flex flex-col gap-4 md:flex-row items-center">
-            <div className="md:w-1/2 mb-10 md:mb-0">
-              <h1 className="text-4xl md:text-5xl font-bold mb-6">Premium Audio Visual Solutions</h1>
-              <p className="text-lg md:text-xl mb-8">Experience entertainment like never before with our cutting-edge audio and visual technology that transforms how you see and hear the world.</p>
-              <a href='#products' className="bg-white inline-flex text-sky-600 font-semibold py-3 px-6 rounded-lg hover:bg-sky-50 transition duration-300  items-center">
-                Explore Products <ChevronRight className="ml-2" size={20} />
-              </a>
-            </div>
-            <div className="md:w-1/2 flex justify-center">
-              <div className="bg-white/20 backdrop-blur-sm p-8 rounded-2xl shadow-lg">
-                <Film className="w-32 h-32 text-white mb-4 mx-auto" />
-                <div className="text-center">
-                  <h3 className="text-2xl font-bold mb-2">Cinematic Experience</h3>
-                  <p>Bring the theater experience home with our premium audio visual systems.</p>
-                </div>
-              </div>
-            </div>
+   <section className="bg-gradient-to-r from-sky-600 to-sky-400 text-white">
+  <div className="container mx-auto px-6 py-12">
+    <div className="flex flex-col gap-4 md:flex-row items-center">
+      
+      {/* Left Content */}
+      <div className="md:w-1/2 mb-10 md:mb-0">
+        <h1 className="text-4xl md:text-5xl font-bold mb-6">
+          Smart Audio Visual Solutions
+        </h1>
+        <p className="text-lg md:text-xl mb-8">
+          Elevate your home and office with intelligent audio-visual automation. 
+          From multi-room music systems to 4K home theaters, our solutions give 
+          you crystal-clear sound and stunning visuals — all controlled at your fingertips.
+        </p>
+        <a
+          href="#products"
+          className="bg-white inline-flex text-sky-600 font-semibold py-3 px-6 rounded-lg hover:bg-sky-50 transition duration-300 items-center"
+        >
+          Explore Products <ChevronRight className="ml-2" size={20} />
+        </a>
+      </div>
+
+      {/* Right Content - Highlight Card */}
+      <div className="md:w-1/2 flex justify-center">
+        <div className="bg-white/20 backdrop-blur-sm p-8 rounded-2xl shadow-lg">
+          <Headset className="w-32 h-32 text-white mb-4 mx-auto" />
+          <div className="text-center">
+            <h3 className="text-2xl font-bold mb-2">Immersive Experience</h3>
+            <p>
+              Control lighting, sound, and visuals with one touch. 
+              Perfect for home theaters, boardrooms, and smart living spaces.
+            </p>
           </div>
         </div>
-      </section>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
 
       {/* About Audio Visual Section */}
       <section className="py-12 bg-white">

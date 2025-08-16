@@ -231,9 +231,9 @@ export default function InquiryModal({ isOpen, setIsOpen }) {
 
   return (
     <div className="fixed inset-0 bg-black/20 backdrop-blur-[2px] flex items-center justify-center p-4 z-50">
-      <div className="bg-white rounded-2xl w-full max-w-2xl max-h-[95vh] overflow-y-auto shadow-2xl">
+      <div className="bg-white rounded-2xl w-full max-w-xl max-h-[98vh] overflow-y-auto shadow-2xl">
         {/* Header */}
-        <div className="bg-gradient-to-r from-sky-500 to-blue-500 p-3 flex justify-between items-center sticky top-0 z-10">
+        <div className="bg-gradient-to-r z-50 from-sky-500 to-blue-500 p-2 flex justify-between items-center sticky top-0 ">
           <h2 className="text-xl font-bold text-white flex items-center gap-2">
             <Briefcase size={24} />
             Request A Quote
@@ -340,7 +340,7 @@ export default function InquiryModal({ isOpen, setIsOpen }) {
                             type="text"
                             id="name"
                             placeholder="John Doe"
-                            className={`pl-10 block w-full rounded-lg border shadow-sm focus:ring-sky-500 focus:border-sky-500 p-3 transition-colors ${
+                            className={`pl-10 block w-full rounded-lg border shadow-sm focus:ring-sky-500 focus:border-sky-500 p-2 transition-colors ${
                               errors.name ? 'border-red-300 bg-red-50' : 'border-gray-300 hover:border-gray-400 focus:bg-white'
                             }`}
                             disabled={loading}
@@ -368,7 +368,7 @@ export default function InquiryModal({ isOpen, setIsOpen }) {
                             type="tel"
                             id="phone"
                             placeholder="10 Digit Number"
-                            className={`pl-10 block w-full rounded-lg border shadow-sm focus:ring-sky-500 focus:border-sky-500 p-3 transition-colors ${
+                            className={`pl-10 block w-full rounded-lg border shadow-sm focus:ring-sky-500 focus:border-sky-500 p-2 transition-colors ${
                               errors.phone ? 'border-red-300 bg-red-50' : 'border-gray-300 hover:border-gray-400 focus:bg-white'
                             }`}
                             disabled={loading}
@@ -397,7 +397,7 @@ export default function InquiryModal({ isOpen, setIsOpen }) {
                           type="email"
                           id="email"
                           placeholder="you@example.com"
-                          className={`pl-10 block w-full rounded-lg border shadow-sm focus:ring-sky-500 focus:border-sky-500 p-3 transition-colors ${
+                          className={`pl-10 block w-full rounded-lg border shadow-sm focus:ring-sky-500 focus:border-sky-500 p-2 transition-colors ${
                             errors.email ? 'border-red-300 bg-red-50' : 'border-gray-300 hover:border-gray-400 focus:bg-white'
                           }`}
                           disabled={loading}
@@ -424,8 +424,8 @@ export default function InquiryModal({ isOpen, setIsOpen }) {
                           {...field}
                           id="address"
                           placeholder="Enter your complete address"
-                          rows="3"
-                          className={`pl-10 block w-full rounded-lg border shadow-sm focus:ring-sky-500 focus:border-sky-500 p-3 transition-colors resize-none ${
+                          rows="2"
+                          className={`pl-10 block w-full rounded-lg border shadow-sm focus:ring-sky-500 focus:border-sky-500 p-2 transition-colors resize-none ${
                             errors.address ? 'border-red-300 bg-red-50' : 'border-gray-300 hover:border-gray-400 focus:bg-white'
                           }`}
                           disabled={loading}
@@ -443,7 +443,7 @@ export default function InquiryModal({ isOpen, setIsOpen }) {
                 <button
                   type="button"
                   onClick={handleNextStep}
-                  className="inline-flex items-center px-6 py-3 border border-transparent rounded-lg shadow-sm text-white bg-sky-600 hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500 font-medium disabled:bg-sky-300 disabled:cursor-not-allowed transition-colors"
+                  className="inline-flex items-center px-6 py-2 border border-transparent rounded-lg shadow-sm text-white bg-sky-600 hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500 font-medium disabled:bg-sky-300 disabled:cursor-not-allowed transition-colors"
                   disabled={loading}
                 >
                   Next 
@@ -470,7 +470,7 @@ export default function InquiryModal({ isOpen, setIsOpen }) {
                             e.stopPropagation();
                             if (!loading) toggleDropdown('service');
                           }}
-                          className={`relative w-full bg-white border rounded-lg shadow-sm pl-3 pr-10 py-3 text-left cursor-pointer focus:outline-none focus:ring-1 focus:ring-sky-500 focus:border-sky-500 transition-colors ${
+                          className={`relative w-full bg-white border rounded-lg shadow-sm pl-3 pr-10 py-2 text-left cursor-pointer focus:outline-none focus:ring-1 focus:ring-sky-500 focus:border-sky-500 transition-colors ${
                             errors.service ? 'border-red-300 bg-red-50' : 'border-gray-300 hover:border-gray-400'
                           } ${loading ? 'bg-gray-100 cursor-not-allowed' : ''}`}
                           disabled={loading}
@@ -491,7 +491,7 @@ export default function InquiryModal({ isOpen, setIsOpen }) {
                             {serviceOptions.map((option) => (
                               <div
                                 key={option}
-                                className={`cursor-pointer select-none relative py-2 pl-3 pr-9 hover:bg-sky-50 transition-colors ${
+                                className={`cursor-pointer select-none relative py-1.5 pl-3 pr-9 hover:bg-sky-50 transition-colors ${
                                   field.value === option ? 'bg-sky-100 text-sky-900' : 'text-gray-900'
                                 }`}
                                 onClick={(e) => {
@@ -527,7 +527,7 @@ export default function InquiryModal({ isOpen, setIsOpen }) {
                           type="text"
                           id="projectName"
                           placeholder="Smart Home 2025"
-                          className={`pl-10 block w-full rounded-lg border shadow-sm focus:ring-sky-500 focus:border-sky-500 p-3 transition-colors ${
+                          className={`pl-10 block w-full rounded-lg border shadow-sm focus:ring-sky-500 focus:border-sky-500 p-2 transition-colors ${
                             errors.projectName ? 'border-red-300 bg-red-50' : 'border-gray-300 hover:border-gray-400 focus:bg-white'
                           }`}
                           disabled={loading}
@@ -553,7 +553,7 @@ export default function InquiryModal({ isOpen, setIsOpen }) {
                             e.stopPropagation();
                             if (!loading) toggleDropdown('projectType');
                           }}
-                          className={`relative w-full bg-white border rounded-lg shadow-sm pl-3 pr-10 py-3 text-left cursor-pointer focus:outline-none focus:ring-1 focus:ring-sky-500 focus:border-sky-500 transition-colors ${
+                          className={`relative w-full bg-white border rounded-lg shadow-sm pl-3 pr-10 py-2 text-left cursor-pointer focus:outline-none focus:ring-1 focus:ring-sky-500 focus:border-sky-500 transition-colors ${
                             errors.projectType ? 'border-red-300 bg-red-50' : 'border-gray-300 hover:border-gray-400'
                           } ${loading ? 'bg-gray-100 cursor-not-allowed' : ''}`}
                           disabled={loading}
@@ -574,7 +574,7 @@ export default function InquiryModal({ isOpen, setIsOpen }) {
                             {projectTypeOptions.map((option) => (
                               <div
                                 key={option}
-                                className={`cursor-pointer select-none relative py-2 pl-3 pr-9 hover:bg-sky-50 transition-colors ${
+                                className={`cursor-pointer select-none relative py-1.5 pl-3 pr-9 hover:bg-sky-50 transition-colors ${
                                   field.value === option ? 'bg-sky-100 text-sky-900' : 'text-gray-900'
                                 }`}
                                 onClick={(e) => {
@@ -612,7 +612,7 @@ export default function InquiryModal({ isOpen, setIsOpen }) {
                             id="area"
                             placeholder="1500"
                             min="1"
-                            className={`pl-10 block w-full rounded-lg border shadow-sm focus:ring-sky-500 focus:border-sky-500 p-3 transition-colors ${
+                            className={`pl-10 block w-full rounded-lg border shadow-sm focus:ring-sky-500 focus:border-sky-500 p-2 transition-colors ${
                               errors.area ? 'border-red-300 bg-red-50' : 'border-gray-300 hover:border-gray-400 focus:bg-white'
                             }`}
                             disabled={loading}
@@ -641,7 +641,7 @@ export default function InquiryModal({ isOpen, setIsOpen }) {
                             id="floor"
                             placeholder="2"
                             min="1"
-                            className={`pl-10 block w-full rounded-lg border shadow-sm focus:ring-sky-500 focus:border-sky-500 p-3 transition-colors ${
+                            className={`pl-10 block w-full rounded-lg border shadow-sm focus:ring-sky-500 focus:border-sky-500 p-2 transition-colors ${
                               errors.floor ? 'border-red-300 bg-red-50' : 'border-gray-300 hover:border-gray-400 focus:bg-white'
                             }`}
                             disabled={loading}
@@ -660,7 +660,7 @@ export default function InquiryModal({ isOpen, setIsOpen }) {
                 <button
                   type="button"
                   onClick={handlePreviousStep}
-                  className="inline-flex items-center px-4 py-2 border border-gray-300 rounded-lg shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500 disabled:bg-gray-100 disabled:cursor-not-allowed transition-colors"
+                  className="inline-flex items-center px-4 py-1.5 border border-gray-300 rounded-lg shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500 disabled:bg-gray-100 disabled:cursor-not-allowed transition-colors"
                   disabled={loading}
                 >
                   <ChevronDown size={18} className="mr-2 rotate-90" />
@@ -669,7 +669,7 @@ export default function InquiryModal({ isOpen, setIsOpen }) {
                 <button
                   type="button"
                   onClick={handleNextStep}
-                  className="inline-flex items-center px-6 py-3 border border-transparent rounded-lg shadow-sm text-white bg-sky-600 hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500 font-medium disabled:bg-sky-300 disabled:cursor-not-allowed transition-colors"
+                  className="inline-flex items-center px-6 py-2 border border-transparent rounded-lg shadow-sm text-white bg-sky-600 hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500 font-medium disabled:bg-sky-300 disabled:cursor-not-allowed transition-colors"
                   disabled={loading}
                 >
                   Next 
@@ -697,7 +697,7 @@ export default function InquiryModal({ isOpen, setIsOpen }) {
                             e.stopPropagation();
                             if (!loading) toggleDropdown('featuresOfInterest');
                           }}
-                          className={`relative w-full bg-white border rounded-lg shadow-sm pl-3 pr-10 py-3 text-left cursor-pointer focus:outline-none focus:ring-1 focus:ring-sky-500 focus:border-sky-500 transition-colors ${
+                          className={`relative w-full bg-white border rounded-lg shadow-sm pl-3 pr-10 py-2 text-left cursor-pointer focus:outline-none focus:ring-1 focus:ring-sky-500 focus:border-sky-500 transition-colors ${
                             errors.featuresOfInterest ? 'border-red-300 bg-red-50' : 'border-gray-300 hover:border-gray-400'
                           } ${loading ? 'bg-gray-100 cursor-not-allowed' : ''}`}
                           disabled={loading}
@@ -720,7 +720,7 @@ export default function InquiryModal({ isOpen, setIsOpen }) {
                             {featuresOptions.map((option) => (
                               <div
                                 key={option}
-                                className={`cursor-pointer select-none relative py-2 pl-8 pr-4 hover:bg-sky-50 transition-colors ${
+                                className={`cursor-pointer select-none relative py-1.5 pl-8 pr-4 hover:bg-sky-50 transition-colors ${
                                   field.value?.includes(option) ? 'bg-sky-100' : ''
                                 }`}
                                 onClick={(e) => {
@@ -761,7 +761,7 @@ export default function InquiryModal({ isOpen, setIsOpen }) {
                             e.stopPropagation();
                             if (!loading) toggleDropdown('mediaEntertainment');
                           }}
-                          className={`relative w-full bg-white border border-gray-300 rounded-lg shadow-sm pl-3 pr-10 py-3 text-left cursor-pointer focus:outline-none focus:ring-1 focus:ring-sky-500 focus:border-sky-500 hover:border-gray-400 transition-colors ${
+                          className={`relative w-full bg-white border border-gray-300 rounded-lg shadow-sm pl-3 pr-10 py-2 text-left cursor-pointer focus:outline-none focus:ring-1 focus:ring-sky-500 focus:border-sky-500 hover:border-gray-400 transition-colors ${
                             loading ? 'bg-gray-100 cursor-not-allowed' : ''
                           }`}
                           disabled={loading}
@@ -784,7 +784,7 @@ export default function InquiryModal({ isOpen, setIsOpen }) {
                             {mediaOptions.map((option) => (
                               <div
                                 key={option}
-                                className={`cursor-pointer select-none relative py-2 pl-8 pr-4 hover:bg-sky-50 transition-colors ${
+                                className={`cursor-pointer select-none relative py-1.5 pl-8 pr-4 hover:bg-sky-50 transition-colors ${
                                   field.value?.includes(option) ? 'bg-sky-100' : ''
                                 }`}
                                 onClick={(e) => {
@@ -823,8 +823,8 @@ export default function InquiryModal({ isOpen, setIsOpen }) {
                           {...field}
                           id="message"
                           placeholder="Please provide any other details that might be helpful..."
-                          rows="4"
-                          className={`pl-10 block w-full rounded-lg border shadow-sm focus:ring-sky-500 focus:border-sky-500 p-3 transition-colors resize-none ${
+                          rows="2"
+                          className={`pl-10 block w-full rounded-lg border shadow-sm focus:ring-sky-500 focus:border-sky-500 p-2 transition-colors resize-none ${
                             errors.message ? 'border-red-300 bg-red-50' : 'border-gray-300 hover:border-gray-400 focus:bg-white'
                           }`}
                           disabled={loading}
@@ -842,7 +842,7 @@ export default function InquiryModal({ isOpen, setIsOpen }) {
                 <button
                   type="button"
                   onClick={handlePreviousStep}
-                  className="inline-flex items-center px-4 py-2 border border-gray-300 rounded-lg shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500 disabled:bg-gray-100 disabled:cursor-not-allowed transition-colors"
+                  className="inline-flex items-center px-4 py-1.5 border border-gray-300 rounded-lg shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500 disabled:bg-gray-100 disabled:cursor-not-allowed transition-colors"
                   disabled={loading}
                 >
                   <ChevronDown size={18} className="mr-2 rotate-90" />
@@ -852,14 +852,14 @@ export default function InquiryModal({ isOpen, setIsOpen }) {
                   <button
                     type="button"
                     onClick={() => setIsOpen(false)}
-                    className="px-4 py-2 border border-gray-300 rounded-lg shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 disabled:bg-gray-100 disabled:cursor-not-allowed transition-colors"
+                    className="px-4 py-1.5 border border-gray-300 rounded-lg shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 disabled:bg-gray-100 disabled:cursor-not-allowed transition-colors"
                     disabled={loading}
                   >
                     Cancel
                   </button>
                   <button
                     type="submit"
-                    className="inline-flex items-center px-6 py-3 border border-transparent rounded-lg shadow-sm text-white bg-sky-600 hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500 font-medium disabled:bg-gray-600 disabled:cursor-not-allowed transition-colors"
+                    className="inline-flex items-center px-6 py-2 border border-transparent rounded-lg shadow-sm text-white bg-sky-600 hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500 font-medium disabled:bg-gray-600 disabled:cursor-not-allowed transition-colors"
                     disabled={loading}
                   >
                     {loading ? (
