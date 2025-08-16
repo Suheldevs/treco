@@ -26,7 +26,7 @@ const ProductCard = ({ product ,index }) => {
         <div className={`absolute  top-0 left-0 w-full h-full bg-black/40 flex items-center justify-center opacity-0 transition-opacity duration-300 ${isHovered ? 'opacity-100' : ''}`}>
           <Link to={`/products/${product.slug}`} className="bg-white group text-sky-600 rounded-xl px-3 py-2 mx-2 hover:bg-sky-500 hover:text-white transition-colors duration-300">
             {/* <ShoppingCart size={20} />  */}
-            Detail <ArrowUpRight className='inline rotate-12 group-hover:rotate-0' />
+           See Features <ArrowUpRight className='inline rotate-12 group-hover:rotate-0' />
           </Link>
           {/* <button className="bg-white text-gray-800 rounded-full p-3 mx-2 hover:bg-blue-500 hover:text-white transition-colors duration-300">
             <Heart size={20} />

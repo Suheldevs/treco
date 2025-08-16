@@ -196,13 +196,13 @@ useEffect(() => {
                   className="object-cover w-full h-full"
                 />
               </div>
-              <div className="p-5">
+              <div className="p-4 border-t border-gray-200">
                 <h3 className="text-lg font-semibold text-gray-900 mb-2">{relatedProduct.name}</h3>
                 <p className="text-gray-600 line-clamp-2 mb-4">{relatedProduct.description}</p>
                 <div className="flex items-center justify-between">
                   {/* <span className="text-xl font-bold text-gray-900">${relatedProduct.price}</span> */}
-                  <Link to={`/products/${relatedProduct.slug}`} className="bg-sky-100 hover:bg-sky-200 text-sky-600 font-medium py-2 px-4 rounded-lg transition duration-150">
-                   View Detail
+                  <Link to={`/products/${relatedProduct.slug}`} className="bg-gray-100 hover:bg-gray-200 text-sky-600 font-medium py-2 px-4 rounded-lg transition duration-150">
+                   See Features
                   </Link>
                 </div>
               </div>

@@ -60,13 +60,14 @@ const AboutPage = () => {
               and work with.
             </p>
           </div>
-          <div className="relative">
+          <div className="relative md:mt-10">
             <img
-              src={about}
+              // src={about}
+              src="https://cdn.pixabay.com/photo/2018/10/02/21/39/smart-3720021_1280.jpg"
               alt="A-Mad  Team at Work"
               className="rounded-lg h-auto shadow-xl z-10 relative"
             />
-            <div className="absolute -bottom-4 -right-4 w-full h-full bg-sky-200 rounded-lg -z-10"></div>
+            <div className="absolute -bottom-4 -right-4 w-full h-full bg-teal-100 rounded-lg -z-10"></div>
           </div>
         </div>
       </section>

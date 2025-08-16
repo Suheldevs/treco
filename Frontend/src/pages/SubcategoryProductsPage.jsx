@@ -44,7 +44,7 @@ useEffect(() => {
       ]}
     />
     
-    <div className="container mx-auto p-4 py-10 min-h-screen">
+    <div className="container mx-auto p-4 py-10 min-h-screen flex flex-col items-center">
       <h2 className="text-2xl font-semibold mb-6 capitalize">{subcategory.replace(/-/g, " ")}</h2>
       {status === "loading" && <p>Loading...</p>}
       {status === "error" && <p>Something went wrong!</p>}
@@ -54,7 +54,7 @@ useEffect(() => {
         ))}
       </div>
       {filteredProducts.length === 0 && status === "success" && (
-        <p>No products found in this subcategory.</p>
+        <p className="font-medium">No products found in this subcategory.</p>
       )}
     </div>
     </>
@@ -91,11 +91,11 @@ export const ProductCard = ({ product, index }) => {
             to={`/products/${product.slug}`}
             className="bg-white group text-sky-600 rounded-xl px-3 py-2 mx-2 hover:bg-sky-500 hover:text-white transition-colors duration-300"
           >
-            Detail <ArrowUpRight className="inline rotate-12 group-hover:rotate-0" />
+           See Features <ArrowUpRight className="inline rotate-12 group-hover:rotate-0" />
           </Link>
         </div>
       </div>
-      <div className="p-4">
+      <div className="p-4 border-t border-gray-200">
         {/* <div className="flex items-center text-yellow-400 mb-2">
           {[...Array(4)].map((_, i) => (
             <Star key={i} size={16} fill="currentColor" />

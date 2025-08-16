@@ -92,7 +92,7 @@ const Footer = () => {
 
             {/* Home Automation Products Section */}
             <div>
-              <h3 className="font-semibold mb-4 text-xl text-white">
+              <h3 className="font-semibold mb-4 text-xl text-sky-600">
                 Home Automation
               </h3>
               <ul className="space-y-1">
@@ -108,7 +108,7 @@ const Footer = () => {
 
             {/* Industrial Automation Products Section */}
             <div className="lg:col-span-1 md:col-span-2 sm:col-span-2">
-              <h3 className="font-semibold mb-4 text-xl text-white">
+              <h3 className="font-semibold mb-4 text-xl text-sky-600">
                 Lightning Automation
               </h3>
               <ul className="space-y-1">
@@ -124,7 +124,7 @@ const Footer = () => {
 
             {/* Support Section */}
             <div>
-              <h3 className="font-semibold mb-4 text-xl text-white">Contact Us</h3>
+              <h3 className="font-semibold mb-4 text-xl text-sky-600">Contact Us</h3>
               <ul className="space-y-2">
                 <li>
                   <a href="tel:9810894981" className="hover:text-white flex items-start">
@@ -149,7 +149,7 @@ const Footer = () => {
 
             {/* Download App Section */}
             <div>
-              <h3 className="font-semibold mb-4 text-xl text-white">
+              <h3 className="font-semibold text-sky-600 mb-4 text-xl">
                 Download App
               </h3>
               <div className="flex flex-col space-y-3">

@@ -119,7 +119,7 @@ export default function AudioVisual() {
         </div>
       </section> */}
 
-       <div className="container mx-auto p-4 min-h-screen scroll-m-20" id='products'>
+       <div className="container mx-auto p-4 min-h-screen flex flex-col items-center scroll-m-20" id='products'>
          <h2 className="text-2xl font-semibold mb-6 capitalize">{subcategory.replace(/-/g, " ")}</h2>
          {status === "loading" && <p>Loading...</p>}
          {status === "error" && <p>Something went wrong!</p>}
@@ -129,7 +129,7 @@ export default function AudioVisual() {
            ))}
          </div>
          {filteredProducts.length === 0 && status === "success" && (
-           <p>No products found in this subcategory.</p>
+           <p className='font-medium'>No products found in this subcategory.</p>
          )}
        </div>
     </div>

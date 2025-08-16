@@ -111,7 +111,7 @@ export const createInquiry = async (req, res) => {
 
 export const getAllInquiries = async (req, res) => {
   try {
-    const inquiries = await Inquiry.find();
+    const inquiries = await Inquiry.find().sort({ createdAt: -1 });
     res.status(200).json(inquiries);
   } catch (error) {
     console.error('Error fetching inquiries:', error);

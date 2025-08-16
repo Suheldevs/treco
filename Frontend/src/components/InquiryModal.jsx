@@ -859,7 +859,7 @@ export default function InquiryModal({ isOpen, setIsOpen }) {
                   </button>
                   <button
                     type="submit"
-                    className="inline-flex items-center px-6 py-3 border border-transparent rounded-lg shadow-sm text-white bg-sky-600 hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500 font-medium disabled:bg-sky-300 disabled:cursor-not-allowed transition-colors"
+                    className="inline-flex items-center px-6 py-3 border border-transparent rounded-lg shadow-sm text-white bg-sky-600 hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500 font-medium disabled:bg-gray-600 disabled:cursor-not-allowed transition-colors"
                     disabled={loading}
                   >
                     {loading ? (

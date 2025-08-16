@@ -8,11 +8,14 @@ html, body{
 
 @theme {
   --color-sky-500: #14a78b;
-  --color-sky-600: #11977f;
-  --color-sky-400: #11977f;
-  --color-blue-500: #235d83;
-  --color-blue-600: #235d83;
-  --color-blue-400: #235d83;
+  --color-sky-600: #14a78b;
+  --color-sky-400: #14a78b;
+  --color-sky-700: #14a78b;
+  --color-sky-800: #14a78b;
+  --color-blue-500: #14a78b;
+  --color-blue-600: #14a78b;
+  --color-blue-400: #14a78b;
+  --color-blue-700: #14a78b;
 }
 
 
