@@ -35,7 +35,7 @@ const WhyAmad = () => {
     <section className="py-12 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 text-center">
         <h2 className="text-5xl font-bold text-gray-800 mb-2">
-          Why <span className="text-blue-600">A-mad Electronic</span>
+          Why <span className="text-blue-600">A-mad Electricals</span>
         </h2>
         <div className="h-2 w-1/3 bg-gradient-to-r from-sky-400 to-blue-500 rounded-full mb-4 mx-auto"></div>
         <p className="text-gray-600 mb-16 text-lg mx-auto">
