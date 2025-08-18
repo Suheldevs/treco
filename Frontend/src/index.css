@@ -90,3 +90,21 @@ html, body{
       white-space: nowrap;
     }
   }
+
+
+
+
+  .swiper-slide {
+  transform: scale(0.8);
+  transition: transform 0.4s ease;
+  opacity: 0.6;
+}
+.swiper-slide-active {
+  transform: scale(1);
+  opacity: 1;
+}
+.swiper-slide-next,
+.swiper-slide-prev {
+  transform: scale(0.9);
+  opacity: 0.8;
+}

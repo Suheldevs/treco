@@ -5,6 +5,7 @@ import { ArrowUpRight, Star } from "lucide-react";
 import { fetchproductData } from "../redux/dataSlice";
 import Breadcrumb from "../components/Breadcrumb";
 import bread from '../assets/product-bread.jpg'
+import { FaHome } from "react-icons/fa";
 const SubcategoryProductsPage = () => {
   const { subcategory, "*" : wildcard } = useParams();
 const [category, setCategory] = useState('');
@@ -35,17 +36,17 @@ useEffect(() => {
   return (
     <>
     <Breadcrumb 
-      title="Latest Product"
+      title={subcategory.replace(/-/g, " ") }
       bgImage={bread}
       items={[
-        { label: "Home", link: "/" },
-        { label: category.replace(/-/g, " "), link: `/${category}` },
-        { label:subcategory.replace(/-/g, " ") , link: `/${category}/${subcategory}` }
+        { label: <FaHome />, link: "/" },
+        { label: category.replace(/-/g, " "), link: `/service/${category}` },
+        { label:'Products' , link: `/${category}/${subcategory}` }
       ]}
     />
     
     <div className="container mx-auto p-4 py-10 min-h-screen flex flex-col items-center">
-      <h2 className="text-2xl font-semibold mb-6 capitalize">{subcategory.replace(/-/g, " ")}</h2>
+      {/* <h2 className="text-2xl font-semibold mb-6 capitalize">{subcategory.replace(/-/g, " ")}</h2> */}
       {status === "loading" && <p>Loading...</p>}
       {status === "error" && <p>Something went wrong!</p>}
       <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3">

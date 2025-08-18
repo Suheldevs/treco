@@ -7,7 +7,7 @@ import { MdEmail } from "react-icons/md";
 import { FaLocationDot, FaXTwitter } from "react-icons/fa6";
 import BottomFooter from "./BottomFooter";
 import logo from '../assets/logo.webp';
-import { Facebook, Linkedin, } from "lucide-react";
+import { Facebook, Instagram, Linkedin, } from "lucide-react";
 
 const Footer = () => {
   // Company links data
@@ -61,6 +61,9 @@ const Footer = () => {
             </a>
             <a aria-label="linkedin" title="linkedin" href="https://www.linkedin.com/in/treco-technologies-7198b0129/" target="_blank" rel="noopener noreferrer" className="bg-sky-500 p-2 rounded-full  text-white hover:bg-sky-600 hover:scale-105 ">
               <Linkedin size={20} />
+            </a>
+            <a aria-label="linkedin" title="linkedin" href="https://www.linkedin.com/in/treco-technologies-7198b0129/" target="_blank" rel="noopener noreferrer" className="bg-sky-500 p-2 rounded-full  text-white hover:bg-sky-600 hover:scale-105 ">
+              <Instagram size={20} />
             </a>
           </div>
           </div>

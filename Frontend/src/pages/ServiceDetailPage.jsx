@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { 
   Home, Briefcase, Building2, Film, DoorOpen, ShieldAlert, Network, 
   ChevronRight, Settings, ThumbsUp, Zap, Clock, Wifi, Shield,
@@ -76,17 +76,18 @@ export default function DynamicServices() {
               </a>
             </div>
             <div className="md:w-1/2 flex justify-center">
-              <div className="bg-white/20 backdrop-blur-sm p-8 rounded-2xl shadow-lg">
-                <div className="w-32 h-32 mx-auto mb-4 flex items-center justify-center bg-white/20 rounded-full">
-                  <div className="text-6xl">
-                    {selectedService.icon}
-                  </div>
-                </div>
-                <div className="text-center">
-                  <h3 className="text-2xl font-bold mb-2">Intelligent Control</h3>
-                  <p>Seamlessly integrate and manage all your smart systems from one intuitive interface.</p>
-                </div>
-              </div>
+             <div className="bg-white/20 backdrop-blur-sm p-8 rounded-2xl shadow-lg">
+  <div className="w-32 h-32 mx-auto mb-4 flex items-center justify-center bg-white/20 rounded-full">
+    {React.cloneElement(selectedService.icon, { className: "w-16 h-16" })}
+    {/* OR Tailwind text-size classes work for react-icons */}
+    {/* {React.cloneElement(selectedService.icon, { className: "text-5xl" })} */}
+  </div>
+  <div className="text-center">
+    <h3 className="text-2xl font-bold mb-2">{selectedService.title}</h3>
+    <p>Seamlessly integrate and manage all your smart systems from one intuitive interface.</p>
+  </div>
+</div>
+
             </div>
           </div>
         </div>

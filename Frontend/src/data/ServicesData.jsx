@@ -8,7 +8,7 @@ const servicesData = [
     id: 1,
     slug: 'home-automation',
     title: 'Home Automation',
-    icon: <Home />,
+    icon: <Home/>,
     description: 'Highly efficient, intelligent, safe and secure smart home technology for smart people.',
     color: 'from-cyan-500 to-teal-500',
     iconBg: 'bg-cyan-100',

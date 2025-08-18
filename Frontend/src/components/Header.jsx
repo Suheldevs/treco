@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, X, ChevronDown, Home, Info, Lightbulb, Music, Box, Mail, Facebook, Twitter, Instagram, Linkedin } from 'lucide-react';
 import logo from '../assets/logo.webp'
-import { FaWhatsapp } from "react-icons/fa";
+import { FaHome, FaWhatsapp } from "react-icons/fa";
 import { FaXTwitter } from 'react-icons/fa6';
 
 const Header = () => {
@@ -29,7 +29,7 @@ const Header = () => {
   return (
     <header className="bg-white sticky top-0 z-50 w-full shadow-md">
       <div className="container mx-auto px-4">
-        <div className="flex justify-between items-center h-20">
+        <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link to="/" title='A-Mad -Logo' aria-label='A-Mad -Logo' className="flex items-center">
@@ -40,7 +40,7 @@ const Header = () => {
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-6">
             <Link to="/" aria-label='Home' title='Home' className="flex items-center  text-black  hover:text-sky-600 font-semibold">
-              <Home size={18} className="mr-1 hover:scale-105" />
+              <FaHome size={18} className="mr-1 hover:scale-105" />
               {/* <span>Home</span> */}
             </Link>
             <Link to="/about" aria-label='About' title='About' className="flex items-center text-black hover:text-sky-600 font-semibold">
@@ -133,21 +133,6 @@ const Header = () => {
             </Link>
           </nav>
 
-          {/* Social Media Links - Desktop */}
-          <div className="hidden md:flex items-center space-x-3">
-            <a aria-label='Facebook' title='Facebook' href="https://www.facebook.com/A-Mad -Technologies-1103251483062862" target="_blank" rel="noopener noreferrer" className="bg-sky-500 p-2 rounded-full  text-white hover:bg-sky-600 hover:scale-105 ">
-              <Facebook size={20} />
-            </a>
-            <a aria-label='X' title='X' href="https://twitter.com/A-Mad Technolog1" target="_blank" rel="noopener noreferrer" className="bg-sky-500 p-2 rounded-full  text-white hover:bg-sky-600 hover:scale-105 ">
-              <FaXTwitter size={20} />
-            </a>
-            <a aria-label='Whatsapp' title='Whatsapp' href="https://wa.me/+91-9810894981" target="_blank" rel="noopener noreferrer" className="bg-sky-500 p-2 rounded-full  text-white hover:bg-sky-600 hover:scale-105 ">
-              <FaWhatsapp size={20} />
-            </a>
-            <a aria-label='Linkedin' title='Linkedin' href="https://www.linkedin.com/in/A-Mad -technologies-7198b0129/" target="_blank" rel="noopener noreferrer" className="bg-sky-500 p-2 rounded-full  text-white hover:bg-sky-600 hover:scale-105 ">
-              <Linkedin size={20} />
-            </a>
-          </div>
 
           {/* Mobile menu button */}
           <div className="md:hidden flex items-center">

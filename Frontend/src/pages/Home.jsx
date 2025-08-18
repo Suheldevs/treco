@@ -1,8 +1,12 @@
 import React, { lazy, Suspense } from 'react';
-import HeroSection from '../components/HeroSection';
+import HeroSection from '../components/HeroSection2';
 import BlogPage from '../components/BlogSection';
 import BlogSection from '../components/BlogSection';
 import BranchSection from '../components/BranchSection';
+import BannerSlider from '../components/BannerSlider';
+import WhyAmad from '../components/WhyA-Mad';
+import DualBannerSlider from '../components/BannerSlider';
+import Stats from '../components/Stats';
 
 // Lazy imports for the rest
 const AboutSection = lazy(() => import('../components/AboutSection'));
@@ -23,9 +27,13 @@ function Home() {
     <div>
       <HeroSection />
       <Suspense fallback={<Loader />}>
+      
         <AboutSection />
+        <DualBannerSlider/>
+        <Stats/>
         <ServicesSection />
-        <ProductSection />
+        {/* <ProductSection /> */}
+        <WhyAmad/>
         <CTASection />
         <BranchSection/>
         <Testimonial />

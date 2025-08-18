@@ -15,13 +15,13 @@ function Breadcrumb({ title, items = [], bgImage }) {
       }}
     >
       {/* Gradient overlay for better readability */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-black/30"></div>
+      <div className="absolute inset-0 bg-gradient-to-t from-black/90 to-black/50"></div>
       
       {/* Content container with improved positioning */}
       <div className="absolute inset-0 flex flex-col items-center justify-center px-4">
         <div className="container mx-auto">
           {/* Title with animation */}
-          <h1 className="lg:text-6xl md:text-5xl text-4xl font-bold text-white text-center mb-4 animate-fadeIn">
+          <h1 className="lg:text-6xl md:text-5xl text-4xl font-bold capitalize text-white text-center mb-4 animate-fadeIn">
             {title}
           </h1>
           

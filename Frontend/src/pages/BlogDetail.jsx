@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchBlogData } from "../redux/dataSlice";
 import Breadcrumb from "../components/Breadcrumb";
 import bread from '../assets/blog-bread.jpg'
+import { Calendar, Tag } from "lucide-react";
 const formattedDate = (date) =>
   new Date(date).toLocaleDateString("en-GB", {
     day: "2-digit",
@@ -49,17 +50,26 @@ const BlogDetail = () => {
       <div className="container mx-auto px-4 py-10 lg:py-14 grid grid-cols-1 lg:grid-cols-4 gap-6">
         {/* Blog Details */}
         <div className="lg:col-span-3">
+        <div className="relative">
           <img
             src={`${backendUrl}/${blog.imageUrl}`} 
             alt={blog.title}
-            className="w-full h-[400px] object-cover shadow-md"
+            className="w-full  h-[400px] object-cover shadow-md"
           />
-          <div className="flex justify-between">
-          <p className="text-gray-700 text-sm mt-4">{formattedDate(blog.updatedAt)}</p>
-          <p className="text-gray-700 text-sm mt-4">{blog.category}</p>
+           <div className="flex absolute gap-4 top-5 left-3 justify-between">
+            <div className="">
+
+          <p className="text-gray-50 text-sm  bg-gray-500 px-2 py-2 rounded-full"><Calendar className="inline-flex mr-1 h-4 w-4"/>{formattedDate(blog.updatedAt)}</p>
+            </div>
+          <div className="flex justify-center items-center bg-sky-500 px-2 py-1 rounded-full text-xs font-medium text-white">
+              <Tag className="h-4 w-4 mr-1 inline-flex" />
+              {blog.category}
+            </div>
 
           </div>
-          <h1 className="lg:text-2xl text-xl font-semibold mt-2">{blog.title}</h1>
+          </div>
+         
+          <h1 className="lg:text-2xl mt-4 text-xl font-semibold ">{blog.title}</h1>
           <div
             className="mt-4 lg:text-lg text-gray-950 blog"
             dangerouslySetInnerHTML={{ __html: blog.description }}

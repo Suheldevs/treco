@@ -164,11 +164,16 @@ export default function InquiryModal({ isOpen, setIsOpen }) {
   };
 
   const toggleDropdown = (dropdown) => {
-    setShowDropdown(prev => ({
-      ...prev,
-      [dropdown]: !prev[dropdown]
-    }));
-  };
+  setShowDropdown(prev => {
+    const newState = {};
+    Object.keys(prev).forEach(key => {
+      newState[key] = key === dropdown ? !prev[key] : false;
+    });
+    return newState;
+  });
+};
+
+
 
   const selectOption = (field, value) => {
     setValue(field, value, { shouldValidate: true });

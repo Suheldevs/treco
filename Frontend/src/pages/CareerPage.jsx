@@ -88,7 +88,7 @@ const res = await axios.post(`${backendUrl}/career/save`,formData,{headers:{'Con
           <div className="absolute top-0 right-0 w-64 h-64 bg-white opacity-5 rounded-full -translate-y-1/2 translate-x-1/2"></div>
           <div className="absolute bottom-0 left-0 w-96 h-96 bg-white opacity-5 rounded-full translate-y-1/2 -translate-x-1/2"></div>
           
-          <div className="max-w-3xl relative z-10">
+          <div className="max-w-3xl mx-auto text-center relative z-10">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">Join Our Team at A-Mad </h1>
             <p className="text-xl md:text-2xl text-sky-100 mb-8">Help us build the future of automation technology and transform industries worldwide.</p>
             {/* <a href="#apply" className="inline-flex items-center px-6 py-3 bg-white text-sky-600 font-medium rounded-lg shadow-lg hover:bg-sky-50 transition duration-300">

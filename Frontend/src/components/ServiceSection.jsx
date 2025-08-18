@@ -50,16 +50,16 @@ const ServiceCard = ({ title, description, icon: Icon, index, slug }) => {
             <Icon className={`text-white w-8 h-8 ${isHovered ? 'animate-bounce' : ''}`} />
           </div>
           
-          <h3 className="text-2xl font-bold text-white mb-4 tracking-tight">
+          <Link to={`/service/${slug}`}  className="text-2xl font-bold text-white mb-4 tracking-tight">
             {title}
-          </h3>
+          </Link>
           
           <p className="text-gray-300 mb-6 flex-grow">
             {description}
           </p>
           
           {/* Animated button */}
-          <div className={`transform transition-all duration-500 ${
+          {/* <div className={`transform transition-all duration-500 ${
             isHovered ? 'translate-y-0 opacity-100' : 'translate-y-0 opacity-100'
           }`}>
             <Link to={`/service/${slug}`} className={`group inline-flex items-center text-white font-medium py-2 px-4 rounded-lg bg-gradient-to-r ${gradients[index % gradients.length]}`}>
@@ -73,7 +73,7 @@ const ServiceCard = ({ title, description, icon: Icon, index, slug }) => {
                 <path fillRule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
               </svg>
             </Link>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
