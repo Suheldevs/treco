@@ -8,7 +8,7 @@ import Home from './pages/Home';  // Normal import for Home page
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 import DynamicServices from './pages/ServiceDetailPage';
-import TopHeader from './components/Topheader';
+import TopHeader from './pages/TopHeader';
 
 // Lazy load all other pages
 const ContactPage = lazy(() => import('./pages/ContactPage'));
