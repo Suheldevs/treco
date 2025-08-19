@@ -25,19 +25,19 @@ const TopHeader = () => {
             
             <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4">
               <a 
-                href="tel:9810894981" 
+                href="tel:9999221655" 
                 className="hover:text-slate-600 flex items-center transition-colors duration-200"
               >
                 <Phone className="mr-2 flex-shrink-0 text-[#14a78b] transform -rotate-12" size={16} />
-                <span>+91-9810894981</span>
+                <span>+91-9999221655</span>
               </a>
               
               <a 
-                href="mailto:info@treco.in" 
+                href="mailto:info@amadelectricals.com" 
                 className="hover:text-slate-600 flex items-center transition-colors duration-200"
               >
                 <Mail className="mr-2 flex-shrink-0 text-[#14a78b]" size={16} />
-                <span>info@treco.in</span>
+                <span>info@amadelectricals.com</span>
               </a>
             </div>
           </div>

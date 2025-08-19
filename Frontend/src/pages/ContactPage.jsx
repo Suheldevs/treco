@@ -256,10 +256,10 @@ const ContactPage = () => {
                   Our support team is available Monday to Friday, 8am to 6pm.
                 </p>
                 <a
-                  href="tel:9810894981"
+                  href="tel:9999221655"
                   className="text-sky-600 font-medium inline-flex items-center group"
                 >
-                  +91-9810894981
+                  +91-9999221655
                   <ArrowRight
                     size={16}
                     className="ml-1 transform transition-transform duration-300 group-hover:translate-x-1"
@@ -298,25 +298,25 @@ const ContactPage = () => {
                   Send us an email and we'll get back to you within 24 hours.
                 </p>
                 <a
-                  href="mailto:info@treco.in"
+                  href="mailto:info@amadelectricals.com"
                   className="text-sky-600 font-medium inline-flex items-center group"
                 >
-                  info@treco.in
+                  info@amadelectricals.com
                   <ArrowRight
                     size={16}
                     className="ml-1 transform transition-transform duration-300 group-hover:translate-x-1"
                   />
                 </a>
-                <a
-                  href="mailto:trecotechnology@gmail.com"
+                {/* <a
+                  href="mailto:info@amadelectricals.com"
                   className="text-sky-600 font-medium inline-flex items-center group"
                 >
-                  trecotechnology@gmail.com
+                  info@amadelectricals.com
                   <ArrowRight
                     size={16}
                     className="ml-1 transform transition-transform duration-300 group-hover:translate-x-1"
                   />
-                </a>
+                </a> */}
               </div>
             </div>
 

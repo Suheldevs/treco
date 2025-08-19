@@ -6,7 +6,6 @@ const AboutSection = () => {
       {/* Keep the original header section which is already good */}
       <div className="absolute -z-10 top-0 left-0 w-64 h-64 bg-sky-100 rounded-full -translate-y-1/2 -translate-x-1/4 opacity-50"></div>
       <div className="absolute -z-10 bottom-0 right-0 w-96 h-96 bg-sky-50 rounded-full translate-y-1/3 translate-x-1/4 opacity-70"></div>
-``
       <div className="container mx-auto px-4 relative">
         <div className="text-center">
           <h2 className="inline-block relative">

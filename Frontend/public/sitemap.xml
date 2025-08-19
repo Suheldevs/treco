@@ -1,32 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
     
     <url>
-        <loc>https://treco-in.netlify.app/</loc>
+        <loc>https://amadelectricals.com/</loc>
         <lastmod>2025-04-02</lastmod>
         <priority>1.0</priority>
     </url>
 
     <url>
-        <loc>https://treco-in.netlify.app/about</loc>
+        <loc>https://amadelectricals.com/about</loc>
         <lastmod>2025-04-02</lastmod>
         <priority>0.8</priority>
     </url>
 
     <url>
-        <loc>https://treco-in.netlify.app/home-automation</loc>
+        <loc>https://amadelectricals.com/home-automation</loc>
         <lastmod>2025-04-02</lastmod>
         <priority>0.8</priority>
     </url>
 
     <url>
-        <loc>https://treco-in.netlify.app/blog</loc>
+        <loc>https://amadelectricals.com/blog</loc>
         <lastmod>2025-04-02</lastmod>
         <priority>0.7</priority>
     </url>
 
     <url>
-        <loc>https://treco-in.netlify.app/contact</loc>
+        <loc>https://amadelectricals.com/contact</loc>
         <lastmod>2025-04-02</lastmod>
         <priority>0.7</priority>
     </url>

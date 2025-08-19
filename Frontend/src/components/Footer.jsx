@@ -56,7 +56,7 @@ const Footer = () => {
             <a aria-label="x" title="x" href="https://twitter.com/TrecoTechnolog1" target="_blank" rel="noopener noreferrer" className="bg-sky-500 p-2 rounded-full  text-white hover:bg-sky-600 hover:scale-105 ">
               <FaXTwitter size={20} />
             </a>
-            <a aria-label="whatsapp" title="whatsapp" href="https://wa.me/+91-9810894981" target="_blank" rel="noopener noreferrer" className="bg-sky-500 p-2 rounded-full  text-white hover:bg-sky-600 hover:scale-105 ">
+            <a aria-label="whatsapp" title="whatsapp" href="https://wa.me/+91-9999221655" target="_blank" rel="noopener noreferrer" className="bg-sky-500 p-2 rounded-full  text-white hover:bg-sky-600 hover:scale-105 ">
               <FaWhatsapp size={20} />
             </a>
             <a aria-label="linkedin" title="linkedin" href="https://www.linkedin.com/in/treco-technologies-7198b0129/" target="_blank" rel="noopener noreferrer" className="bg-sky-500 p-2 rounded-full  text-white hover:bg-sky-600 hover:scale-105 ">
@@ -130,15 +130,15 @@ const Footer = () => {
               <h3 className="font-semibold mb-4 text-xl text-sky-600">Contact Us</h3>
               <ul className="space-y-2">
                 <li>
-                  <a href="tel:9810894981" className="hover:text-white flex items-start">
+                  <a href="tel:9999221655" className="hover:text-white flex items-start">
                     <FaPhoneVolume className="mr-2 text-lg -rotate-12 mt-1 flex-shrink-0" />
-                    <span>+91-9810894981</span>
+                    <span>+91-9999221655</span>
                   </a>
                 </li>
                 <li>
-                  <a href="mailto:info@treco.in" className="hover:text-white flex items-start">
+                  <a href="mailto:info@amadelectricals.com" className="hover:text-white flex items-start">
                     <MdEmail className="mr-2 text-lg mt-1 flex-shrink-0" />
-                    <span>info@treco.in</span>
+                    <span>info@amadelectricals.com</span>
                   </a>
                 </li>
                 <li>

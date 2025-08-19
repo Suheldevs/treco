@@ -83,7 +83,7 @@ const res = await axios.post(`${backendUrl}/career/save`,formData,{headers:{'Con
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
       <div className="bg-gradient-to-r from-[#00a1e8] to-sky-400 text-white">
-        <div className="container mx-auto px-4 py-24 relative overflow-hidden">
+        <div className="container mx-auto px-4 py-20 relative overflow-hidden">
           {/* Decorative elements */}
           <div className="absolute top-0 right-0 w-64 h-64 bg-white opacity-5 rounded-full -translate-y-1/2 translate-x-1/2"></div>
           <div className="absolute bottom-0 left-0 w-96 h-96 bg-white opacity-5 rounded-full translate-y-1/2 -translate-x-1/2"></div>
@@ -95,6 +95,12 @@ const res = await axios.post(`${backendUrl}/career/save`,formData,{headers:{'Con
               View Open Positions
               <ChevronRight size={20} className="ml-2" />
             </a> */} 
+         <a
+          href="#application-form"
+          className="bg-white inline-flex text-sky-600 font-semibold py-2 px-4 rounded-lg hover:bg-sky-50 transition duration-300 items-center"
+        >
+          Apply Now
+        </a>
           </div>
         </div>
       </div>
@@ -135,41 +141,10 @@ const res = await axios.post(`${backendUrl}/career/save`,formData,{headers:{'Con
         </div>
       </div>
       
-      {/* Open Positions */}
-      {/* <div className="py-12 bg-gray-50" id="apply">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Open Positions</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">Find the perfect role that matches your skills and career goals.</p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
-            {jobPositions.map(job => (
-              <div key={job.id} className="bg-white p-6 rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition duration-300">
-                <div className="flex justify-between items-start">
-                  <div>
-                    <h3 className="text-xl font-bold mb-2">{job.title}</h3>
-                    <p className="text-gray-600">{job.department}</p>
-                  </div>
-                  <span className="flex items-center text-sm text-gray-500">
-                    <MapPin size={16} className="mr-1" />
-                    {job.location}
-                  </span>
-                </div>
-                <div className="mt-6 flex justify-end">
-                  <a href="#application-form" className="text-sky-600 font-medium flex items-center hover:text-sky-800">
-                    Apply Now
-                    <ChevronRight size={18} className="ml-1" />
-                  </a>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div> */}
+  
       
       {/* Application Form */}
-      <div className="py-12 container mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 bg-white" id="application-form">
+      <div className="py-12 container scroll-m-10 mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 bg-white" id="application-form">
         <div className='hidden lg:block'>
             <img src='https://static.vecteezy.com/system/resources/previews/024/593/351/large_2x/we-re-hiring-logo-free-free-vector.jpg' className='rounded-3xl h-[800px]'/>
             </div>
@@ -307,7 +282,7 @@ const res = await axios.post(`${backendUrl}/career/save`,formData,{headers:{'Con
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-2xl md:text-3xl font-bold mb-4">Don't See a Position That Fits?</h2>
           <p className="text-gray-100 mb-8 max-w-xl mx-auto">We're always looking for talented individuals. Send us your resume and we'll keep it on file for future opportunities.</p>
-          <a href="mailto:info@treco.in" className="inline-flex items-center px-6 py-3 bg-white text-sky-700 font-medium rounded-lg shadow-lg hover:bg-sky-50 transition duration-300">
+          <a href="mailto:info@amadelectricals.com" className="inline-flex items-center px-6 py-3 bg-white text-sky-700 font-medium rounded-lg shadow-lg hover:bg-sky-50 transition duration-300">
             Contact Our Recruiting Team
           </a>
         </div>

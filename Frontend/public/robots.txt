@@ -3,4 +3,4 @@ Disallow: /admin/
 Disallow: /private/
 Allow: /
 
-Sitemap: https://treco-in.netlify.app/sitemap.xml
+Sitemap: http://amadelectricals.com/sitemap.xml

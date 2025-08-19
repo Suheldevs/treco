@@ -27,7 +27,7 @@ const WhyAmad = () => {
       icon: <Heart className="w-12 h-12 text-pink-600 mx-auto" />,
        src:a4,
       title: "500+ Happy Customers",
-      desc: "Join our ever-growing community of satisfied customers who have transformed their homes with A-mad Electronic."
+      desc: "Join our ever-growing community of satisfied customers who have transformed their homes with A-Mad Electricals."
     }
   ];
 
@@ -35,7 +35,7 @@ const WhyAmad = () => {
     <section className="py-12 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 text-center">
         <h2 className="text-5xl font-bold text-gray-800 mb-2">
-          Why <span className="text-blue-600">A-mad Electricals</span>
+          Why <span className="text-blue-600">A-Mad Electricals</span>
         </h2>
         <div className="h-2 w-1/3 bg-gradient-to-r from-sky-400 to-blue-500 rounded-full mb-4 mx-auto"></div>
         <p className="text-gray-600 mb-16 text-lg mx-auto">

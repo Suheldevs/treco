@@ -247,7 +247,7 @@ const Header = () => {
                 <a onClick={() => setIsOpen(false)} aria-label='x' title='x' href="https://twitter.com/TrecoTechnolog1" target="_blank" rel="noopener noreferrer" className="text-gray-800 hover:text-sky-400">
                   <FaXTwitter size={20} />
                 </a>
-                <a onClick={() => setIsOpen(false)} aria-label='Whatsapp' title='Whatsapp' href="https://wa.me/+91-9810894981" target="_blank" rel="noopener noreferrer" className="text-gray-800 hover:text-pink-600">
+                <a onClick={() => setIsOpen(false)} aria-label='Whatsapp' title='Whatsapp' href="https://wa.me/+91-9999221655" target="_blank" rel="noopener noreferrer" className="text-gray-800 hover:text-pink-600">
                   <FaWhatsapp size={20} />
                 </a>
                 <a onClick={() => setIsOpen(false)} aria-label='Linkedin' title='Linkedin' href="https://www.linkedin.com/in/treco-technologies-7198b0129/" target="_blank" rel="noopener noreferrer" className="text-gray-800 hover:text-sky-800">

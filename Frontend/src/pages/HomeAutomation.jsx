@@ -82,7 +82,7 @@ export default function HomeAutomation() {
           
           <div className="max-w-5xl mx-auto">
             <p className="text-lg text-gray-700 mb-6">
-              Home automation refers to the automatic control of electronic devices in your home. These devices are connected to the Internet, which allows them to be controlled remotely. With home automation, devices can trigger one another so you don't have to control them manually.
+              Home automation refers to the automatic control of electricals devices in your home. These devices are connected to the Internet, which allows them to be controlled remotely. With home automation, devices can trigger one another so you don't have to control them manually.
             </p>
             <p className="text-lg text-gray-700 mb-10">
               Modern systems are built on the Internet of Things (IoT) concept, enabling seamless communication between all your home devices and providing intelligent functionality that adapts to your preferences and lifestyle patterns.
