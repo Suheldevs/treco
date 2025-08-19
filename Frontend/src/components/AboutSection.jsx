@@ -38,7 +38,7 @@ const AboutSection = () => {
             At A-Mad , we're not just creating smart homes—we're building intelligent living spaces that 
             understand and anticipate your needs through our cutting-edge Lightning MLC technology.
           </p> */}
-          <p className="text-lg text-gray-600 leading-relaxed">
+          <p className="text-lg md:text-center text-justify text-gray-600 leading-relaxed">
             At <strong>A-Mad Electricals</strong>, we go beyond creating smart
             homes — we craft intelligent living experiences. Our advanced{" "}
             <strong>Lightning MLC Technology </strong>anticipates your needs,

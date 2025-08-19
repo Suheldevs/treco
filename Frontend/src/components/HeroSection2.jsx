@@ -4,6 +4,7 @@ import { EffectCoverflow, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/effect-coverflow";
 import { useNavigate } from "react-router-dom";
+import { Loader } from "lucide-react";
 
 const HeroSection = () => {
   const [products, setProducts] = useState([]);
@@ -57,7 +58,7 @@ const navigate = useNavigate()
           slidesPerView={3}
           loop={true}
           autoplay={{
-            delay: 2500,
+            delay: 2000,
             disableOnInteraction: false,
           }}
           coverflowEffect={{
@@ -67,20 +68,41 @@ const navigate = useNavigate()
             modifier: 2,
             slideShadows: false,
           }}
-          className="w-full custom-swiper"
+            breakpoints={{
+    0: {
+      slidesPerView: 1.2, 
+    },
+    640: {
+      slidesPerView: 2, 
+    },
+    1024: {
+      slidesPerView: 3, 
+    },
+  }}
+          className="w-full custom-swiper overflow-hidden"
         >
+
+           {products.length == 0 &&
+    Array.from({ length: 3 }).map((_, idx) => (
+      <SwiperSlide key={idx}>
+        <div className="bg-gray-200 animate-pulse rounded-xl w-full h-[380px] flex items-center justify-center">
+          <span className="text-gray-500 animate-spin"><Loader /></span>
+        </div>
+      </SwiperSlide>
+    ))}
+
           {products.map((item) => (
             <SwiperSlide
               key={item._id}
               style={{ width: "260px", height: "380px" }}
-              className="flex justify-center items-center cursor-pointer"
+              className="flex shadow-2xl justify-center items-center cursor-pointer"
               onClick={() => handleProductClick(item)}
             >
               <div className="bg-gray-900 rounded-xl shadow-lg overflow-hidden w-full h-full">
                 <img
                   src={`${backendUrl}/${item.image.replace("\\", "/")}`}
                   alt={item.name}
-                  className="w-full h-full bg-white object-cover"
+                  className="w-full h-full object-cover"
                 />
                 <div className="p-3 text-center">
                   <h3 className="text-lg font-semibold">{item.name}</h3>
@@ -92,21 +114,7 @@ const navigate = useNavigate()
       </div>
 
      
-      {/* Custom scaling via CSS */}
-      <style>{`
-        .custom-swiper .swiper-slide {
-          transition: transform 0.4s ease;
-        }
-        .custom-swiper .swiper-slide-active {
-          transform: scale(0.7); /* center chhoti */
-          z-index: 10;
-        }
-        .custom-swiper .swiper-slide-prev,
-        .custom-swiper .swiper-slide-next {
-          transform: scale(1.1); /* side wali badi */
-          z-index: 20;
-        }
-      `}</style>
+      
     </section>
   );
 };

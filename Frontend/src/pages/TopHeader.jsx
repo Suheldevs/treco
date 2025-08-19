@@ -7,7 +7,7 @@ import { FaWhatsapp } from 'react-icons/fa';
 
 const TopHeader = () => {
   return (
-    <div className="bg-white font-medium text-slate-900 py-1 px-4 border-b border-gray-200 shadow-sm">
+    <div className="hidden lg:block bg-white font-medium text-slate-900 py-1 px-4 border-b border-gray-200 shadow-sm">
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between space-y-3 lg:space-y-0">
           
@@ -47,7 +47,7 @@ const TopHeader = () => {
             <a 
               aria-label="Facebook" 
               title="Facebook" 
-              href="https://www.facebook.com/A-Mad-Technologies-1103251483062862" 
+              href="https://www.facebook.com/TRECO-Technologies-1103251483062862" 
               target="_blank" 
               rel="noopener noreferrer" 
               className="bg-[#14a78b] p-1.5 rounded-full text-white hover:bg-[#0f8a73] hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl"
@@ -58,7 +58,7 @@ const TopHeader = () => {
             <a 
               aria-label="X (Twitter)" 
               title="X (Twitter)" 
-              href="https://twitter.com/A-Mad-Technolog1" 
+              href="https://twitter.com/TrecoTechnolog1" 
               target="_blank" 
               rel="noopener noreferrer" 
               className="bg-[#14a78b] p-1.5 rounded-full text-white hover:bg-[#0f8a73] hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl"
@@ -69,7 +69,7 @@ const TopHeader = () => {
             <a 
               aria-label="Instagram" 
               title="Instagram" 
-              href="https://www.instagram.com/amadtechnologies/" 
+              href="https://twitter.com/TrecoTechnolog1" 
               target="_blank" 
               rel="noopener noreferrer" 
               className="bg-[#14a78b] p-1.5 rounded-full text-white hover:bg-[#0f8a73] hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl"
@@ -91,7 +91,7 @@ const TopHeader = () => {
             <a 
               aria-label="LinkedIn" 
               title="LinkedIn" 
-              href="https://www.linkedin.com/in/A-Mad-technologies-7198b0129/" 
+              href="https://www.linkedin.com/in/treco-technologies-7198b0129" 
               target="_blank" 
               rel="noopener noreferrer" 
               className="bg-[#14a78b] p-1.5 rounded-full text-white hover:bg-[#0f8a73] hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl"

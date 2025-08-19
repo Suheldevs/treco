@@ -75,7 +75,7 @@ useEffect(() => {
 />
     <div className="bg-gray-50 min-h-screen">
       {/* Navigation breadcrumbs */}
-      <div className="container mx-auto px-2 lg:px-4 py-4">
+      <div className="container md:block hidden mx-auto px-2 lg:px-4 py-4">
         <div className="flex items-center text-sm text-gray-500">
           <span>Home</span>
           <ChevronRight className="w-4 h-4 mx-1" />

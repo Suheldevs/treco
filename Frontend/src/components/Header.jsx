@@ -153,7 +153,7 @@ const Header = () => {
       {isOpen && (
         <div className="md:hidden bg-white shadow-lg py-4">
           <div className="container mx-auto px-4">
-            <div className="flex flex-col space-y-4">
+            <div className="flex flex-col space-y-3">
               <Link to="/" className="flex items-center text-gray-800 hover:text-sky-600 font-medium py-2" onClick={() => setIsOpen(false)}>
                 <Home size={18} className="mr-2" />
                 <span>Home</span>
@@ -175,7 +175,7 @@ const Header = () => {
                   <ChevronDown size={18} className={`transform ${dropdownOpen.homeAutomation ? 'rotate-180' : ''}`} />
                 </button>
                 {dropdownOpen.homeAutomation && (
-                  <div className="ml-4 mt-1 flex flex-col space-y-2">
+                  <div className="ml-4 mt-1 flex flex-col space-y-1">
                     <Link to="/home-automation/touch-switches" onClick={() => setIsOpen(false)} className="block px-4 py-2 font-medium text-gray-900 hover:bg-gray-100">
                     Touch Switches
                   </Link>
@@ -211,14 +211,14 @@ const Header = () => {
                   <ChevronDown size={18} className={`transform ${dropdownOpen.lightingAutomation ? 'rotate-180' : ''}`} />
                 </button>
                 {dropdownOpen.lightingAutomation && (
-                  <div className="ml-4 mt-1 flex flex-col space-y-2">
-                     <Link to="/lighting/architecture-light" className="block px-4 py-2 font-medium text-gray-900 hover:bg-gray-100">
+                  <div className="ml-4 mt-1 flex flex-col space-y-1">
+                     <Link to="/lighting/architecture-light" onClick={() => setIsOpen(false)} className="block px-4 py-2 font-medium text-gray-900 hover:bg-gray-100">
                     Architecture Light
                   </Link>
-                  <Link to="/lighting/indoor-light" className="block px-4 py-2 font-medium text-gray-900 hover:bg-gray-100">
+                  <Link to="/lighting/indoor-light" onClick={() => setIsOpen(false)} className="block px-4 py-2 font-medium text-gray-900 hover:bg-gray-100">
                     Indoor Light
                   </Link>
-                  <Link to="/lighting/outdoor-light" className="block px-4 py-2 font-medium text-gray-900 hover:bg-gray-100">
+                  <Link to="/lighting/outdoor-light" onClick={() => setIsOpen(false)} className="block px-4 py-2 font-medium text-gray-900 hover:bg-gray-100">
                     Outdoor Light
                   </Link>
                    
@@ -241,17 +241,20 @@ const Header = () => {
               
               {/* Social Media Links - Mobile */}
               <div className="flex space-x-6 pt-2 border-t border-gray-200">
-                <a aria-label='facebook' title='facebook' href="https://www.facebook.com/A-Mad -Technologies-1103251483062862" target="_blank" rel="noopener noreferrer" className="text-gray-800 hover:text-sky-600">
+                <a onClick={() => setIsOpen(false)} aria-label='facebook' title='facebook' href="https://www.facebook.com/treco -Technologies-1103251483062862" target="_blank" rel="noopener noreferrer" className="text-gray-800 hover:text-sky-600">
                   <Facebook size={20} />
                 </a>
-                <a aria-label='x' title='x' href="https://twitter.com/A-Mad Technolog1" target="_blank" rel="noopener noreferrer" className="text-gray-800 hover:text-sky-400">
+                <a onClick={() => setIsOpen(false)} aria-label='x' title='x' href="https://twitter.com/TrecoTechnolog1" target="_blank" rel="noopener noreferrer" className="text-gray-800 hover:text-sky-400">
                   <FaXTwitter size={20} />
                 </a>
-                <a aria-label='Whatsapp' title='Whatsapp' href="https://wa.me/+91-9810894981" target="_blank" rel="noopener noreferrer" className="text-gray-800 hover:text-pink-600">
+                <a onClick={() => setIsOpen(false)} aria-label='Whatsapp' title='Whatsapp' href="https://wa.me/+91-9810894981" target="_blank" rel="noopener noreferrer" className="text-gray-800 hover:text-pink-600">
                   <FaWhatsapp size={20} />
                 </a>
-                <a aria-label='Linkedin' title='Linkedin' href="https://www.linkedin.com/in/A-Mad -technologies-7198b0129/" target="_blank" rel="noopener noreferrer" className="text-gray-800 hover:text-sky-800">
+                <a onClick={() => setIsOpen(false)} aria-label='Linkedin' title='Linkedin' href="https://www.linkedin.com/in/treco-technologies-7198b0129/" target="_blank" rel="noopener noreferrer" className="text-gray-800 hover:text-sky-800">
                   <Linkedin size={20} />
+                </a>
+                <a onClick={() => setIsOpen(false)} aria-label='Linkedin' title='Linkedin' href="https://www.linkedin.com/in/treco-technologies-7198b0129/" target="_blank" rel="noopener noreferrer" className="text-gray-800 hover:text-sky-800">
+                  <Instagram size={20} />
                 </a>
               </div>
             </div>

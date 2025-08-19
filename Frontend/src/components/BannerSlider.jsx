@@ -7,14 +7,25 @@ import b4 from "../assets/banner/Banners-04-04.jpg";
 
 const DualBannerSlider = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
 
   const images = [b1, b2, b3, b4];
 
-  // Pair generator: each slide = 2 images (current + next)
-  const slides = images.map((img, index) => {
-    const nextImg = images[(index + 1) % images.length];
-    return [img, nextImg];
-  });
+  // ✅ Screen resize listener
+  useEffect(() => {
+    const checkScreen = () => setIsMobile(window.innerWidth < 640); // sm breakpoint
+    checkScreen();
+    window.addEventListener("resize", checkScreen);
+    return () => window.removeEventListener("resize", checkScreen);
+  }, []);
+
+  // ✅ Slides (1 image for mobile, 2 for desktop)
+  const slides = isMobile
+    ? images.map((img) => [img]) // single image
+    : images.map((img, index) => {
+        const nextImg = images[(index + 1) % images.length];
+        return [img, nextImg]; // pair of 2
+      });
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -34,7 +45,7 @@ const DualBannerSlider = () => {
   return (
     <div className="w-full relative bg-gray-100 overflow-hidden">
       <div className="relative max-w-7xl mx-auto">
-        <div className="relative m-10 h-70 overflow-hidden">
+        <div className="relative m-6 lg:m-10 h-56 lg:h-70 overflow-hidden">
           <div
             className="flex transition-transform duration-500 ease-in-out h-full"
             style={{ transform: `translateX(-${currentSlide * 100}%)` }}
@@ -70,15 +81,15 @@ const DualBannerSlider = () => {
         </button>
 
         {/* Dots */}
-        <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 flex space-x-2">
+        <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 flex space-x-2">
           {slides.map((_, index) => (
             <button
               key={index}
               onClick={() => setCurrentSlide(index)}
               className={`transition-all ${
                 index === currentSlide
-                  ? "w-8 h-3 bg-gray-800 rounded-full"
-                  : "w-3 h-3 bg-gray-400 hover:bg-gray-600 rounded-full"
+                  ? "w-5 h-2 bg-gray-800 rounded-full"
+                  : "w-2 h-2 bg-gray-400 hover:bg-gray-600 rounded-full"
               }`}
             />
           ))}

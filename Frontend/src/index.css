@@ -96,8 +96,8 @@ html, body{
 
   .swiper-slide {
   transform: scale(0.8);
-  transition: transform 0.4s ease;
-  opacity: 0.6;
+  transition: transform 0.4s ease-in-out;
+  opacity: 1;
 }
 .swiper-slide-active {
   transform: scale(1);
@@ -106,5 +106,5 @@ html, body{
 .swiper-slide-next,
 .swiper-slide-prev {
   transform: scale(0.9);
-  opacity: 0.8;
+  opacity: 1;
 }
