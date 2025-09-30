@@ -84,7 +84,7 @@ const Footer = () => {
               </ul>
               <div className="mt-2">
                 <a 
-                  href="https://treco-admin.netlify.app/"
+                  href="https://amadelectricals.com/admin/"
                   target="_blank"
                   className="px-4 py-2 border border-white/30 hover:bg-white hover:text-black transition-all duration-300 rounded-md inline-block"
                 >

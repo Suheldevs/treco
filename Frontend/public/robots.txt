@@ -3,4 +3,4 @@ Disallow: /admin/
 Disallow: /private/
 Allow: /
 
-Sitemap: http://amadelectricals.com/sitemap.xml
+Sitemap: https://amadelectricals.com/sitemap.xml

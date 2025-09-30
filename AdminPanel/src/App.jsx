@@ -2,7 +2,7 @@ import React from 'react'
 import './App.css'
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import {BrowserRouter, Route, Routes} from 'react-router-dom'
+import { Route, Routes} from 'react-router-dom'
 import Home from './pages/Home'
 import AdminLayout from './pages/AdminLayout'
 import ProductPage from './pages/ProductPage'
@@ -12,7 +12,7 @@ import AdminLogin from './pages/Login';
 import CareerPage from './pages/CareerPage';
 function App() {
   return (
-    <BrowserRouter>
+    <>
      <ToastContainer />
     <Routes>
       <Route path='/' element={<AdminLogin/>} />
@@ -24,8 +24,7 @@ function App() {
       
     </Routes>
     
-    </BrowserRouter>
-    // <Home/>
+  </>
   )
 }
 
